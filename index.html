@@ -3,102 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>قرية عريقة وتاريخ ديني - السودان</title>
+    <title>موسوعة الشيخ الطيب الرقمية | م. أبو الحسن</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            background-color: #f4f4f4;
-            color: #333;
+        :root {
+            --primary: #1a2a6c;
+            --secondary: #b21f1f;
+            --gold: #fdbb2d;
+            --bg-light: #f4f7f6;
         }
-        header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 2rem;
-            text-align: center;
-        }
-        .container {
-            width: 90%;
-            max-width: 800px;
-            margin: 20px auto;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h1, h2 {
-            color: #2c3e50;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 10px;
-        }
-        .content-section {
-            margin-bottom: 30px;
-        }
-        .contact-form {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 5px;
-            border: 1px solid #eee;
-        }
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        button {
-            background-color: #27ae60;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
-            font-size: 1.1rem;
-        }
-        button:hover {
-            background-color: #219150;
-        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--bg-light); color: #333; line-height: 1.8; }
+        header { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 80px 20px; text-align: center; clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); }
+        nav { background: white; padding: 15px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); overflow-x: auto; white-space: nowrap; }
+        nav a { text-decoration: none; color: var(--primary); font-weight: bold; margin: 0 15px; font-size: 0.9rem; }
+        .container { max-width: 1100px; margin: 20px auto; padding: 20px; }
+        
+        /* تصميم الأقسام (30+ قسم) */
+        .mega-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .info-card { background: white; padding: 25px; border-radius: 12px; border-right: 5px solid var(--gold); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .info-card h3 { color: var(--secondary); margin-top: 0; }
+        
+        /* قسم المكتبة */
+        .library-section { background: var(--primary); color: white; padding: 40px; border-radius: 20px; margin: 40px 0; }
+        .book-item { background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
+        
+        /* التواصل المباشر */
+        .contact-hub { background: white; padding: 40px; border-radius: 20px; text-align: center; border: 2px solid var(--gold); }
+        .btn-wa { background: #25d366; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; display: inline-block; margin: 10px; font-weight: bold; }
+        .btn-tg { background: #0088cc; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; display: inline-block; margin: 10px; font-weight: bold; }
+        
+        /* الزر العائم */
+        .floating-contact { position: fixed; bottom: 20px; left: 20px; z-index: 2000; }
+        .main-fab { background: var(--secondary); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+
+        h2.section-title { text-align: center; color: var(--primary); font-size: 2rem; margin: 50px 0 30px; position: relative; }
+        h2.section-title::after { content: ''; width: 100px; height: 4px; background: var(--gold); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>تاريخ الشيخ الطيب</h1>
-    <p>قرية عريقة ذات تأثير ديني وعسكري عظيم في السودان</p>
+    <h1>موسوعة الشيخ الطيب الكبرى</h1>
+    <p>بوابة التوثيق الرقمي الشاملة | بإشراف المهندس أبو الحسن محمد صالح</p>
 </header>
 
-<div class="container">
-    <section class="content-section">
-        <h2>عن القرية والتاريخ</h2>
-        <p>
-            تعتبر هذه المنطقة منارات دينية وتاريخية في السودان، حيث ارتبطت باسم الشيخ الطيب وعهود تاريخية تمتد لأكثر من ألف عام، شهدت خلالها المنطقة تمازجاً فريداً بين القبائل على ضفاف النيلين الأزرق والأبيض.
-        </p>
-    </section>
+<nav>
+    <a href="#history">التاريخ والجغرافيا</a>
+    <a href="#society">المجتمع والقبائل</a>
+    <a href="#religion">الإرث الديني</a>
+    <a href="#library">المكتبة الرقمية</a>
+    <a href="#contact">التواصل المباشر</a>
+</nav>
 
-    <section class="contact-form">
-        <h2>تواصل معنا</h2>
-        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-            <label>الاسم:</label>
-            <input type="text" name="name" required placeholder="أدخل اسمك">
-            
-            <label>البريد الإلكتروني:</label>
-            <input type="email" name="email" required placeholder="example@mail.com">
-            
-            <label>رسالتك:</label>
-            <textarea name="message" rows="5" required placeholder="اكتب استفسارك عن التاريخ أو القرية هنا..."></textarea>
-            
-            <button type="submit">إرسال البيانات</button>
-        </form>
-    </section>
+<div class="container">
+    
+    <h2 class="section-title">الأقسام الموسوعية</h2>
+    <div class="mega-grid">
+        <div class="info-card"><h3>1. الموقع الاستراتيجي</h3><p>تقع المنطقة في ملتقى النيلين، مما جعلها حلقة وصل تجارية وعسكرية عبر القرون.</p></div>
+        <div class="info-card"><h3>2. مسيد الشيخ الطيب</h3><p>تأسس قبل قرون كمنارة لتدريس القرآن وعلوم الفقه والتصوف.</p></div>
+        <div class="info-card"><h3>3. الحقبة المهدية</h3><p>دور القرية المحوري في دعم الثورة المهدية وإمداد الجيوش بالرجال والعتاد.</p></div>
+        <div class="info-card"><h3>4. الآثار الغارقة</h3><p>دراسات حول المناطق التي غمرتها المياه وتأثير الخزانات على الجغرافيا القديمة.</p></div>
+        <div class="info-card"><h3>5. قبائل المنطقة</h3><p>توثيق لتواجد الجعليين، الكواهلة، وبقية القبائل وتصاهرهم التاريخي.</p></div>
+        <div class="info-card"><h3>6. التعليم القديم (الخلاوي)</h3><p>نظام "النار" واستضافة طلاب العلم من غرب أفريقيا والسودان.</p></div>
+        <div class="info-card"><h3>7. العمارة الإسلامية</h3><p>تصميم المساجد القديمة والقباب التي تميز أفق القرية.</p></div>
+        <div class="info-card"><h3>8. الزراعة المطرية والمروية</h3><p>تطور النظم الزراعية على ضفاف النيل من الساقية إلى الطلمبات.</p></div>
+        <div class="info-card"><h3>9. الشخصيات الوطنية</h3><p>قائمة بأسماء القادة الذين خرجوا من هذه الأرض لخدمة السودان.</p></div>
+        <div class="info-card"><h3>10. الطب الشعبي</h3><p>تاريخ العلاج بالأعشاب والرقية الشرعية التي اشتهر بها شيوخ المنطقة.</p></div>
+        <div class="info-card"><h3>11. المخطوطات النادرة</h3><p>عن الكتب المكتوبة بخط اليد والمحفوظة في المسيد.</p></div>
+        <div class="info-card"><h3>12. الأدب والشعر</h3><p>قصائد المدح والرثاء التي قيلت في الشيخ الطيب والمنطقة.</p></div>
+        <div class="info-card"><h3>13. الطرق الصوفية</h3><p>تسلسل الطريقة السمانية وأثرها التربوي في المجتمع.</p></div>
+        <div class="info-card"><h3>14. المرأة والتعليم</h3><p>دور النساء في تحفيظ القرآن وإدارة الحياة الاجتماعية قديماً.</p></div>
+        <div class="info-card"><h3>15. التجارة النيلية</h3><p>تاريخ المراكب الشراعية ونقل البضائع بين الشمال والجنوب.</p></div>
+        <div class="info-card"><h3>16. الأعياد والمناسبات</h3><p>تقاليد الزواج والأعياد الدينية التي تنفرد بها القرية.</p></div>
+        <div class="info-card"><h3>17. معارك الدفاع</h3><p>توثيق للمعارك المحلية التي خاضها الأهالي لحماية أراضيهم.</p></div>
+        <div class="info-card"><h3>18. الثروة الحيوانية</h3><p>أنواع الإبل والأغنام ودورها في الاقتصاد المحلي قديماً.</p></div>
+        <div class="info-card"><h3>19. الهجرات الوافدة</h3><p>كيف استقبلت القرية المهاجرين وصهرتهم في نسيجها.</p></div>
+        <div class="info-card"><h3>20. الإعمار الحديث</h3><p>مشاريع البنية التحتية والجهود الشعبية في التطوير.</p></div>
+        </div>
+
+    <h2 class="section-title" id="library">المكتبة والنصوص الرقمية</h2>
+    <div class="library-section">
+        <div class="book-item"><span>كتاب: سيرة الشيخ الطيب (PDF)</span><a href="#" style="color:var(--gold)">تحميل</a></div>
+        <div class="book-item"><span>مخطوطة: أوراد الطريقة (صور)</span><a href="#" style="color:var(--gold)">معاينة</a></div>
+        <div class="book-item"><span>مقال: الهندسة والعمران في الريف</span><a href="#" style="color:var(--gold)">قراءة</a></div>
+        <hr>
+        <p><i class="fas fa-robot"></i> <strong>ربط البوت التقني:</strong> يتم الآن جلب النصوص المرسلة عبر المعرف <code>8629398802</code> ومعالجتها آلياً للعرض في هذا القسم.</p>
+    </div>
+
+    <h2 class="section-title" id="contact">مركز التواصل المباشر</h2>
+    <div class="contact-hub">
+        <h3>م. أبو الحسن محمد صالح شريف</h3>
+        <p>مهندس وموثق تقني - نرحب بجميع الملاحظات والشكاوى</p>
+        
+        <div style="margin: 20px 0;">
+            <a href="https://wa.me/249999876200" class="btn-wa"><i class="fab fa-whatsapp"></i> واتساب (السودان)</a>
+            <a href="https://wa.me/97471375305" class="btn-wa" style="background:#128C7E"><i class="fab fa-whatsapp"></i> واتساب (دولي)</a>
+            <br>
+            <a href="https://t.me/AbuAlhasan" class="btn-tg"><i class="fab fa-telegram"></i> تلجرام الشخصي</a>
+            <a href="https://t.me/your_bot_link" class="btn-tg" style="background:#229ED9"><i class="fas fa-robot"></i> بوت الملاحظات</a>
+        </div>
+
+        <div style="background:#f9f9f9; padding:15px; border-radius:10px; display:inline-block;">
+            <p><strong>للتواصل الهاتفي المباشر:</strong><br>
+            +249 999 876 200 | +974 7137 5305</p>
+        </div>
+    </div>
+
+</div>
+
+<div class="floating-contact">
+    <a href="https://wa.me/97471375305" class="main-fab">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 </div>
 
 <footer>
-    <p style="text-align: center; color: #777; padding: 20px;">جميع الحقوق محفوظة &copy; 2026</p>
+    <p>جميع الحقوق محفوظة &copy; 2026 | تطوير م. أبو الحسن</p>
 </footer>
 
 </body>
-</html>
+            </html>
+            
