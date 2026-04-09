@@ -1,378 +1,224 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8" />
-<title>بوابة الشيخ الطيب السياحية والثقافية</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>موسوعة الشيخ أحمد الطيب ود البشير الشاملة</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-body{font-family:'Segoe UI',Tahoma,sans-serif;background:#f5f6fa;margin:0;color:#333;}
-a{text-decoration:none;}
-nav{background:#1a237e;padding:10px 0;position:sticky;top:0;z-index:1000;}
-.nav-container{max-width:1200px;margin:auto;padding:0 16px;display:flex;justify-content:space-between;align-items:center;}
-.nav-logo{color:#fff;font-weight:bold;font-size:1rem;}
-.nav-links{display:flex;gap:8px;list-style:none;margin:0;padding:0;font-size:0.85rem;}
-.nav-links a{color:white;padding:6px 10px;border-radius:8px;}
-.nav-links a:hover,.nav-links a.active{background:rgba(255,255,255,0.2);}
-header{background:linear-gradient(135deg,#1a237e,#3949ab);color:white;padding:32px 16px;text-align:center;}
-header h1{margin:0 0 8px;font-size:1.4rem;}
-header p{margin:0;font-size:0.9rem;}
-.container{max-width:1200px;margin:20px auto;padding:0 16px;}
-.section-box{background:white;padding:20px;border-radius:16px;margin-bottom:20px;box-shadow:0 4px 12px rgba(0,0,0,0.05);}
-h2{margin:0 0 10px;color:#1a237e;font-size:1.1rem;}
-h3{color:#2e7d32;font-size:0.95rem;margin-top:0;}
-p{font-size:0.9rem;line-height:1.7;}
-.card-soft{background:#fafafa;padding:12px;border-radius:12px;border:1px solid #eee;margin-top:10px;}
-.hero-banner{position:relative;border-radius:16px;overflow:hidden;margin-bottom:16px;max-height:260px;}
-.hero-banner img{width:100%;height:260px;object-fit:cover;display:block;}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.55),rgba(0,0,0,0.05));display:flex;align-items:flex-end;padding:16px;color:#fff;}
-.hero-overlay h2{color:#fff;margin:0;font-size:1.1rem;}
-.hero-overlay p{margin:4px 0 0;font-size:0.8rem;}
-.page{display:none;animation:fadeIn .35s ease;}
-.page.active{display:block;}
-@keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
-.grid-figures{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:10px;}
-.figure-card{background:#fafafa;border-radius:12px;border:1px solid #eee;padding:12px;}
-.figure-card h3{margin-bottom:4px;}
-.gallery-section{margin-top:16px;}
-.gallery-section h3{margin-bottom:6px;}
-.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px;}
-.gallery-item{position:relative;overflow:hidden;border-radius:10px;background:#ddd;}
-.gallery-item img{width:100%;height:130px;object-fit:cover;display:block;transition:transform .3s ease,opacity .3s ease;}
-.gallery-item:hover img{transform:scale(1.05);opacity:0.9;}
-.gallery-caption{position:absolute;bottom:0;right:0;left:0;background:linear-gradient(to top,rgba(0,0,0,0.7),transparent);color:#fff;font-size:0.7rem;padding:4px 6px;}
-.fab-wrapper{position:fixed;bottom:20px;left:20px;display:flex;flex-direction:column;align-items:center;gap:10px;z-index:1200;}
-.fab-main{width:55px;height:55px;background:#1a237e;color:white;border-radius:50%;display:flex;justify-content:center;align-items:center;font-size:24px;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,0.25);}
-.fab-options{display:none;flex-direction:column;gap:8px;}
-.fab-option{width:45px;height:45px;border-radius:50%;display:flex;justify-content:center;align-items:center;color:white;text-decoration:none;font-size:0.85rem;box-shadow:0 3px 8px rgba(0,0,0,0.2);}
-.bg-wa{background:#25D366;}
-.bg-tg{background:#0088cc;}
-.bg-accent{background:#ffb300;}
-footer{background:#111;color:#ccc;text-align:center;padding:15px;font-size:0.8rem;margin-top:20px;}
-.input-control{width:100%;padding:8px;border-radius:8px;border:1px solid #ccc;margin-bottom:10px;font-size:0.85rem;}
-.btn-primary{background:#1a237e;color:white;padding:9px 14px;border:none;border-radius:8px;cursor:pointer;font-size:0.85rem;}
-.btn-primary:hover{background:#283593;}
-.small-note{font-size:0.75rem;color:#777;margin-top:4px;}
-/* top-level sections (القديمة) */
-.top-section{margin-bottom:24px;}
-</style>
-</head>
-<body>
+:root {
+--primary: #0a5c2e;
+--primary-dark: #063a1d;
+--primary-light: #14824a;
+--gold: #c9a227;
+--gold-light: #f5e6a3;
+--gold-dark: #a6841f;
+--dark: #0f172a;
+--dark2: #1e293b;
+--cream: #faf8f2;
+--cream2: #f2edd8;
+--white: #ffffff;
+--text: #1e293b;
+--text-light: #64748b;
+--shadow: 0 10px 40px rgba(0,0,0,0.08);
+--shadow-gold: 0 8px 30px rgba(201,162,39,0.25);
+--gradient-primary: linear-gradient(135deg, #0a5c2e, #14824a);
+--gradient-gold: linear-gradient(135deg, #c9a227, #f5e6a3);
+--gradient-dark: linear-gradient(135deg, #0f172a, #1e293b);
+--radius: 18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Cairo',sans-serif;background:var(--cream);color:var(--text);line-height:1.9;overflow-x:hidden}
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--cream)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:10px}
 
-<nav>
-  <div class="nav-container">
-    <div class="nav-logo">بوابة الشيخ الطيب</div>
-    <ul class="nav-links">
-      <li><a href="#" data-page="home" class="active">الرئيسية</a></li>
-      <li><a href="#" data-page="about">من نحن</a></li>
-      <li><a href="#" data-page="history">تاريخ القرية</a></li>
-      <li><a href="#" data-page="biography">سيرة الشيخ الطيب</a></li>
-      <li><a href="#" data-page="figures">أعلام من القرية</a></li>
-      <li><a href="#" data-page="gallery">معرض الصور</a></li>
-      <li><a href="#contact-anchor">التواصل</a></li>
-    </ul>
-  </div>
-</nav>
+.loading-screen{position:fixed;inset:0;background:var(--gradient-dark);display:flex;align-items:center;justify-content:center;flex-direction:column;z-index:99999;transition:opacity 0.8s ease,visibility 0.8s ease}
+.loading-screen.hidden{opacity:0;visibility:hidden}
+.loading-logo{font-size:2.5rem;color:var(--gold);font-family:'Amiri',serif;animation:pulse 1.5s infinite;margin-bottom:20px}
+.loading-bar{width:200px;height:4px;background:rgba(255,255,255,0.1);border-radius:4px;overflow:hidden}
+.loading-bar-fill{width:0%;height:100%;background:var(--gradient-gold);border-radius:4px;animation:loadBar 2.5s ease forwards}
+@keyframes loadBar{to{width:100%}}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.03);opacity:0.8}}
 
-<header>
-  <h1>بوابة الشيخ الطيب السياحية والثقافية</h1>
-  <p>منصة تعريفية تجمع تاريخ القرية، نسبها، قبيلة الجموعية، ومكتبة الشيخ أحمد الطيب ود البشير، وتراثها الروحي والطبيعي.</p>
-</header>
+.progress-bar{position:fixed;top:0;left:0;height:4px;background:var(--gradient-gold);z-index:99999;transition:width 0.1s ease}
 
-<div class="container">
+.navbar{position:fixed;top:0;width:100%;z-index:9999;background:rgba(15,23,42,0.93);backdrop-filter:blur(16px);border-bottom:2px solid var(--gold);transition:all 0.4s ease}
+.navbar.scrolled{box-shadow:0 5px 30px rgba(0,0,0,0.3)}
+.nav-container{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:10px 25px}.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-brand-icon{width:45px;height:45px;background:var(--gradient-gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:var(--dark)}
+.nav-brand-text{color:var(--gold);font-family:'Amiri',serif;font-size:1.1rem;font-weight:700}
+.nav-links{display:flex;list-style:none;gap:3px;flex-wrap:wrap;justify-content:center}
+.nav-links a{color:#e2e8f0;text-decoration:none;padding:7px 10px;border-radius:8px;font-size:0.78rem;font-weight:500;transition:all 0.3s;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{background:var(--gold);color:var(--dark)}
+.mobile-toggle{display:none;background:none;border:none;color:var(--gold);font-size:1.6rem;cursor:pointer}
 
-  <!-- صفحة رئيسية: تلخص الأقسام القديمة -->
-  <section id="home" class="page active">
-    <div class="section-box top-section" id="about">
-      <h2>عن قرية الشيخ الطيب</h2>
-      <p>قرية الشيخ الطيب من القرى ذات البعد الروحي والتاريخي، ارتبطت بالعلم والتربية، وتتميز بطابع اجتماعي متماسك وروابط قوية بين الأسر. نشأت حول الزاوية والمسجد، ثم اتسعت عمرانًا وسكانًا مع مرور الزمن، مع احتفاظها بروح القرية ودفء العلاقات.</p>
-    </div>
+.hero{min-height:100vh;background:var(--gradient-dark);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a227' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");opacity:0.5}
+.hero-particles{position:absolute;width:100%;height:100%;overflow:hidden}
+.particle{position:absolute;width:3px;height:3px;background:var(--gold);border-radius:50%;animation:floatP 18s infinite;opacity:0.25}
+@keyframes floatP{0%,100%{transform:translateY(100vh) rotate(0);opacity:0}10%{opacity:0.25}90%{opacity:0.25}100%{transform:translateY(-100vh) rotate(720deg);opacity:0}}
+.hero-content{text-align:center;z-index:2;padding:0 20px;max-width:900px}
+.hero-badge{display:inline-block;background:var(--gradient-gold);color:var(--dark);padding:7px 25px;border-radius:50px;font-size:0.85rem;font-weight:700;margin-bottom:25px;animation:fadeInDown 0.9s ease}
+.hero-title{font-family:'Amiri',serif;font-size:3.2rem;color:#f8fafc;margin-bottom:10px;animation:fadeInUp 0.9s ease 0.2s both;text-shadow:0 0 50px rgba(201,162,39,0.25)}
+.hero-title span{color:var(--gold)}
+.hero-subtitle{font-size:1.3rem;color:var(--gold-light);font-family:'Amiri',serif;margin-bottom:15px;animation:fadeInUp 0.9s ease 0.4s both}
+.hero-desc{font-size:1rem;color:rgba(248,250,252,0.75);margin-bottom:35px;animation:fadeInUp 0.9s ease 0.6s both}
+.hero-buttons{display:flex;gap:15px;justify-content:center;flex-wrap:wrap;animation:fadeInUp 0.9s ease 0.8s both}
+.btn{padding:12px 28px;border-radius:50px;text-decoration:none;font-weight:700;font-size:0.9rem;transition:all 0.4s;display:inline-flex;align-items:center;gap:8px;cursor:pointer;border:none;font-family:'Cairo',sans-serif}
+.btn-primary{background:var(--gradient-gold);color:var(--dark)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:var(--shadow-gold)}
+.btn-outline{background:transparent;color:var(--gold);border:2px solid var(--gold)}
+.btn-outline:hover{background:var(--gold);color:var(--dark);transform:translateY(-3px)}
+.hero-stats{display:flex;justify-content:center;gap:35px;margin-top:50px;animation:fadeInUp 0.9s ease 1s both;flex-wrap:wrap}
+.stat-item{text-align:center}
+.stat-number{font-size:2rem;font-weight:900;color:var(--gold);display:block}
+.stat-label{color:rgba(248,250,252,0.65);font-size:0.8rem}
+.hero-scroll{position:absolute;bottom:25px;left:50%;transform:translateX(-50%);color:var(--gold);font-size:1.8rem;animation:bounce 2s infinite;z-index:2}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeInDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
 
-    <div class="section-box top-section" id="tribe">
-      <h2>الجموعية ونسب الشيخ الطيب</h2>
-      <p>قبيلة الجموعية من القبائل العربية العريقة في السودان، اشتهرت بالزراعة والرعي والعلم، ولها حضور واسع في المنطقة. ارتبطت بها قرية الشيخ الطيب من حيث الجوار والمصاهرة والتاريخ المشترك.</p>
+.marquee-section{background:var(--gold);padding:11px 0;overflow:hidden}
+.marquee-content{display:flex;animation:marquee 35s linear infinite;white-space:nowrap}
+.marquee-content span{padding:0 30px;font-weight:600;color:var(--dark);font-size:0.84rem}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-      <div class="card-soft">
-        <h3>مقال موسع عن قبيلة الجموعية</h3>
-        <p>قبيلة الجموعية من القبائل العربية العريقة في السودان، ويعود وجودها إلى قرون طويلة على ضفاف النيل. تذكر الروايات أنهم قدموا من أصول عربية قديمة، واستقروا في مناطق خصبة ساعدتهم على الزراعة والرعي. وقد اشتهروا بالتجارة ونقل البضائع بين الشمال والجنوب، مما جعل مناطقهم محطات عبور مهمة.</p>
-        <p>تميزت الجموعية بالعلم والدين، وانتشرت في مناطقهم الخلاوي والزوايا، وبرز منهم مشايخ وعلماء كان لهم أثر كبير في المجتمع. كما عُرفوا بالضيافة والتكافل وصلة الرحم، وهي قيم حافظوا عليها عبر الأجيال.</p>
-        <p>ومع الهجرة الداخلية والخارجية، انتشر أبناء الجموعية في مدن السودان والمهجر، لكنهم ظلوا مرتبطين بقراهم الأصلية. ويمكن توسيع هذا المقال لاحقًا بإضافة تفاصيل عن البطون والفروع.</p>
-      </div>
+.section{padding:75px 0;position:relative}
+.section:nth-child(even){background:var(--white)}
+.section:nth-child(odd){background:var(--cream)}
+.container{max-width:1280px;margin:0 auto;padding:0 25px}
+.section-header{text-align:center;margin-bottom:45px}
+.section-badge{display:inline-block;background:var(--gradient-gold);color:var(--dark);padding:5px 20px;border-radius:50px;font-size:0.8rem;font-weight:700;margin-bottom:12px}
+.section-title{font-family:'Amiri',serif;font-size:2.2rem;color:var(--primary-dark);margin-bottom:10px}
+.section-title::after{content:'';display:block;width:65px;height:4px;background:var(--gradient-gold);margin:10px auto 0;border-radius:4px}
+.section-desc{color:var(--text-light);font-size:0.95rem;max-width:750px;margin:0 auto}
 
-      <div class="card-soft">
-        <h3>مقال موسع عن نسب الشيخ أحمد الطيب ود البشير</h3>
-        <p>ينحدر الشيخ أحمد الطيب ود الشيخ البشير من بيت علم وصلاح، وتتصل سلسلة نسبه بعدد من الأجداد المعروفين بالولاية والعلم. وقد ارتبطت أسرته تاريخيًا بقبيلة الجموعية من حيث الجوار والمصاهرة، مما جعل القرية جزءًا من النسيج القبلي للجموعية.</p>
-        <p>تميز الشيخ أحمد الطيب بالعلم الشرعي والتربية الروحية، وكان يجمع بين ظاهر الشريعة وباطن السلوك. أصبحت قريته مركزًا للعلم والزوار، ومكانًا يقصده الباحثون عن المعرفة والتزكية.</p>
-        <p>يمكن توسيع هذا المقال لاحقًا بإضافة تفاصيل عن شيوخه وتلاميذه وأثره العلمي.</p>
-      </div>
-    </div>
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:25px}.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.grid-auto{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:22px}
 
-    <div class="section-box top-section" id="library">
-      <h2>المكتبة والموسوعة</h2>
-      <p>موسوعة تجمع سيرة الشيخ أحمد الطيب ود البشير، وجهود الأستاذ محمد شريف نور الدائم في التوثيق، مع إمكانية إضافة الكتب والوثائق والصور.</p>
+.card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:all 0.4s;border:1px solid rgba(201,162,39,0.08)}
+.card:hover{transform:translateY(-8px);box-shadow:0 15px 50px rgba(0,0,0,0.12);border-color:var(--gold)}
+.card-img{height:180px;background:var(--gradient-primary);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.card-img i{font-size:3rem;color:var(--gold);z-index:2}
+.card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(10,92,46,0.85))}
+.card-body{padding:22px}
+.card-title{font-family:'Amiri',serif;font-size:1.25rem;color:var(--primary-dark);margin-bottom:10px}
+.card-text{color:var(--text-light);line-height:1.85;font-size:0.88rem}
+.card-meta{display:flex;gap:10px;margin-top:10px;padding-top:10px;border-top:1px solid #eee;flex-wrap:wrap}
+.card-meta span{font-size:0.74rem;color:var(--text-light);display:flex;align-items:center;gap:4px}
 
-      <div class="card-soft">
-        <h3>مقال موسع عن الشيخ أحمد الطيب ود البشير</h3>
-        <p>كان الشيخ أحمد الطيب عالمًا ومربيًا، جمع بين العلم الشرعي والسلوك الروحي. نشأ في بيئة علمية، وتلقى علومه على مشايخ كبار، ثم أصبح مرجعًا للطلاب والمريدين. ارتبط اسمه بالعلم والتربية، وأصبحت قريته مركزًا للزوار.</p>
-        <p>تميز بمنهج يجمع بين الالتزام الديني وتهذيب النفس، مما جعله شخصية محورية في المنطقة. ويمكن إضافة وثائق وصور تاريخية لاحقًا.</p>
-      </div>
+.info-box{background:linear-gradient(135deg,rgba(10,92,46,0.04),rgba(201,162,39,0.06));border-right:4px solid var(--gold);padding:20px;border-radius:0 12px 12px 0;margin:20px 0}
+.info-box h4{color:var(--primary-dark);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.info-box p{color:var(--text-light);line-height:1.85}
 
-      <h3>رفع ملفات (PDF + صور)</h3>
-      <form id="fileUploadForm" class="card-soft">
-        <input type="text" id="fileDesc" class="input-control" placeholder="وصف الملف" required>
-        <input type="file" id="fileInput" class="input-control" accept=".pdf,image/*" required>
-        <button class="btn-primary">رفع الملف</button>
-        <div class="small-note">يتم إرسال الملفات مباشرة إلى بوت التليجرام الخاص بالمكتبة.</div>
-      </form>
-    </div>
+.timeline{position:relative;padding:15px 0}
+.timeline::before{content:'';position:absolute;right:50%;top:0;bottom:0;width:3px;background:var(--gradient-gold);transform:translateX(50%);border-radius:3px}
+.timeline-item{display:flex;margin-bottom:30px;position:relative}
+.timeline-item:nth-child(odd){flex-direction:row-reverse}
+.timeline-content{width:44%;background:var(--white);padding:22px;border-radius:12px;box-shadow:var(--shadow);border:1px solid rgba(201,162,39,0.1);transition:all 0.3s}
+.timeline-content:hover{border-color:var(--gold);transform:translateY(-3px)}
+.timeline-dot{position:absolute;right:50%;transform:translateX(50%);width:14px;height:14px;background:var(--gold);border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 3px var(--gold);z-index:2}
+.timeline-year{display:inline-block;background:var(--gradient-gold);color:var(--dark);padding:3px 12px;border-radius:16px;font-weight:700;font-size:0.75rem;margin-bottom:6px}
+.timeline-title{font-family:'Amiri',serif;font-size:1.1rem;color:var(--primary-dark);margin-bottom:6px}
+.timeline-text{color:var(--text-light);font-size:0.85rem}
 
-    <div class="section-box top-section" id="poetry">
-      <h2>مواهب الشعر</h2>
+.library-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px}
+.book-card{background:var(--white);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);transition:all 0.4s;text-align:center;border:1px solid rgba(201,162,39,0.08)}
+.book-card:hover{transform:translateY(-6px);box-shadow:0 10px 35px rgba(0,0,0,0.1);border-color:var(--gold)}
+.book-cover{height:240px;background:var(--gradient-dark);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.book-cover i{font-size:3.5rem;color:var(--gold);z-index:2}
+.book-info{padding:16px}
+.book-title{font-family:'Amiri',serif;font-size:1rem;color:var(--primary-dark);margin-bottom:5px}
+.book-author{color:var(--gold-dark);font-size:0.78rem;margin-bottom:6px}
+.book-desc{color:var(--text-light);font-size:0.76rem;line-height:1.6;margin-bottom:10px}
+.book-btn{display:inline-flex;align-items:center;gap:5px;background:var(--gradient-primary);color:#fff;padding:7px 18px;border-radius:20px;text-decoration:none;font-size:0.76rem;font-weight:600;transition:all 0.3s}
+.book-btn:hover{background:var(--gradient-gold);color:var(--dark)}
 
-      <div class="card-soft">
-        <h3>محمد سعيد العباسي</h3>
-        <p>يُعد من أبرز شعراء العربية في السودان، جمع بين الفصاحة وروح الوطن. تناول في شعره الطبيعة والحنين والقيم العربية، وترك بصمة واضحة في الأدب السوداني.</p>
-      </div>
+.landmark-card{background:var(--white);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);transition:all 0.4s}
+.landmark-card:hover{transform:translateY(-6px);box-shadow:0 10px 35px rgba(0,0,0,0.1)}
+.landmark-img{height:170px;background:var(--gradient-primary);display:flex;align-items:center;justify-content:center}
+.landmark-img i{font-size:2.5rem;color:var(--gold)}
+.landmark-body{padding:18px}
+.landmark-name{font-family:'Amiri',serif;font-size:1.1rem;color:var(--primary-dark);margin-bottom:6px}
+.landmark-text{color:var(--text-light);font-size:0.84rem;line-height:1.75}
+.poem-card{background:var(--white);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);position:relative;overflow:hidden;border:1px solid rgba(201,162,39,0.1);transition:all 0.4s}
+.poem-card:hover{border-color:var(--gold);transform:translateY(-4px)}
+.poem-card::before{content:'"';position:absolute;top:-10px;right:12px;font-size:5rem;color:rgba(201,162,39,0.07);font-family:'Amiri',serif}
+.poem-text{font-family:'Amiri',serif;font-size:1.1rem;color:var(--text);line-height:2;text-align:center;margin-bottom:15px}
+.poem-author{text-align:center;color:var(--gold-dark);font-weight:700}
 
-      <div class="card-soft">
-        <h3>مقال موسع عن العباسي</h3>
-        <p>جمع العباسي بين قوة اللغة وروح السودان، وتناول في شعره قضايا الوطن والحرية والكرامة. كان شعره جسرًا بين الأصالة والمعاصرة، ويمكن إضافة نماذج من شعره لاحقًا.</p>
-      </div>
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px}
+.contact-info{display:flex;flex-direction:column;gap:15px}
+.contact-item{display:flex;align-items:center;gap:12px;padding:16px;background:var(--white);border-radius:12px;box-shadow:var(--shadow);transition:all 0.3s}
+.contact-item:hover{transform:translateX(-6px)}
+.contact-icon{width:50px;height:50px;background:var(--gradient-gold);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--dark);flex-shrink:0}
+.contact-text h4{color:var(--primary-dark);margin-bottom:3px;font-size:0.95rem}
+.contact-text p{color:var(--text-light);font-size:0.85rem}
+.contact-text a{color:var(--primary);text-decoration:none;font-weight:600}
 
-      <div class="card-soft">
-        <h3>عبد المحمود (ود الخاوية)</h3>
-        <p>شاعر شعبي عبّر عن حياة الريف والناس البسطاء، وتميز شعره بالبساطة وقوة المعنى، وأصبح جزءًا من الذاكرة الشعبية.</p>
-      </div>
+.accordion-item{background:var(--white);border-radius:12px;margin-bottom:10px;overflow:hidden;box-shadow:var(--shadow);border:1px solid rgba(201,162,39,0.08)}
+.accordion-header{padding:16px 20px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:all 0.3s}
+.accordion-header:hover{background:var(--cream2)}
+.accordion-header h4{font-family:'Amiri',serif;font-size:1rem;color:var(--primary-dark);display:flex;align-items:center;gap:8px}
+.accordion-header i{color:var(--gold);transition:transform 0.3s}
+.accordion-header.active i{transform:rotate(180deg)}
+.accordion-body{max-height:0;overflow:hidden;transition:max-height 0.4s ease}
+.accordion-body-inner{padding:0 20px 16px;color:var(--text-light);line-height:1.85}
 
-      <div class="card-soft">
-        <h3>مقال موسع عن ود الخاوية</h3>
-        <p>يميل شعره إلى البساطة والصدق، ويتناول موضوعات مثل الأرض والزراعة والحنين. أسهم في توثيق الحياة الريفية، ويمكن إضافة مقاطع من شعره لاحقًا.</p>
-      </div>
-    </div>
+.footer{background:var(--gradient-dark);padding:60px 0 25px;position:relative}
+.footer::before{content:'';position:absolute;top:0;left:0;width:100%;height:4px;background:var(--gradient-gold)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px;margin-bottom:35px}
+.footer-brand h3{font-family:'Amiri',serif;font-size:1.5rem;color:var(--gold);margin-bottom:10px}
+.footer-brand p{color:rgba(255,255,255,0.6);line-height:1.7;margin-bottom:15px}
+.footer-social{display:flex;gap:8px}
+.footer-social a{width:38px;height:38px;background:rgba(255,255,255,0.08);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);text-decoration:none;transition:all 0.3s}
+.footer-social a:hover{background:var(--gold);color:var(--dark);transform:translateY(-2px)}
+.footer-col h4{color:var(--gold);font-size:0.95rem;margin-bottom:12px;position:relative;padding-bottom:6px}
+.footer-col h4::after{content:'';position:absolute;bottom:0;right:0;width:30px;height:3px;background:var(--gradient-gold);border-radius:3px}
+.footer-col ul{list-style:none}
+.footer-col ul li{margin-bottom:6px}
+.footer-col ul li a{color:rgba(255,255,255,0.6);text-decoration:none;transition:all 0.3s;font-size:0.82rem}
+.footer-col ul li a:hover{color:var(--gold);padding-right:6px}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.footer-bottom p{color:rgba(255,255,255,0.5);font-size:0.78rem}
+.designer{color:var(--gold);font-weight:700}
 
-    <div class="section-box top-section" id="articles">
-      <h2>المقالات</h2>
+.chatbot-btn{position:fixed;bottom:22px;left:22px;width:56px;height:56px;background:var(--gradient-gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--dark);cursor:pointer;z-index:9998;box-shadow:0 5px 20px rgba(201,162,39,0.4);transition:all 0.3s;border:none;animation:pulse 2s infinite}
+.chatbot-btn:hover{transform:scale(1.08)}
+.chatbot-window{position:fixed;bottom:92px;left:22px;width:340px;max-height:460px;background:var(--white);border-radius:16px;box-shadow:0 12px 45px rgba(0,0,0,0.18);z-index:9999;display:none;flex-direction:column;overflow:hidden;border:2px solid var(--gold)}
+.chatbot-window.active{display:flex;animation:slideUp 0.4s ease}
+@keyframes slideUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.chatbot-header{background:var(--gradient-dark);padding:14px;display:flex;align-items:center;gap:10px}
+.chatbot-header-icon{width:38px;height:38px;background:var(--gradient-gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--dark)}
+.chatbot-header-text h4{color:#f8fafc;font-size:0.9rem}.chatbot-header-text p{color:var(--gold);font-size:0.7rem}
+.chatbot-close{margin-right:auto;background:none;border:none;color:var(--gold);font-size:1.2rem;cursor:pointer}
+.chatbot-messages{flex:1;padding:12px;overflow-y:auto;max-height:260px;background:var(--cream)}
+.chat-message{margin-bottom:10px;display:flex;gap:6px}
+.chat-message.bot .msg-bubble{background:var(--white);border:1px solid #eee;border-radius:12px 12px 12px 0;padding:9px 13px;color:var(--text);font-size:0.82rem;max-width:85%}
+.chat-message.user{flex-direction:row-reverse}
+.chat-message.user .msg-bubble{background:var(--gradient-primary);color:#fff;border-radius:12px 12px 0 12px;padding:9px 13px;font-size:0.82rem;max-width:85%}
+.chatbot-input{display:flex;padding:10px;background:#fff;border-top:1px solid #eee}
+.chatbot-input input{flex:1;border:2px solid #eee;border-radius:20px;padding:8px 14px;font-family:'Cairo',sans-serif;font-size:0.82rem;outline:none;transition:border-color 0.3s}
+.chatbot-input input:focus{border-color:var(--gold)}
+.chatbot-input button{background:var(--gradient-gold);border:none;width:38px;height:38px;border-radius:50%;margin-right:6px;cursor:pointer;color:var(--dark);font-size:0.95rem;transition:all 0.3s}
+.chatbot-input button:hover{transform:scale(1.05)}
+.quick-actions{display:flex;flex-wrap:wrap;gap:5px;padding:7px 10px;background:var(--cream);border-top:1px solid #eee}
+.quick-action-btn{background:var(--white);border:1px solid var(--gold);color:var(--primary-dark);padding:4px 10px;border-radius:16px;font-size:0.7rem;cursor:pointer;font-family:'Cairo',sans-serif;transition:all 0.3s}
+.quick-action-btn:hover{background:var(--gold);color:var(--dark)}
 
-      <div class="card-soft">
-        <h3>قبيلة الجموعية</h3>
-        <p>قبيلة عربية عريقة، اشتهرت بالزراعة والعلم والضيافة، ولها دور اجتماعي وثقافي واسع.</p>
-      </div>
+.tabs-nav{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-bottom:22px}
+.tab-btn{padding:9px 18px;background:var(--white);border:2px solid #eee;border-radius:50px;cursor:pointer;font-family:'Cairo',sans-serif;font-weight:600;font-size:0.84rem;transition:all 0.3s;color:var(--text)}
+.tab-btn.active,.tab-btn:hover{background:var(--gradient-gold);border-color:var(--gold);color:var(--dark)}
+.tab-content{display:none}
+.tab-content.active{display:block;animation:fadeInUp 0.5s ease}
 
-      <div class="card-soft">
-        <h3>الشيخ أحمد الطيب ود البشير</h3>
-        <p>من أعلام التربية والسلوك، ارتبط اسمه بالعلم والولاية، وله أثر كبير في المنطقة.</p>
-      </div>
-
-      <div class="card-soft">
-        <h3>الشاعر محمد سعيد العباسي</h3>
-        <p>من أبرز شعراء العربية في السودان، جمع بين الفصاحة وروح الوطن.</p>
-      </div>
-
-      <div class="card-soft">
-        <h3>الشاعر ود الخاوية</h3>
-        <p>شاعر شعبي وثّق حياة الريف السوداني بأسلوب بسيط وقريب من الناس.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- صفحة من نحن -->
-  <section id="about-page" class="page">
-    <div class="hero-banner">
-      <!-- صورة طبيعية (مثلاً img3) -->
-      <img src="img3.jpg" alt="مناظر طبيعية من القرية">
-      <div class="hero-overlay">
-        <div>
-          <h2>من نحن</h2>
-          <p>بوابة تعريفية تجمع بين التاريخ والروح والعلم والطبيعة في قرية الشيخ الطيب.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-box">
-      <h2>رسالة الموقع</h2>
-      <p>تهدف بوابة الشيخ الطيب إلى تقديم صورة متكاملة عن القرية: تاريخها، نسبها، علمائها، تراثها الروحي، وبيئتها الطبيعية. تجمع المنصة بين التوثيق العلمي والرواية الشفوية، وبين النص والصورة، لتكون مرجعًا للباحث والزائر وأبناء القرية داخل السودان وخارجه.</p>
-      <p>تسعى البوابة إلى حفظ الذاكرة الجماعية للقرية، وإبراز دورها في محيطها الاجتماعي والروحي، مع فتح المجال للإضافة والتحديث المستمر من خلال المكتبة والمقالات والمواد المسموعة والمرئية.</p>
-    </div>
-
-    <div class="section-box">
-      <h2>أهداف البوابة</h2>
-      <ul style="font-size:0.9rem;line-height:1.8;margin:0 0 0 18px;">
-        <li>توثيق تاريخ قرية الشيخ الطيب والزاوية وما حولها.</li>
-        <li>التعريف بسيرة الشيخ أحمد الطيب ود البشير وأسرته العلمية.</li>
-        <li>جمع المواد العلمية والوثائق والصور في مكتبة رقمية.</li>
-        <li>إبراز أعلام القرية في مجالات العلم والتعليم والمجتمع.</li>
-        <li>عرض جماليات البيئة الطبيعية المحيطة بالقرية.</li>
-      </ul>
-    </div>
-
-    <div class="section-box">
-      <h2>لمحة بصرية عن القرية</h2>
-      <div class="gallery-grid">
-        <div class="gallery-item">
-          <img src="img4.jpg" alt="منظر طبيعي">
-          <div class="gallery-caption">طبيعة القرية</div>
-        </div>
-        <div class="gallery-item">
-          <img src="img5.jpg" alt="النيل">
-          <div class="gallery-caption">مياه النيل القريبة</div>
-        </div>
-        <div class="gallery-item">
-          <img src="img6.jpg" alt="أرض زراعية">
-          <div class="gallery-caption">الأرض الزراعية</div>
-        </div>
-      </div>
-      <div class="small-note">يمكن لاحقًا استبدال هذه الصور أو إضافة المزيد حسب الحاجة.</div>
-    </div>
-  </section>
-
-  <!-- صفحة تاريخ القرية -->
-  <section id="history-page" class="page">
-    <div class="hero-banner">
-      <!-- صورة نيلية / طبيعية (مثلاً img7) -->
-      <img src="img7.jpg" alt="النيل قرب القرية">
-      <div class="hero-overlay">
-        <div>
-          <h2>تاريخ قرية الشيخ الطيب</h2>
-          <p>قرية نشأت حول الزاوية والمسجد، ثم اتسعت عمرانًا وسكانًا مع الزمن.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-box">
-      <h2>النشأة والتطور</h2>
-      <p>نشأت قرية الشيخ الطيب حول الزاوية التي ارتبطت باسم الشيخ أحمد الطيب ود البشير، ثم بدأت البيوت تتجمع حولها شيئًا فشيئًا، حتى أصبحت نواة لقرية ذات طابع علمي وروحي. ومع مرور الزمن، توسعت القرية عمرانًا وسكانًا، مع بقاء المسجد والزاوية في قلب الحياة اليومية.</p>
-      <p>أسهم موقع القرية القريب من النيل، ومن طرق العبور بين الشمال والجنوب، في جعلها محطة للزوار والطلاب والتجار، مما أضفى عليها بعدًا اجتماعيًا أوسع من حدودها الجغرافية المباشرة.</p>
-    </div>
-
-    <div class="section-box">
-      <h2>البيئة الطبيعية</h2>
-      <p>تتميز القرية بمزيج من البيئة النيلية والبيئة شبه الصحراوية، حيث يجاور النيل الأراضي الزراعية، ثم تمتد الصخور والمرتفعات الخفيفة في الأفق. هذا التنوع جعل من القرية مكانًا مناسبًا للزراعة والرعي، وفي الوقت نفسه بيئة جاذبة للتأمل والهدوء.</p>
-
-      <div class="gallery-section">
-        <h3>صور من النيل والطبيعة</h3>
-        <div class="gallery-grid">
-          <div class="gallery-item">
-            <img src="img8.jpg" alt="النيل">
-            <div class="gallery-caption">النيل وجزره الرملية</div>
-          </div>
-          <div class="gallery-item">
-            <img src="img9.jpg" alt="صخور">
-            <div class="gallery-caption">تكوينات صخرية قرب الماء</div>
-          </div>
-          <div class="gallery-item">
-            <img src="img10.jpg" alt="غروب">
-            <div class="gallery-caption">غروب الشمس فوق الأرض الزراعية</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-box">
-      <h2>التراث الروحي والاجتماعي</h2>
-      <p>ارتبطت القرية بالزاوية والذكر والقرآن، وكانت المناسبات الدينية تجمع أهل القرية والقرى المجاورة في أجواء من الإيمان والتكافل. كما عُرفت القرية بالضيافة وإكرام الضيف، وبالترابط الأسري القوي.</p>
-
-      <div class="gallery-section">
-        <h3>صور من المناسبات الدينية</h3>
-        <div class="gallery-grid">
-          <div class="gallery-item">
-            <!-- صورة دينية أولى (img1) -->
-            <img src="img1.jpg" alt="تجمع ديني">
-            <div class="gallery-caption">تجمع ديني في ساحة القرية</div>
-          </div>
-          <div class="gallery-item">
-            <!-- صورة دينية ثانية (img2) -->
-            <img src="img2.jpg" alt="ساحة المسجد">
-            <div class="gallery-caption">ساحة المسجد والزاوية</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- صفحة سيرة الشيخ الطيب -->
-  <section id="biography-page" class="page">
-    <div class="hero-banner">
-      <!-- صورة دينية كبانر (img2 مثلاً) -->
-      <img src="img2.jpg" alt="ساحة الزاوية">
-      <div class="hero-overlay">
-        <div>
-          <h2>سيرة الشيخ أحمد الطيب ود البشير</h2>
-          <p>عالم ومربٍ جمع بين العلم الشرعي والتربية الروحية، وارتبطت باسمه القرية والزاوية.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-box">
-      <h2>النشأة وطلب العلم</h2>
-      <p>نشأ الشيخ أحمد الطيب ود البشير في بيئة علمية وروحية، وتلقى علومه على عدد من المشايخ في الفقه والتفسير والحديث والتصوف. امتاز منذ صغره بحب العلم والعبادة، ثم أصبح لاحقًا من أعلام التربية والسلوك في المنطقة.</p>
-      <p>جمع الشيخ بين ظاهر الشريعة وباطن السلوك، فكان يدعو إلى الالتزام بأحكام الدين، مع تهذيب النفس وإصلاح القلب، وحسن المعاملة مع الناس. وقد جعل هذا المنهج منه شخصية محورية يقصدها الناس للاستفادة من علمه وتوجيهه.</p>
-    </div>
-
-    <div class="section-box">
-      <h2>الزاوية والمدرسة الروحية</h2>
-      <p>أصبحت الزاوية التي ارتبطت باسمه مركزًا للذكر وتعليم القرآن والفقه، ومكانًا لالتقاء المريدين والطلاب والزوار. انتشرت من خلالها قيم التسامح والمحبة والتكافل، وأسهمت في إصلاح ذات البين بين الناس.</p>
-
-      <div class="gallery-section">
-        <h3>صور من الزاوية والمناسبات</h3>
-        <div class="gallery-grid">
-          <div class="gallery-item">
-            <img src="img1.jpg" alt="تجمع في الساحة">
-            <div class="gallery-caption">تجمع في ساحة الزاوية</div>
-          </div>
-          <div class="gallery-item">
-            <img src="img2.jpg" alt="المسجد">
-            <div class="gallery-caption">المسجد ومحيطه</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-box">
-      <h2>الأثر العلمي والروحي</h2>
-      <p>ترك الشيخ أحمد الطيب أثرًا عميقًا في محيطه، من خلال تلاميذه وأبنائه وأحفاده، ومن خلال المدرسة الروحية التي أسسها. ما زالت سيرته تُروى في القرية وخارجها، وتُعد مصدر إلهام للباحثين في تاريخ التصوف والحياة الدينية في السودان.</p>
-      <p>يمكن توسيع هذا القسم لاحقًا بإضافة وثائق وصور ومخطوطات، وربطها بالمكتبة الرقمية في البوابة.</p>
-    </div>
-  </section>
-
-  <!-- صفحة أعلام من القرية -->
-  <section id="figures-page" class="page">
-    <div class="hero-banner">
-      <!-- صورة طبيعية هادئة (مثلاً img5) -->
-      <img src="img5.jpg" alt="منظر هادئ من القرية">
-      <div class="hero-overlay">
-        <div>
-          <h2>أعلام من القرية</h2>
-          <p>شخصيات علمية وروحية وتعليمية كان لها أثر في تاريخ القرية ومحيطها.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-box">
-      <h2>تراجم مختارة</h2>
-      <div class="grid-figures">
-        <div class="figure-card">
-          <h3>الشيخ البشير بن الشيخ أحمد الطيب</h3>
-          <p>يُعد الشيخ البشير أحد أعلام القرية ومن الشخصيات التي كان لها أثر كبير في نشر العلم والتربية الروحية. نشأ في بيئة علمية صوفية، وتلقى علومه على يد والده الشيخ أحمد الطيب وعدد من المشايخ في المنطقة. عُرف بالحكمة والاتزان، وكان مرجعًا لأهل القرية في المسائل الدينية والاجتماعية.</p>
-          <p>ساهم في تعليم القرآن والفقه، وأشرف على حلقات الذكر والمناسبات الدينية، وكان له دور في إصلاح ذات البين وحل النزاعات. ترك أثرًا طيبًا في نفوس الناس، وما زالت سيرته تُروى في المجالس حتى اليوم.</p>
-        </div>
-
-        <div class="figure-card">
-          <h3>الأستاذ محمد شريف نور الدائم</h3>
-          <p>يُعد الأستاذ محمد شريف نور الدائم من أبرز الشخصيات المعاصرة التي ساهمت في توثيق تاريخ القرية وتراثها العلمي. اهتم بجمع الروايات الشفوية والوثائق المتعلقة بالشيخ أحمد الطيب وأسرته، وأسهم في إنشاء مكتبة وموسوعة معرفية تخدم الباحثين والمهتمين بتاريخ المنطقة.</p>
-          <p>عُرف بدقته في التوثيق وحرصه على حفظ التراث المحلي، كما شارك في عدد من المبادرات الاجتماعية والثقافية داخل القرية وخارجها. ويُعد من الشخصيات التي ساهمت في إبراز تاريخ المنطقة بصورة علمية ومنهجية، مع التزام واضح بالموضوعية والبحث الجاد.</p>
-        </div>
-
-        <div class="figure-card">
-          <h3>الشيخ الطيب ود البشير (الجيل الثاني)</h3>
-          <p>من الشخصيات التي حملت راية العلم بعد والده، وواصل مسيرة التعليم والإرشاد. كان له حضور قوي في المناسبات الدينية، وشارك في تعليم القرآن والفقه، كما كان له دور في نشر قيم التسامح والتكافل بين أهل القرية.</p>
-          <p>تميز بأسلوبه الهادئ وقدرته على التأثير في الناس، وكان مرجعًا في المسائل الشرعية والاجتماعية. ترك أثرًا واضحًا في الجيل الذي عاصره، وما زال يُذكر بالخير في القرية.</p>
-        </div>
-
-        <div class="figure-card">
-          <h3>الأستاذ عبد الرحمن الطيب (من رواد التعليم)</h3>
-          <p>يُعد من أوائل أبناء القرية الذين التحقوا بالتعليم النظامي، ثم عاد ليخدم مجتمعه من خلال التدريس. ساهم في نشر التعليم بين أبناء القرية، وكان له دور كبير في تشجيع الأجيال على مواصلة الدراسة.</p>
-          <p>عُرف بانضباطه وحبه للعلم، وكان نموذجًا للمعلم القدوة. ترك بصمة واضحة في مسيرة التعليم بالقرية، وتخرّج على يده عدد كبير من الطلاب الذين أصبحوا فيما بعد معلمين وموظفين وأصحاب مهن مختلفة.</p>
-        </div>
-
-        <div class="figure-card">
-          <h3>الحاج أحمد ود الفكي</h3>
-          <p>من الشخصيات الاجتماعية البارزة، عُرف بالكرم والضيافة، وكان بيته مقصدًا للضيوف والمسافرين. لعب دورًا م
+.back-to-top{position:fixed;bottom:22px;right:22px;width:42px;height:42px;background:var(--gradient-primary);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem;cursor:pointer;z-index:9998;opacity:0;visibility:hidden;transition:all 0.3s;border:none}
+.back-to-top.visible{opacity:1;visibility:visible}
+.back-to-top:hover{transform:translateY(-3px)}
+.whatsapp-float{position:fixed;bottom:90px;right:22px;width:52px;height:52px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.5rem;text-decoration:none;z-index:9998;box-shadow:0 5px 18px rgba(37,211,102,0.4);transition:all 0.3s}
+.whatsapp-float:hover{transform:scale(1.08)}
+.telegram-float{position:fixed;bottom:155px;right:22px;width:52px;height:52px;background:#0088cc;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.5rem
