@@ -1,126 +1,468 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موسوعة الشيخ الطيب الرقمية | م. أبو الحسن</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta charset="UTF-8" />
+    <title>بوابة الشيخ الطيب السياحية</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
         :root {
-            --primary: #1a2a6c;
-            --secondary: #b21f1f;
-            --gold: #fdbb2d;
-            --bg-light: #f4f7f6;
+            --primary: #1a237e;
+            --secondary: #2e7d32;
+            --whatsapp: #25D366;
+            --telegram: #0088cc;
+            --bg: #f8f9fa;
         }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; background: var(--bg-light); color: #333; line-height: 1.8; }
-        header { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 80px 20px; text-align: center; clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); }
-        nav { background: white; padding: 15px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); overflow-x: auto; white-space: nowrap; }
-        nav a { text-decoration: none; color: var(--primary); font-weight: bold; margin: 0 15px; font-size: 0.9rem; }
-        .container { max-width: 1100px; margin: 20px auto; padding: 20px; }
-        
-        /* تصميم الأقسام (30+ قسم) */
-        .mega-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .info-card { background: white; padding: 25px; border-radius: 12px; border-right: 5px solid var(--gold); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .info-card h3 { color: var(--secondary); margin-top: 0; }
-        
-        /* قسم المكتبة */
-        .library-section { background: var(--primary); color: white; padding: 40px; border-radius: 20px; margin: 40px 0; }
-        .book-item { background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
-        
-        /* التواصل المباشر */
-        .contact-hub { background: white; padding: 40px; border-radius: 20px; text-align: center; border: 2px solid var(--gold); }
-        .btn-wa { background: #25d366; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; display: inline-block; margin: 10px; font-weight: bold; }
-        .btn-tg { background: #0088cc; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; display: inline-block; margin: 10px; font-weight: bold; }
-        
-        /* الزر العائم */
-        .floating-contact { position: fixed; bottom: 20px; left: 20px; z-index: 2000; }
-        .main-fab { background: var(--secondary); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
 
-        h2.section-title { text-align: center; color: var(--primary); font-size: 2rem; margin: 50px 0 30px; position: relative; }
-        h2.section-title::after { content: ''; width: 100px; height: 4px; background: var(--gold); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: var(--bg);
+            margin: 0;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        /* شريط التنقل */
+        nav {
+            background: var(--primary);
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 2000;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            color: #fff;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), #3949ab);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0 0 10px;
+            font-size: 1.8rem;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        .section-box {
+            background: #fff;
+            border-radius: 20px;
+            padding: 25px 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .section-box h2 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            color: var(--primary);
+        }
+
+        .section-box h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+            color: var(--secondary);
+        }
+
+        .section-box p {
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .section-box ul {
+            padding-right: 20px;
+            font-size: 0.95rem;
+        }
+
+        /* شبكة المقالات */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 15px;
+        }
+
+        .article-card {
+            background: #fafafa;
+            border-radius: 15px;
+            padding: 15px;
+            border: 1px solid #eee;
+        }
+
+        .article-card h3 {
+            margin-top: 0;
+            font-size: 1rem;
+        }
+
+        .article-meta {
+            font-size: 0.8rem;
+            color: #777;
+            margin-bottom: 8px;
+        }
+
+        /* شجرة العائلة */
+        .tree-wrapper {
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+
+        .family-tree {
+            min-width: 500px;
+            border-right: 3px solid var(--primary);
+            padding-right: 15px;
+        }
+
+        .family-node {
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .family-node::before {
+            content: "";
+            position: absolute;
+            right: -15px;
+            top: 8px;
+            width: 15px;
+            height: 1px;
+            background: var(--primary);
+        }
+
+        .family-name {
+            font-weight: 600;
+            color: #222;
+        }
+
+        .family-note {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* خريطة القرية */
+        .map-wrapper {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .map-wrapper iframe {
+            width: 100%;
+            height: 350px;
+            border: 0;
+        }
+
+        /* الزر العائم والقائمة المنبثقة */
+        .fab-wrapper {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .fab-main {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .fab-main:hover {
+            transform: scale(1.1);
+        }
+
+        .fab-options {
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .fab-option {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: 0.3s;
+            transform: scale(0);
+            animation: popIn 0.3s forwards;
+        }
+
+        @keyframes popIn {
+            to { transform: scale(1); }
+        }
+
+        .bg-wa { background: var(--whatsapp); }
+        .bg-tg { background: var(--telegram); }
+
+        footer {
+            background: #111;
+            color: #999;
+            text-align: center;
+            padding: 25px 15px;
+            font-size: 0.8rem;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.4rem;
+            }
+        }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>موسوعة الشيخ الطيب الكبرى</h1>
-    <p>بوابة التوثيق الرقمي الشاملة | بإشراف المهندس أبو الحسن محمد صالح</p>
-</header>
-
-<nav>
-    <a href="#history">التاريخ والجغرافيا</a>
-    <a href="#society">المجتمع والقبائل</a>
-    <a href="#religion">الإرث الديني</a>
-    <a href="#library">المكتبة الرقمية</a>
-    <a href="#contact">التواصل المباشر</a>
-</nav>
-
-<div class="container">
-    
-    <h2 class="section-title">الأقسام الموسوعية</h2>
-    <div class="mega-grid">
-        <div class="info-card"><h3>1. الموقع الاستراتيجي</h3><p>تقع المنطقة في ملتقى النيلين، مما جعلها حلقة وصل تجارية وعسكرية عبر القرون.</p></div>
-        <div class="info-card"><h3>2. مسيد الشيخ الطيب</h3><p>تأسس قبل قرون كمنارة لتدريس القرآن وعلوم الفقه والتصوف.</p></div>
-        <div class="info-card"><h3>3. الحقبة المهدية</h3><p>دور القرية المحوري في دعم الثورة المهدية وإمداد الجيوش بالرجال والعتاد.</p></div>
-        <div class="info-card"><h3>4. الآثار الغارقة</h3><p>دراسات حول المناطق التي غمرتها المياه وتأثير الخزانات على الجغرافيا القديمة.</p></div>
-        <div class="info-card"><h3>5. قبائل المنطقة</h3><p>توثيق لتواجد الجعليين، الكواهلة، وبقية القبائل وتصاهرهم التاريخي.</p></div>
-        <div class="info-card"><h3>6. التعليم القديم (الخلاوي)</h3><p>نظام "النار" واستضافة طلاب العلم من غرب أفريقيا والسودان.</p></div>
-        <div class="info-card"><h3>7. العمارة الإسلامية</h3><p>تصميم المساجد القديمة والقباب التي تميز أفق القرية.</p></div>
-        <div class="info-card"><h3>8. الزراعة المطرية والمروية</h3><p>تطور النظم الزراعية على ضفاف النيل من الساقية إلى الطلمبات.</p></div>
-        <div class="info-card"><h3>9. الشخصيات الوطنية</h3><p>قائمة بأسماء القادة الذين خرجوا من هذه الأرض لخدمة السودان.</p></div>
-        <div class="info-card"><h3>10. الطب الشعبي</h3><p>تاريخ العلاج بالأعشاب والرقية الشرعية التي اشتهر بها شيوخ المنطقة.</p></div>
-        <div class="info-card"><h3>11. المخطوطات النادرة</h3><p>عن الكتب المكتوبة بخط اليد والمحفوظة في المسيد.</p></div>
-        <div class="info-card"><h3>12. الأدب والشعر</h3><p>قصائد المدح والرثاء التي قيلت في الشيخ الطيب والمنطقة.</p></div>
-        <div class="info-card"><h3>13. الطرق الصوفية</h3><p>تسلسل الطريقة السمانية وأثرها التربوي في المجتمع.</p></div>
-        <div class="info-card"><h3>14. المرأة والتعليم</h3><p>دور النساء في تحفيظ القرآن وإدارة الحياة الاجتماعية قديماً.</p></div>
-        <div class="info-card"><h3>15. التجارة النيلية</h3><p>تاريخ المراكب الشراعية ونقل البضائع بين الشمال والجنوب.</p></div>
-        <div class="info-card"><h3>16. الأعياد والمناسبات</h3><p>تقاليد الزواج والأعياد الدينية التي تنفرد بها القرية.</p></div>
-        <div class="info-card"><h3>17. معارك الدفاع</h3><p>توثيق للمعارك المحلية التي خاضها الأهالي لحماية أراضيهم.</p></div>
-        <div class="info-card"><h3>18. الثروة الحيوانية</h3><p>أنواع الإبل والأغنام ودورها في الاقتصاد المحلي قديماً.</p></div>
-        <div class="info-card"><h3>19. الهجرات الوافدة</h3><p>كيف استقبلت القرية المهاجرين وصهرتهم في نسيجها.</p></div>
-        <div class="info-card"><h3>20. الإعمار الحديث</h3><p>مشاريع البنية التحتية والجهود الشعبية في التطوير.</p></div>
+    <!-- شريط التنقل -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">بوابة الشيخ الطيب السياحية</div>
+            <ul class="nav-links">
+                <li><a href="#about">عن قرية الشيخ الطيب</a></li>
+                <li><a href="#tribe">الجموعية والنسب</a></li>
+                <li><a href="#family-tree">شجرة العائلة</a></li>
+                <li><a href="#articles">المقالات الموثقة</a></li>
+                <li><a href="#map">موقع القرية على الخريطة</a></li>
+                <li><a href="#contact">تواصل</a></li>
+            </ul>
         </div>
+    </nav>
 
-    <h2 class="section-title" id="library">المكتبة والنصوص الرقمية</h2>
-    <div class="library-section">
-        <div class="book-item"><span>كتاب: سيرة الشيخ الطيب (PDF)</span><a href="#" style="color:var(--gold)">تحميل</a></div>
-        <div class="book-item"><span>مخطوطة: أوراد الطريقة (صور)</span><a href="#" style="color:var(--gold)">معاينة</a></div>
-        <div class="book-item"><span>مقال: الهندسة والعمران في الريف</span><a href="#" style="color:var(--gold)">قراءة</a></div>
-        <hr>
-        <p><i class="fas fa-robot"></i> <strong>ربط البوت التقني:</strong> يتم الآن جلب النصوص المرسلة عبر المعرف <code>8629398802</code> ومعالجتها آلياً للعرض في هذا القسم.</p>
+    <!-- الهيدر -->
+    <header>
+        <h1>بوابة الشيخ الطيب السياحية والثقافية</h1>
+        <p>تعريف بقرية الشيخ الطيب، نسبها، ارتباطها بقبيلة الجموعية، وشجرة العائلة الشيخ أحمد الطيب ود الشيخ البشير.</p>
+    </header>
+
+    <main class="container">
+
+        <!-- عن القرية -->
+        <section id="about" class="section-box">
+            <h2>عن قرية الشيخ الطيب</h2>
+            <p>
+                هنا تكتب وصفًا موجزًا عن قرية الشيخ الطيب: موقعها الجغرافي، طبيعة المنطقة، أهم المعالم،
+                والبعد التاريخي والديني للشيخ الطيب. يمكنك جمع المعلومات من أكثر من مصدر موثوق
+                ثم إعادة صياغتها بأسلوبك، بدل النسخ الحرفي.
+            </p>
+        </section>
+
+        <!-- ارتباط المنطقة بقبيلة الجموعية والنسب -->
+        <section id="tribe" class="section-box">
+            <h2>الجموعية ونسب الشيخ الطيب</h2>
+
+            <h3>الارتباط بقبيلة الجموعية</h3>
+            <p>
+                في هذا الجزء توضّح العلاقة بين منطقة الشيخ الطيب وقبيلة الجموعية:
+                تاريخ الاستقرار، الروابط الاجتماعية، وأي روايات موثوقة عن النسب والانتماء.
+                يُفضّل الاعتماد على مصادر تاريخية أو روايات كبار السن الموثوقين، ثم توثيقها هنا.
+            </p>
+
+            <h3>توضيح نسب الشيخ أحمد الطيب ود الشيخ البشير</h3>
+            <p>
+                هنا تكتب سلسلة النسب كما هي متداولة وموثقة، مع الحرص على الدقة وعدم إضافة أي معلومة
+                غير متأكد منها. يمكنك تقسيم النسب في نقاط ليسهل قراءته، مثل:
+            </p>
+            <ul>
+                <li>الشيخ أحمد الطيب ود الشيخ البشير بن ...</li>
+                <li>يتصل نسبه بـ ... (توضيح السلسلة حتى الجد الأعلى المعروف)</li>
+                <li>بيان موضعه ضمن قبيلة الجموعية أو القبائل ذات الصلة.</li>
+            </ul>
+        </section>
+
+        <!-- شجرة العائلة -->
+        <section id="family-tree" class="section-box">
+            <h2>شجرة عائلة الشيخ أحمد الطيب ود الشيخ البشير</h2>
+            <p>
+                هذا القسم مخصص لعرض شجرة العائلة بشكل مبسط. يمكنك لاحقًا استبدال الأسماء التوضيحية
+                بالأسماء الحقيقية حسب ما هو متفق عليه في العائلة.
+            </p>
+
+            <div class="tree-wrapper">
+                <div class="family-tree">
+                    <div class="family-node">
+                        <div class="family-name">الجد الأعلى (مثال: الشيخ البشير)</div>
+                        <div class="family-note">ضع هنا وصفًا مختصرًا عنه إن وجد.</div>
+                    </div>
+                    <div class="family-node">
+                        <div class="family-name">الشيخ الطيب</div>
+                        <div class="family-note">ابن الشيخ البشير – مؤسس الفرع المعروف في قرية الشيخ الطيب.</div>
+                    </div>
+                    <div class="family-node">
+                        <div class="family-name">الشيخ أحمد الطيب ود الشيخ البشير</div>
+                        <div class="family-note">العالم/الشيخ المعروف، وتُذكر هنا أبرز صفاته أو أدواره.</div>
+                    </div>
+                    <div class="family-node">
+                        <div class="family-name">الأبناء والأحفاد</div>
+                        <div class="family-note">يمكنك تفصيل الفروع: فرع فلان، فرع فلان، وهكذا.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- المقالات الموثقة -->
+        <section id="articles" class="section-box">
+            <h2>المقالات الموثقة عن الشيخ الطيب والجموعية</h2>
+            <p>
+                في هذا القسم يمكنك جمع مقالات من الإنترنت عن:
+                قرية الشيخ الطيب، قبيلة الجموعية، نسب الشيخ أحمد الطيب ود الشيخ البشير،
+                ثم إعادة صياغتها بأسلوبك مع ذكر المصدر في أسفل كل مقال.
+            </p>
+
+            <div class="articles-grid">
+                <!-- مقال 1 -->
+                <article class="article-card">
+                    <h3>عنوان مقال 1 (تضعه أنت)</h3>
+                    <div class="article-meta">المصدر: اسم الموقع / الكاتب – تاريخ الاطلاع: 2026</div>
+                    <p>
+                        هنا تلصق ملخص المقال بعد أن تعيد صياغته. تجنب النسخ الحرفي قدر الإمكان،
+                        واكتفِ بنقل الفكرة والمعلومة مع الحفاظ على الأمانة العلمية.
+                    </p>
+                </article>
+
+                <!-- مقال 2 -->
+                <article class="article-card">
+                    <h3>عنوان مقال 2 (تضعه أنت)</h3>
+                    <div class="article-meta">المصدر: اسم الموقع / الكاتب – تاريخ الاطلاع: 2026</div>
+                    <p>
+                        نفس الفكرة: لخص المقال، وضح أهم النقاط عن النسب، التاريخ، أو القرية،
+                        واذكر المصدر بوضوح.
+                    </p>
+                </article>
+
+                <!-- يمكنك تكرار article-card لمقالات أخرى -->
+            </div>
+        </section>
+
+        <!-- خريطة القرية -->
+        <section id="map" class="section-box">
+            <h2>موقع قرية الشيخ الطيب على الخريطة</h2>
+            <p>
+                الخريطة التالية توضح موقع قرية الشيخ الطيب تقريبًا. يمكنك لاحقًا تعديل الإحداثيات
+                من خرائط جوجل لتكون دقيقة 100%.
+            </p>
+            <div class="map-wrapper">
+                <!-- استبدل src بإطار الخريطة من Google Maps بعد تحديد القرية -->
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb="
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </section>
+
+        <!-- تواصل -->
+        <section id="contact" class="section-box">
+            <h2>التواصل مع إدارة البوابة</h2>
+            <p>
+                يمكنكم التواصل لإضافة معلومات موثقة جديدة، أو تصحيح أي معلومة، أو إرسال صور ووثائق
+                تخص قرية الشيخ الطيب وشجرة العائلة.
+            </p>
+            <ul>
+                <li>بريد إلكتروني: example@example.com</li>
+                <li>واتساب: 000000000000+</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <!-- زر عائم للتواصل السريع -->
+    <div class="fab-wrapper">
+        <div class="fab-options" id="fabOptions">
+            <a href="https://wa.me/000000000000" target="_blank" class="fab-option bg-wa" title="واتساب">
+                و
+            </a>
+            <a href="https://t.me/username" target="_blank" class="fab-option bg-tg" title="تيليجرام">
+                ت
+            </a>
+        </div>
+        <div class="fab-main" id="fabMain">+</div>
     </div>
 
-    <h2 class="section-title" id="contact">مركز التواصل المباشر</h2>
-    <div class="contact-hub">
-        <h3>م. أبو الحسن محمد صالح شريف</h3>
-        <p>مهندس وموثق تقني - نرحب بجميع الملاحظات والشكاوى</p>
-        
-        <div style="margin: 20px 0;">
-            <a href="https://wa.me/249999876200" class="btn-wa"><i class="fab fa-whatsapp"></i> واتساب (السودان)</a>
-            <a href="https://wa.me/97471375305" class="btn-wa" style="background:#128C7E"><i class="fab fa-whatsapp"></i> واتساب (دولي)</a>
-            <br>
-            <a href="https://t.me/AbuAlhasan" class="btn-tg"><i class="fab fa-telegram"></i> تلجرام الشخصي</a>
-            <a href="https://t.me/your_bot_link" class="btn-tg" style="background:#229ED9"><i class="fas fa-robot"></i> بوت الملاحظات</a>
-        </div>
+    <footer>
+        بوابة الشيخ الطيب السياحية &copy; 2026 – جميع الحقوق محفوظة.
+    </footer>
 
-        <div style="background:#f9f9f9; padding:15px; border-radius:10px; display:inline-block;">
-            <p><strong>للتواصل الهاتفي المباشر:</strong><br>
-            +249 999 876 200 | +974 7137 5305</p>
-        </div>
-    </div>
+    <script>
+        // فتح/إغلاق خيارات الزر العائم
+        const fabMain = document.getElementById('fabMain');
+        const fabOptions = document.getElementById('fabOptions');
 
-</div>
-
-<div class="floating-contact">
-    <a href="https://wa.me/97471375305" class="main-fab">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-</div>
-
-<footer>
-    <p>جميع الحقوق محفوظة &copy; 2026 | تطوير م. أبو الحسن</p>
-</footer>
-
+        fabMain.addEventListener('click', () => {
+            if (fabOptions.style.display === 'flex') {
+                fabOptions.style.display = 'none';
+            } else {
+                fabOptions.style.display = 'flex';
+            }
+        });
+    </script>
 </body>
-            </html>
-            
+</html>
