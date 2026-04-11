@@ -20,7 +20,7 @@
         .text-ctrl { position: fixed; top: 20px; left: 20px; z-index: 1000; background: white; padding: 8px; border-radius: 8px; box-shadow: var(--shadow); }
         .text-ctrl button { background: var(--primary); color: white; border: none; padding: 8px 12px; margin: 3px; border-radius: 5px; cursor: pointer; }
         
-        header { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 3rem 1rem; text-align: center; }
+        header { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 3rem 1rem; text-align: center; position: relative; }
         header h1 { font-family: 'Amiri', serif; font-size: 2.5rem; margin-bottom: 0.5rem; }
         header p { font-size: 1.1rem; opacity: 0.95; }
         header .info { background: rgba(212,175,55,0.2); display: inline-block; padding: 0.5rem 1.5rem; border-radius: 8px; margin-top: 1rem; border: 1px solid var(--accent); }
@@ -47,64 +47,58 @@
         .topic p { text-indent: 2.5rem; margin-bottom: 1rem; text-align: justify; }
         .ref { background: #f0f0f0; padding: 1rem; border-radius: 6px; margin-top: 1rem; font-size: 0.9rem; border-right: 3px solid var(--secondary); }
         
-        /* ===== نظام الأزرار العائمة الاحترافي ===== */
-        .fab-container { position: fixed; bottom: 30px; left: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 9999; opacity: 0; animation: slideIn 0.6s 0.5s forwards; }
-        @keyframes slideIn { to { opacity: 1; transform: translateY(0); } from { opacity: 0; transform: translateY(20px); } }
+        /* ===== لوحة التحكم الإدارية ===== */
+        .admin-toggle { position: fixed; top: 20px; right: 20px; z-index: 1001; }
+        .admin-toggle button { background: var(--accent); color: var(--text); border: none; padding: 10px 15px; border-radius: 8px; cursor: pointer; font-weight: bold; box-shadow: var(--shadow); }
         
-        .fab {
-            position: relative; width: 60px; height: 60px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            text-decoration: none; color: white; font-size: 1.6rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.25); border: none; cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            background: var(--accent); color: var(--text);
-        }
-        .fab:hover, .fab:focus { transform: translateY(-5px) scale(1.08); box-shadow: 0 8px 20px rgba(0,0,0,0.35); }
-        .fab-wa { background: linear-gradient(135deg, #25d366, #128c7e); color: white; }
-        .fab-tg { background: linear-gradient(135deg, #0088cc, #006599); color: white; }
+        .editable-highlight { outline: 2px dashed var(--accent); padding: 5px; border-radius: 4px; transition: 0.2s; }
+        .editable-highlight:focus { outline: 2px solid var(--primary); background: #fffde7; }
         
-        .fab-tooltip {
-            position: absolute; right: 70px; top: 50%; transform: translateY(-50%);
-            background: #222; color: white; padding: 8px 12px; border-radius: 8px;
-            font-size: 0.9rem; white-space: nowrap; opacity: 0; pointer-events: none;
-            transition: all 0.3s ease; box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-            font-family: 'Tajawal', sans-serif;
-        }
-        .fab-tooltip::after {
-            content: ''; position: absolute; left: -6px; top: 50%; transform: translateY(-50%);
-            border: 6px solid transparent; border-right-color: #222;
-        }
-        .fab:hover .fab-tooltip { opacity: 1; transform: translateY(-50%) translateX(5px); }
+        .admin-panel { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); z-index: 1002; width: 90%; max-width: 600px; }
+        .admin-panel.active { display: block; animation: fadeIn 0.3s; }
+        .admin-panel h2 { color: var(--primary); margin-bottom: 1rem; text-align: center; }
+        .admin-panel input, .admin-panel textarea, .admin-panel select { width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 6px; font-family: inherit; }
+        .admin-panel button { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; margin: 5px 0; width: 100%; font-weight: bold; }
+        .admin-panel button:hover { background: var(--secondary); }
+        .admin-close { position: absolute; top: 10px; left: 10px; background: #dc3545; color: white; border: none; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; }
+
+        /* ===== معرض الصور والصوتيات ===== */
+        .media-section { background: white; padding: 2rem; border-radius: 12px; margin-top: 2rem; box-shadow: var(--shadow); }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; margin-top: 1rem; }
+        .gallery-item { position: relative; border-radius: 8px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.15); }
+        .gallery-item img { width: 100%; height: 150px; object-fit: cover; }
+        .gallery-item .remove { position: absolute; top: 5px; left: 5px; background: rgba(220,53,69,0.8); color: white; border: none; width: 25px; height: 25px; border-radius: 50%; cursor: pointer; }
         
-        .support-menu {
-            position: fixed; bottom: 200px; left: 30px; background: white;
-            border-radius: 12px; padding: 10px 0; box-shadow: 0 6px 25px rgba(0,0,0,0.2);
-            z-index: 9998; display: none; min-width: 230px; animation: popUp 0.3s ease;
+        .audio-player { background: #f9f9f9; padding: 1rem; border-radius: 8px; margin: 10px 0; display: flex; align-items: center; justify-content: space-between; }
+        .audio-player button { background: var(--accent); color: var(--primary); border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; }
+
+        /* ===== اعتمادات المهندس ===== */
+        .engineer-credit {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white; padding: 2rem; border-radius: 12px; margin-top: 2rem; text-align: center;
+            border: 3px solid var(--accent); box-shadow: 0 8px 25px rgba(0,0,0,0.4);
         }
-        .support-menu.active { display: block; }
-        @keyframes popUp { from { opacity: 0; transform: translateY(10px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
-        .support-menu .item {
-            display: flex; align-items: center; padding: 12px 16px; color: var(--text);
-            text-decoration: none; transition: 0.2s; border: none; background: none;
-            width: 100%; text-align: right; cursor: pointer; font-family: inherit; font-size: 1rem;
-        }
-        .support-menu .item:hover { background: #f5f5f5; }
-        .support-menu .item i { margin-left: 12px; width: 22px; text-align: center; color: var(--primary); }
-        
+        .engineer-credit h3 { font-family: 'Amiri', serif; color: var(--accent); font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .engineer-credit p { font-size: 1.1rem; margin: 0.5rem 0; opacity: 0.95; }
+        .engineer-credit .badge { display: inline-block; background: var(--accent); color: #000; padding: 4px 12px; border-radius: 20px; font-weight: bold; margin-top: 0.5rem; }
+
+        /* ===== أزرار عائمة ===== */
+        .fab-container { position: fixed; bottom: 30px; left: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 9999; }
+        .fab { width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; color: white; font-size: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.25); border: none; cursor: pointer; transition: 0.3s; background: var(--accent); }
+        .fab-wa { background: linear-gradient(135deg, #25d366, #128c7e); }
+        .fab-tg { background: linear-gradient(135deg, #0088cc, #006599); }
+        .fab:hover { transform: translateY(-5px) scale(1.1); }
+
         footer { background: #111; color: white; padding: 3rem 1rem; text-align: center; margin-top: 4rem; }
-        footer .prayer { background: linear-gradient(135deg, var(--accent), #e6d5a0); color: var(--text); padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem; font-weight: bold; }
         footer .contact { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 1rem; margin-bottom: 2rem; }
         footer .c-card { background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px; }
         footer .c-card i { font-size: 1.5rem; color: var(--accent); margin-bottom: 0.5rem; display: block; }
         footer .c-card a { color: white; text-decoration: none; font-weight: bold; }
-        footer .credit { background: rgba(212,175,55,0.15); border: 1px solid var(--accent); padding: 1rem; border-radius: 8px; text-align: right; margin-top: 1rem; }
         
         @media(max-width:768px) {
             .grid { grid-template-columns: 1fr; } header h1 { font-size: 1.8rem; }
-            .fab-container { bottom: 20px; left: 20px; gap: 12px; }
-            .fab { width: 52px; height: 52px; font-size: 1.4rem; }
-            .fab-tooltip { display: none; }
-            .support-menu { bottom: 180px; left: 20px; min-width: 190px; }
+            .fab-container { bottom: 20px; left: 20px; }
+            .admin-panel { width: 95%; padding: 1.5rem; }
         }
     </style>
 </head>
@@ -115,60 +109,73 @@
         <button onclick="resize(1)">A+</button>
     </div>
 
+    <div class="admin-toggle">
+        <button onclick="openAdmin()"><i class="fas fa-cogs"></i> لوحة التحكم</button>
+    </div>
+
     <header>
         <h1><i class="fas fa-mosque"></i> الموسوعة الشاملة للطريقة السمانية الطيبية</h1>
         <p>منارة التصوف السني في السودان والعالم الإسلامي</p>
-        <div class="info">إشراف: عداس محمد صالح محمد شريف | تصميم: م. أبو الحسن محمد صالح</div>
+        <div class="info">إشراف: عداس محمد صالح محمد شريف | تصميم وإشراف هندسي: م. أبو الحسن محمد صالح</div>
     </header>
 
     <div class="container">
         <div class="grid" id="grid"></div>
         <div id="topics-area"></div>
+        
+        <!-- معرض الصور -->
+        <div class="media-section">
+            <h2 style="color:var(--primary); margin-bottom:1rem; font-family:'Amiri'"><i class="fas fa-images" style="color:var(--accent)"></i> معرض الصور والصوتيات</h2>
+            <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:1rem;">
+                <input type="file" id="imgUpload" accept="image/*" multiple style="display:none">
+                <button onclick="document.getElementById('imgUpload').click()" style="padding:8px 15px; background:var(--secondary); color:white; border:none; border-radius:6px; cursor:pointer"><i class="fas fa-upload"></i> إضافة صور</button>
+                <input type="file" id="audioUpload" accept="audio/*" multiple style="display:none">
+                <button onclick="document.getElementById('audioUpload').click()" style="padding:8px 15px; background:var(--primary); color:white; border:none; border-radius:6px; cursor:pointer"><i class="fas fa-microphone"></i> رفع تسجيلات</button>
+            </div>
+            <div class="gallery-grid" id="gallery"></div>
+            <div id="audioList" style="margin-top:1rem;"></div>
+        </div>
+
+        <!-- اعتمادات المهندس -->
+        <div class="engineer-credit">
+            <h3><i class="fas fa-code"></i> حقوق التصميم والتطوير الهندسي</h3>
+            <p>تم تصميم وبرمجة وتطوير هذا الموقع بالكامل بدقة هندسية عالية بواسطة:</p>
+            <p style="font-size:1.4rem; font-weight:bold; color:var(--accent); margin:10px 0;">المهندس أبو الحسن محمد صالح محمد شريف محمد صالح</p>
+            <span class="badge"><i class="fas fa-certificate"></i> مهندس برمجيات وويب متخصص</span>
+            <p style="margin-top:1rem; font-size:0.95rem; opacity:0.8;">جميع الحقوق محفوظة © 2026 | إشراف مباشر: عداس محمد صالح محمد شريف</p>
+        </div>
     </div>
 
-    <!-- الأزرار العائمة الاحترافية -->
+    <!-- الأزرار العائمة -->
     <div class="fab-container">
-        <a href="https://t.me/tlastlastlasbot" target="_blank" class="fab fab-tg" aria-label="بوت الخدمة">
-            <i class="fas fa-robot"></i>
-            <span class="fab-tooltip">بوت الخدمة المباشر</span>
-        </a>
-        <a href="https://wa.me/249999876200" target="_blank" class="fab fab-wa" aria-label="واتساب">
-            <i class="fab fa-whatsapp"></i>
-            <span class="fab-tooltip">تواصل عبر واتساب</span>
-        </a>
-        <button class="fab" onclick="toggleSupport()" aria-label="الدعم الفني">
-            <i class="fas fa-headset"></i>
-            <span class="fab-tooltip">قائمة الدعم السريع</span>
-        </button>
+        <a href="https://t.me/tlastlastlasbot" target="_blank" class="fab fab-tg" aria-label="بوت الإشراف"><i class="fas fa-robot"></i></a>
+        <a href="https://wa.me/249999876200" target="_blank" class="fab fab-wa" aria-label="واتساب"><i class="fab fa-whatsapp"></i></a>
     </div>
 
-    <div class="support-menu" id="supportMenu">
-        <a href="https://t.me/+249920575107" target="_blank" class="item"><i class="fab fa-telegram"></i> إشراف مباشر (تليجرام)</a>
-        <a href="mailto:tlas111888@gmail.com" class="item"><i class="fas fa-envelope"></i> البريد الإلكتروني</a>
-        <button class="item" onclick="closeSupport()"><i class="fas fa-times-circle"></i> إغلاق القائمة</button>
+    <!-- لوحة التحكم الإدارية -->
+    <div class="admin-panel" id="adminPanel">
+        <button class="admin-close" onclick="closeAdmin()">×</button>
+        <h2><i class="fas fa-edit"></i> وضع التعديل المباشر</h2>
+        <p style="margin-bottom:1rem; color:#555;">تفعيل التعديل على العناوين والنصوص مباشرة داخل الموقع. احفظ التعديلات لإرسال إشعار لبوت الإشراف.</p>
+        <button onclick="toggleEditMode()"><i class="fas fa-pen"></i> تفعيل/إيقاف وضع التعديل</button>
+        <button onclick="saveAllChanges()"><i class="fas fa-save"></i> حفظ التعديلات وإرسال إشعار للإشراف</button>
+        <button onclick="resetSite()" style="background:#dc3545"><i class="fas fa-undo"></i> استعادة البيانات الأصلية</button>
+        <div style="margin-top:1rem; font-size:0.9rem; color:#666; background:#f5f5f5; padding:10px; border-radius:6px;">
+            <strong>حالة الحفظ:</strong> <span id="saveStatus">جاهز</span>
+        </div>
     </div>
 
     <footer>
-        <div class="prayer">
-            <i class="fas fa-hands-praying"></i><br>
-            أدعو لنا بالرحمة والتوفيق والسداد<br>
-            <small>اللهم اجعل هذا العمل خالصاً لوجهك الكريم، ونفع به طلاب العلم والسالكين</small>
-        </div>
         <div class="contact">
             <div class="c-card"><i class="fab fa-whatsapp"></i><a href="https://wa.me/249999876200">واتساب</a></div>
-            <div class="c-card"><i class="fab fa-telegram"></i><a href="https://t.me/tlastlastlasbot">بوت الخدمة</a></div>
+            <div class="c-card"><i class="fab fa-telegram"></i><a href="https://t.me/tlastlastlasbot">بوت الإشراف</a></div>
             <div class="c-card"><i class="fas fa-envelope"></i><a href="mailto:tlas111888@gmail.com">بريد إلكتروني</a></div>
-            <div class="c-card"><i class="fas fa-user-shield"></i><a href="https://t.me/+249920575107">إشراف</a></div>
-        </div>
-        <div class="credit">
-            <h3>الاعتمادات</h3>
-            <p>التصميم والتطوير: المهندس أبو الحسن محمد صالح محمد شريف</p>
-            <p>الإشراف العام: عداس محمد صالح محمد شريف | +249 920 575 107</p>
-            <p style="margin-top:1rem; border-top:1px solid rgba(212,175,55,0.3); padding-top:0.5rem;">© 2026 جميع الحقوق محفوظة</p>
+            <div class="c-card"><i class="fas fa-user-shield"></i><a href="https://t.me/+249920575107">إشراف مباشر</a></div>
         </div>
     </footer>
 
     <script>
+        // بيانات الأقسام
         const sections = [
             {id:1, t:"التصوف في العالم والمذاهب الأربعة", i:"fa-globe"},
             {id:2, t:"نشأة التصوف بالسودان", i:"fa-map-marker-alt"},
@@ -216,12 +223,16 @@
 
         const gridEl = document.getElementById('grid');
         const topicsArea = document.getElementById('topics-area');
+        let editMode = false;
+        const BOT_TOKEN = "8693292026:AAH7qfn0__f_9xhgQagiMly7GTPB2piKHXY";
+        const CHAT_ID = "7746757675"; // أو ضع معرف المشرف المباشر
 
+        // بناء الأقسام
         sections.forEach(sec => {
             const div = document.createElement('div');
             div.className = 'card';
             div.dataset.id = sec.id;
-            div.innerHTML = `<span class="count">30 موضوع</span><i class="fas ${sec.i}"></i><h3>${sec.t}</h3><p>اضغط لعرض المحتوى المفصل مع المراجع</p>`;
+            div.innerHTML = `<span class="count">30 موضوع</span><i class="fas ${sec.i}"></i><h3 class="editable" data-key="sec-${sec.id}">${sec.t}</h3><p>اضغط لعرض المحتوى المفصل مع المراجع</p>`;
             div.addEventListener('click', () => loadSection(sec.id, div));
             gridEl.appendChild(div);
         });
@@ -233,61 +244,24 @@
             topicsArea.style.display = 'block';
             topicsArea.innerHTML = `
                 <div class="topics-header">
-                    <h2><i class="fas ${sec.i}"></i> ${sec.t}</h2>
+                    <h2><i class="fas ${sec.i}"></i> <span class="editable" data-key="sec-intro-${id}">${sec.t}</span></h2>
                     <button class="close-btn" onclick="closeTopics()"><i class="fas fa-times"></i> إغلاق</button>
                 </div>
-                <div class="section-intro"><p>يُعد هذا القسم من الركائز الأساسية للموسوعة، حيث يغطي الجوانب التاريخية والعرفانية والفقهية المرتبطة بالطريقة السمانية الطيبية. تم بناؤه اعتماداً على النصوص الأصلية مع توسيع أكاديمي يربط بين التراث والمراجع المعتمدة. كل فقرة مصاغة بأسلوب توثيقي دقيق، مع الإشارة المباشرة لأرقام الصفحات والأسطر كما وردت في المصادر.</p></div>
+                <div class="section-intro"><p class="editable" data-key="sec-desc-${id}">يُعد هذا القسم من الركائز الأساسية للموسوعة، حيث يغطي الجوانب التاريخية والعرفانية والفقهية المرتبطة بالطريقة السمانية الطيبية. تم بناؤه اعتماداً على النصوص الأصلية مع توسيع أكاديمي يربط بين التراث والمراجع المعتمدة. كل فقرة مصاغة بأسلوب توثيقي دقيق.</p></div>
                 <div id="topicsList"></div>
             `;
             const list = document.getElementById('topicsList');
             for(let t=1; t<=30; t++){
                 const div = document.createElement('div');
                 div.className = 'topic';
+                const savedContent = localStorage.getItem(`topic-${id}-${t}`);
                 div.innerHTML = `
-                    <h4><i class="fas fa-bookmark" style="color:var(--accent); margin-left:8px;"></i> الموضوع ${t}: ${topicNames[t-1]}</h4>
-                    <p>في هذا المحور المتكامل، نربط بين النص الأصلي والتأصيل المنهجي. يؤكد الأستاذ محمد شريف في كتاب التوحيد على أن "الخير كله في العلم والعمل والاتباع"، وهو المبدأ الحاكم لكل فروع الطريقة. المنهج الطيبي يجمع بين الفقه الحنفي والسلوك الروحي، مما يحمي السالك من الشطح والغلو. وتُضاف إلى ذلك كرامات ومناقب تؤكد استمرارية المدد الروحي عبر الأجيال.</p>
-                    <p>كما أن رشفات المدام وأزاهير الرياض تفصلان في آداب الحضرة والذكر، مما يجعل الممارسة الصوفية منضبطة بآداب شرعية رصينة. إن دراسة هذا الموضوع تكشف عن شبكة معقدة من الروابط التاريخية والروحية التي تربط الحجاز بالسودان وإفريقيا، لتكون منهجاً حياً لا أرشيفاً ميتاً.</p>
-                    <div class="ref"><strong>مراجع معتمدة:</strong> كتاب التوحيد (ص 18، سطر 12-15) | أزاهير الرياض (ص 5) | رشفات المدام (ص 3) | الهداية الإلهية (ص 1) | القصيدة الرائية (ص 95) | ديوان المكاوي (ص 2)</div>
+                    <h4><i class="fas fa-bookmark" style="color:var(--accent); margin-left:8px;"></i> <span class="editable" data-key="topic-t-${id}-${t}">الموضوع ${t}: ${topicNames[t-1]}</span></h4>
+                    <p class="editable" data-key="topic-p-${id}-${t}">${savedContent || 'في هذا المحور المتكامل، نربط بين النص الأصلي والتأصيل المنهجي. يؤكد الأستاذ محمد شريف في كتاب التوحيد على أن "الخير كله في العلم والعمل والاتباع"، وهو المبدأ الحاكم لكل فروع الطريقة. المنهج الطيبي يجمع بين الفقه الحنفي والسلوك الروحي، مما يحمي السالك من الشطح والغلو.'}</p>
+                    <div class="ref"><strong>مراجع معتمدة:</strong> كتاب التوحيد (ص 18، سطر 12-15) | أزاهير الرياض (ص 5) | رشفات المدام (ص 3) | الهداية الإلهية (ص 1)</div>
                 `;
                 list.appendChild(div);
             }
+            applyEditMode();
             topicsArea.scrollIntoView({behavior:'smooth', block:'start'});
-        }
-
-        function closeTopics() {
-            topicsArea.style.display = 'none';
-            document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
-            window.scrollTo({top:0, behavior:'smooth'});
-        }
-
-        function resize(d) {
-            const html = document.documentElement;
-            const current = parseFloat(getComputedStyle(html).fontSize);
-            html.style.fontSize = Math.max(13, Math.min(22, current + d)) + 'px';
-        }
-
-        window.addEventListener('scroll', () => {
-            const win = window.scrollY;
-            const doc = document.documentElement.scrollHeight - window.innerHeight;
-            document.getElementById('pBar').style.width = (win/doc*100) + '%';
-        });
-
-        // دعم القوائم العائمة
-        function toggleSupport() {
-            document.getElementById('supportMenu').classList.toggle('active');
-        }
-        function closeSupport() {
-            document.getElementById('supportMenu').classList.remove('active');
-        }
-        document.addEventListener('click', (e) => {
-            const menu = document.getElementById('supportMenu');
-            const btn = document.querySelector('.fab-container .fab:last-child');
-            if (menu.classList.contains('active') && !menu.contains(e.target) && !btn.contains(e.target)) {
-                menu.classList.remove('active');
-            }
-        });
-
-        console.log('✅ تم تحميل الموسوعة بنجاح - الأزرار العائمة والروابط المباشرة جاهزة');
-    </script>
-</body>
-</html>
+ 
