@@ -3,141 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الموسوعة الطيبية الكبرى | م. أبو الحسن</title>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>الموسوعة الشاملة للطريقة السمانية الطيبية - السودان</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #1a5c2e; --gold: #d4a843; --dark: #1a1a2e; --cream: #fdf6e3;
+            --primary: #1e5631;
+            --secondary: #2c5f2d;
+            --accent: #d4af37;
+            --accent-light: #f4e5c2;
+            --text: #1a1a1a;
+            --bg: #faf8f3;
+            --card-bg: #ffffff;
         }
-        body { font-family: 'Cairo', sans-serif; background: var(--cream); margin: 0; scroll-behavior: smooth; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body { font-family: 'Tajawal', 'Amiri', serif; background: var(--bg); color: var(--text); line-height: 2; }
+
+        /* Controls */
+        .text-controls { position: fixed; top: 100px; left: 20px; z-index: 1001; background: white; padding: 12px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .text-controls button { background: var(--primary); color: white; border: none; padding: 10px 15px; margin: 5px; border-radius: 5px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+        .text-controls button:hover { background: var(--accent); transform: scale(1.1); }
+        .progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: var(--accent); z-index: 10000; transition: width 0.3s; }
+
+        /* Header */
+        .main-header { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 3rem 0; text-align: center; box-shadow: 0 5px 30px rgba(0,0,0,0.3); }
+        .main-header h1 { font-family: 'Amiri', serif; font-size: 2.8rem; margin-bottom: 0.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .main-header p { font-size: 1.2rem; opacity: 0.95; }
+        .header-info { background: rgba(212,175,55,0.2); display: inline-block; padding: 1rem 2rem; border-radius: 10px; margin-top: 1rem; border: 2px solid var(--accent); }
+
+        /* Sections Grid */
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        .sections-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+        .section-card { background: white; border-radius: 15px; padding: 2rem; cursor: pointer; transition: all 0.3s; border: 2px solid transparent; box-shadow: 0 4px 15px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+        .section-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, var(--primary), var(--accent)); }
+        .section-card:hover { transform: translateY(-8px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); border-color: var(--accent); }
+        .section-card.active { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; }
+        .section-card i { font-size: 2.5rem; color: var(--accent); margin-bottom: 1rem; display: block; }
+        .section-card.active i { color: var(--accent-light); }
+        .section-card h3 { font-family: 'Amiri', serif; font-size: 1.3rem; margin-bottom: 0.5rem; }
+        .section-card p { font-size: 0.9rem; opacity: 0.8; line-height: 1.6; }
+        .section-card .topic-count { position: absolute; top: 1rem; left: 1rem; background: var(--accent); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: bold; }
+
+        /* Topics Container */
+        .topics-container { display: none; background: white; border-radius: 15px; padding: 3rem; margin: 2rem 0; box-shadow: 0 5px 30px rgba(0,0,0,0.1); animation: slideDown 0.5s ease; }
+        .topics-container.active { display: block; }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
         
-        /* Header & Search */
-        header { background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://bit.ly/3X8S8Yd'); 
-                 background-size: cover; color: white; padding: 80px 20px; text-align: center; border-bottom: 5px solid var(--gold); }
-        .search-container { max-width: 600px; margin: -30px auto 30px; position: relative; z-index: 10; }
-        .search-input { width: 100%; padding: 15px 50px; border-radius: 30px; border: 2px solid var(--gold); font-size: 1.1rem; outline: none; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-        .search-icon { position: absolute; right: 20px; top: 18px; color: var(--gold); }
+        .topics-header { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 2rem; border-radius: 15px; margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .topics-header h2 { font-family: 'Amiri', serif; font-size: 2rem; display: flex; align-items: center; gap: 1rem; }
+        .close-btn { background: rgba(255,255,255,0.2); border: none; color: white; padding: 0.8rem 1.5rem; border-radius: 8px; cursor: pointer; font-size: 1rem; transition: 0.3s; }
+        .close-btn:hover { background: rgba(255,255,255,0.3); transform: scale(1.05); }
 
-        /* Sidebar & Layout */
-        .main-layout { display: grid; grid-template-columns: 280px 1fr; gap: 20px; max-width: 1400px; margin: 20px auto; padding: 0 20px; }
-        .sidebar { background: white; padding: 20px; border-radius: 15px; position: sticky; top: 100px; height: fit-content; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .content { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .section-intro { background: #fdfdfd; padding: 2rem; border-radius: 10px; border-right: 5px solid var(--accent); margin-bottom: 3rem; line-height: 2.4; font-size: 1.15rem; text-align: justify; }
+        .section-intro p { margin-bottom: 1.5rem; text-indent: 3rem; }
 
-        /* Typography */
-        h1, h2, h3 { font-family: 'Amiri', serif; color: var(--primary); }
-        .source-ref { font-size: 0.85rem; color: #888; background: #f0f0f0; padding: 2px 8px; border-radius: 4px; display: inline-block; margin-top: 10px; }
-        .article-text { line-height: 2.2; text-align: justify; font-size: 1.15rem; border-bottom: 1px solid #eee; padding-bottom: 30px; margin-bottom: 30px; }
+        /* Topics List */
+        .topics-list { display: flex; flex-direction: column; gap: 1.5rem; }
+        .topic-item { background: var(--bg); border-radius: 10px; padding: 2rem; border-right: 5px solid var(--accent); transition: 0.3s; }
+        .topic-item:hover { transform: translateX(-5px); box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .topic-title { font-family: 'Amiri', serif; color: var(--primary); font-size: 1.6rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid var(--accent-light); display: flex; align-items: center; gap: 1rem; }
+        .topic-title i { color: var(--accent); }
+        .topic-content { font-size: 1.15rem; text-align: justify; line-height: 2.4; }
+        .topic-content p { margin-bottom: 1.5rem; text-indent: 3rem; }
+        .ref-box { background: linear-gradient(135deg, #f5f5f5, #e8e8e8); border-right: 5px solid var(--primary); padding: 1.5rem; margin: 2rem 0; border-radius: 10px; font-style: italic; color: #444; }
+        .ref-box strong { color: var(--primary); display: block; margin-bottom: 0.5rem; }
 
-        /* Special Sections */
-        .tasawuf-section { background: #f4faf6; border-right: 10px solid var(--primary); padding: 30px; margin: 20px 0; border-radius: 0 15px 15px 0; }
-        .media-box { background: var(--dark); color: white; padding: 25px; border-radius: 15px; margin-top: 40px; }
+        /* Floating & Footer */
+        .floating-chat { position: fixed; bottom: 30px; left: 30px; z-index: 9999; }
+        .chat-button { background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; text-decoration: none; box-shadow: 0 5px 20px rgba(37,211,102,0.4); animation: bounce 2s infinite; }
+        @keyframes bounce { 0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)} }
         
-        /* Floating Buttons */
-        .fab-wa { position: fixed; bottom: 30px; left: 30px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; 
-                   display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); text-decoration: none; z-index: 1000; }
+        .main-footer { background: linear-gradient(135deg, #111, #222); color: white; padding: 4rem 2rem; text-align: center; margin-top: 5rem; }
+        .prayer-request { background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: var(--text); padding: 2.5rem; border-radius: 15px; margin: 2rem 0; font-weight: bold; font-size: 1.3rem; }
+        .credits { background: rgba(212,175,55,0.15); border: 2px solid var(--accent); padding: 2rem; border-radius: 15px; margin: 2rem 0; text-align: right; }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .contact-card { background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px; border: 1px solid rgba(212,175,55,0.3); transition: 0.3s; }
+        .contact-card:hover { background: rgba(255,255,255,0.2); transform: translateY(-5px); }
+        .contact-card i { font-size: 2rem; color: var(--accent); margin-bottom: 1rem; display: block; }
+        .contact-card a { color: white; text-decoration: none; font-weight: bold; }
 
-        @media (max-width: 900px) { .main-layout { grid-template-columns: 1fr; } .sidebar { display: none; } }
+        .back-to-top { position: fixed; bottom: 30px; right: 30px; background: var(--primary); color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; transition: 0.3s; z-index: 9998; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .back-to-top.visible { opacity: 1; }
+        .back-to-top:hover { background: var(--accent); color: var(--primary); transform: translateY(-5px); }
+
+        @media (max-width: 768px) { .sections-grid { grid-template-columns: 1fr; } .topics-header { flex-direction: column; gap: 1rem; text-align: center; } }
     </style>
 </head>
 <body>
+    <div class="progress-bar" id="progressBar"></div>
+    <div class="text-controls">
+        <button onclick="changeFontSize(-1)"><i class="fas fa-minus"></i> تصغير</button>
+        <button onclick="changeFontSize(1)"><i class="fas fa-plus"></i> تكبير</button>
+    </div>
 
-<header>
-    <h1>الموسوعة الرقمية الكبرى لآثار الشيخ أحمد الطيب ود البشير</h1>
-    <p>تحقيق وتوثيق: المهندس أبو الحسن محمد صالح شريف</p>
-</header>
+    <header class="main-header">
+        <h1><i class="fas fa-mosque"></i> الموسوعة الشاملة للطريقة السمانية الطيبية</h1>
+        <p>منارة التصوف السني في السودان والعالم الإسلامي</p>
+        <div class="header-info">
+            <p>تحت إشراف: عداس محمد صالح محمد شريف محمد صالح</p>
+            <p style="margin-top:0.5rem">إعداد: المهندس أبو الحسن محمد صالح محمد شريف محمد صالح</p>
+        </div>
+    </header>
 
-<div class="search-container">
-    <i class="fas fa-search search-icon"></i>
-    <input type="text" id="wikiSearch" class="search-input" placeholder="ابحث في أزاهير الرياض، النسب، القصائد، أو الأحكام..." onkeyup="searchWiki()">
-</div>
+    <div class="container">
+        <!-- الأقسام الـ 40 -->
+        <div class="sections-grid" id="sectionsGrid"></div>
 
-<div class="main-layout">
-    <aside class="sidebar">
-        <h3 style="border-bottom: 2px solid var(--gold); padding-bottom: 10px;">فهرس الموسوعة</h3>
-        <ul style="list-style: none; padding: 0;">
-            <li><a href="#lineage" style="color: var(--primary); text-decoration: none; display: block; padding: 10px 0;"> <i class="fas fa-users"></i> النسب وقبيلة الجموعية</a></li>
-            <li><a href="#biography" style="color: var(--primary); text-decoration: none; display: block; padding: 10px 0;"> <i class="fas fa-history"></i> السيرة (أزاهير الرياض)</a></li>
-            <li><a href="#tasawuf" style="color: var(--primary); text-decoration: none; display: block; padding: 10px 0;"> <i class="fas fa-mosque"></i> علم التصوف والأسرار</a></li>
-            <li><a href="#library" style="color: var(--primary); text-decoration: none; display: block; padding: 10px 0;"> <i class="fas fa-book"></i> المكتبة والمؤلفات</a></li>
-            <li><a href="#poems" style="color: var(--primary); text-decoration: none; display: block; padding: 10px 0;"> <i class="fas fa-feather"></i> القصائد والأشعار</a></li>
-            <li><a href="#upload" style="color: var(--primary); text-decoration: none; display: block; padding: 10px 0;"> <i class="fas fa-microphone"></i> رفع مساهمة صوتية</a></li>
-        </ul>
-    </aside>
+        <!-- حاوية المواضيع -->
+        <div id="topicsContainer"></div>
+    </div>
 
-    <main class="content">
-        
-        <section id="lineage" class="wiki-item">
-            <h2>أولاً: النسب الشريف وقبيلة الجموعية</h2>
-            <div class="article-text">
-                بناءً على وثيقة <strong>"الهداية الإلهية" (ص 1)</strong> وكتاب <strong>"العقيدة الطيبية" (ص 1)</strong>:
-                هو سيدي أبو هاشم عبدالله الأستاذ محمد شريف السني الطيبي السماني، الفاطمي العباسي نسباً، الحنفي مذهباً. 
-                وينحدر من صلب الغوث سيدي الشيخ أحمد الطيب بن البشير.
-                <br><br>
-                <strong>عن الجموعية (أزاهير الرياض - الباب الأول):</strong>
-                تذكر الروايات التاريخية في "أزاهير الرياض" أن الشيخ أحمد الطيب نشأ في بيئة الجموعية بـ "أم مرحي"، حيث كانت القبيلة محضناً للعلم والفروسية. ويذكر المصدر (ص 3) أن الولي الشيخ حمد بن محمد المكاشفي التلابي الجموعي تنبأ بظهوره قبل بروزه في عالم الدنيا، واصفاً إياه بالولد المبارك الكامل الذي يذهب للحج ويأتي بالسر الأكبر.
-            </div>
-            <span class="source-ref">المصدر: أزاهير الرياض (ص 1-5) | الهداية الإلهية (ص 1-3)</span>
-        </section>
+    <div class="floating-chat">
+        <a href="https://wa.me/249999876200" target="_blank" class="chat-button"><i class="fab fa-whatsapp"></i></a>
+    </div>
 
-        <section id="tasawuf" class="tasawuf-section wiki-item">
-            <h2>ثانياً: قسم التصوف وعلم الأسرار</h2>
-            <div class="article-text">
-                يحتوي هذا القسم على خلاصة ما ورد في <strong>"خواص صلاة الأسماء"</strong> و <strong>"الهداية الإلهية"</strong>:
-                <br>
-                <strong>1. العقيدة والتوحيد:</strong> كما ورد في "العقيدة الطيبية" (ص 2)، فإن الواجب على المكلف هو معرفة الله بالوحدانية في الإيجاد والإعدام، والتمسك بأقوال الثقات من أهل السنة.
-                <br>
-                <strong>2. سر الأسرار:</strong> يشرح الشيخ أحمد الطيب في كتابه "خواص الأسماء" (ص 3) أن الصلوات المقرونة بأسماء الله الحسنى هي مفاتيح الرحمة وكشف الكروب. 
-                يقول رضي الله عنه: "هذا شرح للجزء الثاني من سر الأسرار، وفيه بيان لخواص صلاة الأسماء التي تفتح مغاليق القلوب".
-            </div>
-            <span class="source-ref">المصدر: خواص صلاة الأسماء (ص 3) | كتاب التوحيد (ص 1-2)</span>
-        </section>
+    <div class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></div>
 
-        <section id="poems" class="wiki-item">
-            <h2>ثالثاً: القصص، الأشعار والمدائح</h2>
-            <div class="article-text">
-                تزخر الموسوعة بقصائد من <strong>"ديوان ألحان وصفا السمان"</strong> و <strong>"ديوان المكاوي"</strong>. 
-                من أشهرها "الرائية" في النصائح الدينية (القصيدة الرائية - ص 1) التي تهدف لإرشاد المريدين وتقوية العزيمة.
-                <br>
-                <strong>قصة كرامة (أزاهير الرياض - الخاتمة):</strong>
-                يُروى عن رجل ذهب لدنقلة لشراء التمر، وكيف أرسله الشيخ أحمد الطيب بكتاب للجن ليعطوه ذهباً إكراماً له، مما يوضح مدي التصرف والولاية (أزاهير الرياض ص 100).
-            </div>
-            
-            <div class="media-box" id="upload">
-                <h3><i class="fas fa-cloud-upload-alt"></i> مركز رفع المساهمات الصوتية</h3>
-                <p>أخي المريد/ الباحث: يمكنك تسجيل القصائد أو القصص بصوتك ورفعها هنا. سيتم مراجعتها من قبل "بوت المراجعة" قبل نشرها في القسم العام.</p>
-                <input type="file" id="audioUpload" accept="audio/*" style="background: white; color: black; padding: 10px; border-radius: 5px;">
-                <button onclick="alert('سيتم إرسال الملف للبوت 8629398802 للمراجعة')" style="background: var(--gold); border: none; padding: 12px 20px; border-radius: 5px; cursor: pointer; font-weight: bold;">إرسال للمراجعة</button>
-            </div>
-        </section>
+    <footer class="main-footer" id="contact">
+        <div class="prayer-request">
+            <i class="fas fa-hands-praying" style="font-size:2.5rem; margin-bottom:1rem;"></i><br>
+            أدعو لنا بالرحمة والتوفيق والسداد<br>
+            <small>اللهم اغفر للمؤمنين والمؤمنات، الأحياء منهم والأموات</small>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-card"><i class="fab fa-whatsapp"></i><h3>واتساب</h3><a href="https://wa.me/249999876200">+249 999 876 200</a></div>
+            <div class="contact-card"><i class="fab fa-telegram"></i><h3>تليجرام</h3><a href="https://t.me/+249920575107">+249 920 575 107</a></div>
+            <div class="contact-card"><i class="fas fa-envelope"></i><h3>بريد إلكتروني</h3><a href="mailto:tlas111888@gmail.com">tlas111888@gmail.com</a></div>
+            <div class="contact-card"><i class="fas fa-robot"></i><h3>بوت الخدمة</h3><a href="https://t.me/tlastlastlasbot">@tlastlastlasbot</a></div>
+        </div>
+        <div class="credits">
+            <h3><i class="fas fa-code"></i> الاعتمادات</h3>
+            <p><strong>التصميم والتطوير:</strong> المهندس أبو الحسن محمد صالح محمد شريف محمد صالح</p>
+            <p><strong>الإشراف العام:</strong> عداس محمد صالح محمد شريف محمد صالح</p>
+            <p style="margin-top:1rem; padding-top:1rem; border-top:1px solid rgba(212,175,55,0.3);">© 2026 جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
 
-    </main>
-</div>
-
-<a href="https://wa.me/97471375305" class="fab-wa">
-    <i class="fab fa-whatsapp"></i>
-</a>
-
-<script>
-    // وظيفة البحث الذكي
-    function searchWiki() {
-        let input = document.getElementById('wikiSearch').value.toLowerCase();
-        let items = document.getElementsByClassName('wiki-item');
-        
-        for (i = 0; i < items.length; i++) {
-            if (items[i].innerHTML.toLowerCase().includes(input)) {
-                items[i].style.display = "";
-            } else {
-                items[i].style.display = "none";
-            }
-        }
-    }
-</script>
-
-<footer style="background: var(--dark); color: white; text-align: center; padding: 40px; margin-top: 50px;">
-    <p>حقوق التوثيق محفوظة للمهندس أبو الحسن محمد صالح محمد شريف &copy; 2026</p>
-    <p style="font-size: 0.8rem; opacity: 0.7;">بناءً على نصوص: أزاهير الرياض، الهداية الإلهية، العقيدة الطيبية، ديوان المكاوي، والرائية.</p>
-</footer>
-
-</body>
-</html>
+    <script>
+        // الأقسام الـ 40 مع المواضيع
+        const sectionsData = [
+            {id:1, title:"التصوف في العالم والمذاهب الأربعة", icon:"fa-globe", topics:30, intro:`يُعد التصوف في جوهره مقام "الإحسان" الذي أشار إليه النبي محمد ﷺ في حديث جبريل المشهور، وهو العلم الذي يعنى بتزكية النفوس وتصفية الباطن من الأدناس والأكدار. وقد أجمع أئمة المذاهب الأربعة على مشروعيته وضرورته لإكمال الدين. فالإمام أبو حنيفة - مذهب أئمة السمانية - اعتبره ثمرة الفقه، والإمام مالك اشترط الجمع بين الفقه والتصوف للنجاة من الفسق والزندقة. وفي كتاب التوحيد (ص 18، سطر 12)، يضع الأستاذ محمد شريف القاعدة الذهبية: "فالخير كله في العلم والعمل والاتباع، والسر كله في الجهل والكسل والابتداع". نشأ التصوف عالمياً كحركة زهد في الصدر الأول، ثم تطور لمقامات وأحوال تهدف لتطهير القلب من الذنوب الباطنة كالكبر والعجب والرياء والحسد والحقد (كتاب التوحيد، ص 18، سطر 15). البحث الموسع يثبت أن التصوف السني المنضبط بالكتاب والسنة كان هو المحرك الأكبر لنشر الإسلام في الآفاق، حيث خاطب القلوب قبل العقول، مما جعله وسيلة عالمية لتحقيق السلم الروحي والاجتماعي عبر العصور.`},
+            {id:2, title:"نشأة التصوف بالسودان", icon:"fa-map-marker-alt", topics:30, intro:`شهد السودان تحولاً روحياً مفصلياً بعودة الشيخ أحمد الطيب بن البشير من رحلته العلمية في الحجاز. بدأت الرحلة في المدينة المنورة حيث لازم القطب محمد بن عبد الكريم السمان، ونال منه الإجازة في الطرق الخمس (القادرية، النقشبندية، الشاذلية، الرفاعية، الخلواتية). تذكر أزاهير الرياض (ص 5، الفصل الأول) أن نوره كان مخبوءاً وأخبر به العارفون قبل بروزه كشفا. دمج الشيخ الطيب هذه الطرق في مشرب واحد هو "السمانية"، وجعل منها منهاجاً لبناء المجتمع.`},
+            {id:3, title:"الشيخ أحمد الطيب: النشأة والرحلة", icon:"fa-user-tie", topics:30, intro:`ولد القطب الرباني والغوث الصمداني الشيخ أحمد الطيب بن البشير رضي الله عنه في العام 1155هـ الموافق 1742م في منطقة أم مرحي شمال أم درمان. حفظ القرآن الكريم في صغره، ثم اشتغل بطلب العلم على يد مشايخ بلده. وفي منتصف القرن الثاني عشر الهجري، سافر إلى الحجاز طلباً للعلم والسر الروحي. التقى في المدينة المنورة بشيخه القطب محمد بن عبد الكريم السمان، ولازمه ملازمة الظل لأصله.`},
+            {id:4, title:"النسب الشريف والسلالة الطيبية", icon:"fa-sitemap", topics:30, intro:`الشيخ أحمد الطيب هو الفاطمي العباسي نسباً، الحنفي مذهباً؛ يتصل بسيدنا العباس بن عبد المطلب من جهة الآباء، وبالسيدة فاطمة الزهراء من جهة الأمهات (الهداية الإلهية، ص 1، سطر 10). هذا النسب الشريف حمله أحفاده بمسؤولية، بدءاً من ابنه القطب نور الدائم، ثم الأستاذ محمد شريف (نقيب الأشراف ومميز العلماء)، وصولاً إلى أحفادهم الذين انتشروا في أم مرحي وطابت وكردفان.`},
+            {id:5, title:"أم مرحي: عراقة المكان والجبل", icon:"fa-mountain", topics:30, intro:`قرية "أم مرحي" هي المعقل الروحي الأول، تقع وسط ديار قبيلة الجموعية العريقة التي كانت حامية للدعوة. تمتاز بوجود "جبل أم مرحي" التاريخي، الذي كان يسكنه الفيل (العاج) قديماً قبل أن يصبح ببركة الشيخ الطيب مركزاً لخلوات العارفين. البحث التاريخي يثبت أن المنطقة كانت مركزاً حضارياً، لكن الشيخ الطيب جعلها "مركزاً كونياً" للذكر.`},
+            {id:6, title:"الأستاذ محمد شريف نور الدائم", icon:"fa-user-graduate", topics:30, intro:`يُعد الأستاذ محمد شريف من أبرز أحفاد الشيخ أحمد الطيب، حيث شغل منصب نقيب الأشراف ومميز العلماء بالسودان. ألف كتاب التوحيد الذي أصبح دستور العقيدة الطيبية، والهداية الإلهية التي فقدت 130 عاماً وعثر عليها بدار الكتب المصرية. كانت علاقته بالمهدي علاقة معلم وتلميذ، لكن الخلاف نشأ حول دعوى المهدية.`},
+            {id:7, title:"المشايخ والأحفاد المذكورون", icon:"fa-users", topics:30, intro:`تفرعت من الشيخ أحمد الطيب شجرة مباركة حملت سر الولاية والتمكين، ومن أبرز أغصانها القطب الشيخ نور الدائم، ثم الأستاذ محمد شريف، وصولاً إلى أحفادهم كالشيخ صالح والشيخ سيد والشيخ محمد صالح والشيخ الجيلي والشيخ الفاتح. هؤلاء الأحفاد لم يرثوا الاسم فحسب، بل ورثوا السلوك والمنهج.`},
+            {id:8, title:"الخزانة السمانية: المؤلفات", icon:"fa-book", topics:30, intro:`تزخر المكتبة السمانية بمؤلفات جمعت بين نور الكشف ودقة الفقه، ونفصلها هنا بتوثيقها: للشيخ أحمد الطيب: "سر الأسرار" (الورد الأعظم)، و"خواص صلاة الأسماء" (ص 1). للأستاذ محمد شريف: "كتاب التوحيد" (ص 1) مرجع العقيدة، و"الهداية الإلهية" (ص 1)، و"مولد عنوان المزية" (ص 1)، و"القصيدة الرائية" (ص 1). للشيخ عبد المحمود: "أزاهير الرياض" في التاريخ والمناقب، و"رشفات المدام" (ص 3).`},
+            {id:9, title:"كتاب التوحيد والعقيدة الطيبية", icon:"fa-balance-scale", topics:30, intro:`يُعد كتاب التوحيد للأستاذ محمد شريف حجر الزاوية في هذه الموسوعة، حيث يفصل بصرامة "ما يجب ويجوز ويستحيل في حق الله والرسل". إن التفصيل الوارد في الكتاب عن "العشرين صفة الواجبة لله" يهدف إلى بناء عقل المريد على أسس برهانية. يؤكد الكتاب أن "الخير كله في العلم والعمل والاتباع".`},
+            {id:10, title:"أزاهير الرياض: التاريخ والمناقب", icon:"fa-landmark", topics:30, intro:`كتاب أزاهير الرياض للأستاذ عبد المحمود يوثق سيرة الشيخ أحمد الطيب بن البشير بأسلوب يمزج بين التاريخ والكرامة. يذكر الكتاب بالتفصيل كيف تنبأ العارفون بظهور هذا القطب قبل ولادته. ترحل بنا الموسوعة عبر فصول الكتاب لتصف رحلته إلى المدينة المنورة، حيث خدم القطب السمان واعتكف في الروضة الشريفة.`},
+            {id:11, title:"رشفات المدام وأدب الطريق", icon:"fa-feather-alt", topics:30, intro:`كتاب رشفات المدام للشيخ أبو صالح الطيبي (ص 3) يصف الشيخ أحمد الطيب بأنه "إكسير العارفين، وقطب الواصلين، ومحيي رسوم أهل التحقيق". الكتاب يفصل في آداب الحضرة والذكر بالقلب والجوارح، ويشرح قواعد التصوف والمقامات الروحية.`},
+            {id:12, title:"الهداية الإلهية والأسرار", icon:"fa-lightbulb", topics:30, intro:`يمثل كتاب الهداية الإلهية والأسرار الاسمية للأستاذ محمد شريف كنزاً مفقوداً تم استرداده من دار الكتب القومية المصرية بعد غياب دام 130 عاماً. الكتاب يفصل "الصلوات المحمدية" وعلاقتها بأسماء الله الحسنى، حيث يطرح الأستاذ رؤية "ذوقية" لكيفية التعامل مع الاسم الإلهي.`},
+            {id:13, title:"خواص صلاة الأسماء", icon:"fa-praying-hands", topics:30, intro:`كتاب خواص صلاة الأسماء للشيخ أحمد الطيب من أندر وأثمن الكتب. يشرح الشيخ فيه "الجزء الثاني من سر الأسرار"، موضحاً كيف أن لكل اسم من أسماء الله الحسنى "خاصية ملكوتية" تنعكس على السالك. الكتب تفصل صيغ الصلوات التي تقترن بأسماء مثل (اللطيف، القوي، العزيز، الودود).`},
+            {id:14, title:"سر الأسرار: الورد الجامع", icon:"fa-lock", topics:30, intro:`ورد "سر الأسرار" هو الروح النابضة في الطريقة السمانية. هذا الورد ليس مجرد استغفار أو صلاة، بل هو "هيكل نوري" يجمع خلاصة الطرق الخمس الكبرى (القادرية، الرفاعية، النفشبندية، الشاذلية، الخلواتية). الموسوعة تفصل كيف أن هذا الورد يعمل على "تصفية اللطائف السبع" في الإنسان.`},
+            {id:15, title:"القصيدة الرائية والتحذير", icon:"fa-scroll", topics:30, intro:`تعد القصيدة الرائية في النصائح الدينية للأستاذ محمد شريف نصاً استثنائياً في "أدب الملاحم والفتن" الصوفي. حذر الأستاذ شريف من الفتن في "قصيدته الرائية" (ص 95، سطر 95): "وفتن السودان سبعة بلا مرا.. فهذه منها وشرها يرى".`},
+            {id:16, title:"المولد النبوي: عنوان المزية", icon:"fa-star-and-crescent", topics:30, intro:`يُعد "مولد عنوان المزية في السيرة النبوية" للأستاذ محمد شريف، المطبوع بجوار الأزهر الشريف عام 1300هـ، نصاً مركزياً يمزج بين دقة الرواية التاريخية وعمق العاطفة الصوفية. الموسوعة تفصل كيف يبدأ المولد بحمد الله المنعم بالمنح التي لا تُحصى.`},
+            {id:17, title:"ديوان المكاوي وشعر الوجد", icon:"fa-pen-nib", topics:30, intro:`ديوان المكاوي (تحقيق وإشراف الأستاذ عبد المحمود) يوثق لشعر الوجد الشعبي الذي نظمه تلميذه المكاوي محمد بله. يذكر ديوان المكاوي (ص 2، سطر 1) رمزية "اللالوبة" الذاكرة في أم مرحي التي تلبس أنوار النورية.`},
+            {id:18, title:"ديوان ألحان وصفا السمان", icon:"fa-music", topics:30, intro:`ديوان ألحان وصفا للشيخ السماني الحفيان (ص 2) يمثل قمة الأدب السماني الحديث في مدح الرسول والآل. ورد في مقدمة ديوان ألحان وصفا (ص 2، سطر 4) أن السمانية أصبحت "مدخل الطريقة في السودان وإفريقيا".`},
+            {id:19, title:"ابتهالات ومناجاة الأستاذ شريف", icon:"fa-hands", topics:30, intro:`يحتوي ملف ابتهالات ومناجاة الأستاذ محمد شريف على نصوص أدبية روحية غاية في الرقة والبيان. الموسوعة تفرد قسماً خاصاً لتحليل هذه المناجاة التي تبدأ بـ "إلهي تفضلت فعم أفضالك"، حيث تظهر "ذلة العبودية" في أرقى صورها.`},
+            {id:20, title:"الذكر وأنواعه في التصوف", icon:"fa-pray", topics:30, intro:`تقوم العبادة في السمانية على "الذكر الدائم" والحضور مع الله. الشيخ أحمد الطيب اعتمد ورد "سر الأسرار" والجمع بين أذواق الطرق الخمس. الأستاذ محمد شريف ركز على "المناجاة" والانكسار بين يدي الحق. الشيخ عبد المحمود طريقته هي "الخدمة والتدوين".`},
+            {id:21, title:"الحضرة والنوبة الصوفية", icon:"fa-drum", topics:30, intro:`الذكر الجماعي (النوبة) هي ممارسة مشتركة تهدف لـ "اهتزاز الجوارح" طرباً بذكر الله، مع الالتزام بآداب "الحضرة" المذكورة في أزاهير الرياض. البحث العالمي يشير إلى أن "الحضرة الصوفية" هي علاج نفسي وروحي يفرغ الشحنات السلبية.`},
+            {id:22, title:"الخلوة السمانية: شروطها", icon:"fa-mosque", topics:30, intro:`"الخلوة" هي لجمع الهم على الله وتطهير الباطن (كما كان يفعل الشيخ الطيب في البقيع). الموسوعة تفصل شروط الخلوة وأوقاتها وثمراتها في تنوير البصيرة. تذكر الكتب أن الشيخ أحمد الطيب كان إذا دخل الخلوة، كأنه في حضرة النبي ﷺ.`},
+            {id:23, title:"الصحبة والتربية الروحية", icon:"fa-handshake", topics:30, intro:`لا تُنال أسرار "سر الأسرار" إلا بالصحبة. الموسوعة تفصل "آداب المريد مع شيخه" ومع إخوانه، مبينة أن الصحبة هي "العدوى الروحية" التي تنقل الأنوار من صدر إلى صدر. البحث العالمي يوضح أن "نظام الزواي
