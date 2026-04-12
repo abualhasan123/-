@@ -16,109 +16,59 @@
         header h1{font-family:'Amiri',serif;font-size:3rem;margin-bottom:10px}
         .hdr-credits{background:rgba(255,255,255,0.1);padding:10px 25px;border-radius:50px;border:1px solid var(--a);display:inline-block;margin-top:15px}
 
-        /* Navigation */
-        .nav-bar{background:var(--p);position:sticky;top:0;z-index:1000;display:flex;justify-content:center;padding:12px;gap:20px;box-shadow:0 4px 10px rgba(0,0,0,0.2)}
-        .nav-bar a{color:#fff;text-decoration:none;font-weight:500;transition:0.3s;padding:5px 15px;border-radius:15px}
-        .nav-bar a:hover{background:var(--a);color:var(--p)}
+        /* Control Panel for Admin */
+        .admin-bar{background:#333;color:#fff;padding:10px;position:sticky;top:0;z-index:1001;display:flex;justify-content:center;gap:15px;border-bottom:2px solid var(--a)}
+        .btn-save{background:var(--a);color:var(--p);border:none;padding:8px 20px;border-radius:5px;font-weight:bold;cursor:pointer}
 
+        /* Sections Grid */
         .container{max-width:1400px;margin:0 auto;padding:30px 15px}
-
-        /* Section Styling - 40 Sections */
         .section-box{background:var(--w);border-radius:15px;margin-bottom:25px;box-shadow:var(--sh);border-right:8px solid var(--a);overflow:hidden}
         .section-header{padding:20px;background:#f1f3f1;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
-        .section-header h2{font-family:'Amiri',serif;color:var(--p);font-size:1.5rem}
         .section-content{display:none;padding:20px;background:#fff}
         .section-content.active{display:block;animation:fadeIn 0.5s}
+        .topic-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));gap:15px}
+        .topic-item{background:#fdfcf6;border:1px solid #eee;border-radius:10px;padding:15px}
 
-        /* Sub-topics - 40 Topics per Section */
-        .topic-item{background:#fdfcf6;border:1px solid #eee;border-radius:10px;padding:15px;margin-bottom:15px;transition:0.3s}
-        .topic-item:hover{border-color:var(--a);transform:scale(1.01)}
-        .topic-title{color:var(--s);font-weight:700;margin-bottom:10px;display:block}
-
-        /* Family Tree - Special Layout */
-        .tree-container{background:var(--w);padding:40px;border-radius:20px;box-shadow:var(--sh);overflow-x:auto;min-height:600px;position:relative;margin-bottom:40px}
-        .tree-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px}
-        .tree ul{padding-top:20px;position:relative;display:flex;justify-content:center}
-        .tree li{text-align:center;list-style-type:none;position:relative;padding:20px 10px 0 10px}
-        .tree li::before, .tree li::after{content:'';position:absolute;top:0;right:50%;border-top:2px solid var(--a);width:50%;height:20px}
-        .tree li::after{right:auto;left:50%;border-left:2px solid var(--a)}
-        .tree li:only-child::after, .tree li:only-child::before{display:none}
-        .tree li:only-child{padding-top:0}
-        .tree .node{border:2px solid var(--p);padding:12px;border-radius:10px;background:#fff;display:inline-block;min-width:160px;font-weight:bold;z-index:2;position:relative}
-
-        /* Media Center - Special Layout */
-        .media-center{display:grid;grid-template-columns:1.2fr 0.8fr;gap:30px;margin-top:40px}
-        .media-card{background:var(--w);padding:25px;border-radius:20px;box-shadow:var(--sh);border-top:5px solid var(--p)}
-        .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(140px, 1fr));gap:15px;margin-top:20px}
-        .audio-list{max-height:400px;overflow-y:auto;margin-top:20px}
-
-        /* Buttons & Actions */
-        .btn-edit{background:var(--a);color:var(--p);border:none;padding:6px 15px;border-radius:8px;font-weight:bold;cursor:pointer;font-size:0.85rem}
-        .rec-btn{background:#e74c3c;color:#fff;border:none;padding:12px 25px;border-radius:30px;cursor:pointer;width:100%;font-weight:bold}
-        .rec-btn.recording{animation:pulse 1s infinite}
+        /* Media & Family Tree */
+        .special-section{background:var(--w);padding:30px;border-radius:20px;margin-bottom:40px;box-shadow:var(--sh)}
+        .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(150px, 1fr));gap:15px;margin-top:20px}
 
         footer{background:#111;color:#fff;padding:50px 20px;text-align:center;margin-top:50px}
-        
         @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-        @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(231,76,60,0.4)}70%{box-shadow:0 0 0 15px rgba(231,76,60,0)}100%{box-shadow:0 0 0 0 rgba(231,76,60,0)}}
     </style>
 </head>
 <body>
 
+<div class="admin-bar">
+    <button class="btn-save" id="publishBtn"><i class="fas fa-cloud-upload-alt"></i> اعتماد ونشر التعديلات للجميع</button>
+    <button class="btn-save" style="background:#444; color:white;" id="lockBtn"><i class="fas fa-lock"></i> قفل التعديل</button>
+</div>
+
 <header>
     <h1><i class="fas fa-mosque"></i> موسوعة الطريقة السمانية</h1>
     <p>بإشراف السجادة الطيبية بـ "أم مرحي"</p>
-    <div class="hdr-credits">
-        <i class="fas fa-laptop-code"></i> المهندس أبو الحسن محمد صالح محمد شريف
-    </div>
+    <div class="hdr-credits"><i class="fas fa-laptop-code"></i> المهندس أبو الحسن محمد صالح محمد شريف</div>
 </header>
-
-<div class="nav-bar">
-    <a href="#sections-area">الأقسام العلمية</a>
-    <a href="#tree-area">شجرة العائلة</a>
-    <a href="#media-area">مركز الوسائط</a>
-</div>
 
 <div class="container">
     
     <div id="sections-area">
-        <h2 style="margin-bottom:20px; color:var(--p); border-right:5px solid var(--a); padding-right:15px;">الأقسام العلمية والمواضيع</h2>
+        <h2 style="margin-bottom:20px; color:var(--p); border-right:5px solid var(--a); padding-right:15px;">الأقسام العلمية (40 قسم)</h2>
         <div id="dynamicSections"></div>
     </div>
 
-    <div id="tree-area" class="tree-container">
-        <div class="tree-header">
-            <h2 style="color:var(--p)"><i class="fas fa-sitemap"></i> شجرة العائلة الطيبية (مساحة واسعة)</h2>
-            <button class="btn-edit" onclick="addFamilyNode()">+ إضافة فرع جديد</button>
-        </div>
-        <div class="tree">
-            <ul id="familyRoot">
-                <li>
-                    <div class="node" contenteditable="true">القطب الشيخ أحمد الطيب بن البشير</div>
-                    <ul>
-                        <li><div class="node" contenteditable="true">الشيخ نور الدائم</div></li>
-                        <li><div class="node" contenteditable="true">الأستاذ محمد شريف</div></li>
-                    </ul>
-                </li>
-            </ul>
+    <div class="special-section" id="tree-area">
+        <h3><i class="fas fa-sitemap"></i> شجرة العائلة (مساحة واسعة)</h3>
+        <div id="familyRoot" contenteditable="true" style="min-height:200px; padding:20px; border:1px dashed var(--a); margin-top:15px;">
+            اضغط هنا لرسم شجرة العائلة...
         </div>
     </div>
 
-    <div id="media-area" class="media-center">
-        <div class="media-card">
-            <h3><i class="fas fa-images"></i> معرض الصور التوثيقي</h3>
-            <input type="file" id="imgInp" hidden accept="image/*" onchange="handleImg(this)">
-            <button class="btn-edit" style="width:100%; padding:10px; margin-top:10px;" onclick="document.getElementById('imgInp').click()">إضافة صورة للموسوعة</button>
-            <div id="galGrid" class="gallery-grid"></div>
-        </div>
-
-        <div class="media-card">
-            <h3><i class="fas fa-microphone-alt"></i> المكتبة الصوتية</h3>
-            <div style="margin-top:20px;">
-                <button id="recordBtn" class="rec-btn" onclick="startRecording()"><i class="fas fa-circle"></i> بدء تسجيل مباشر</button>
-                <div id="audioList" class="audio-list"></div>
-            </div>
-        </div>
+    <div class="special-section" id="media-area">
+        <h3><i class="fas fa-photo-video"></i> الصور والتسجيلات</h3>
+        <button class="btn-save" style="margin-top:10px;" onclick="document.getElementById('imgInp').click()">إضافة صورة</button>
+        <input type="file" id="imgInp" hidden accept="image/*" onchange="previewImg(this)">
+        <div id="galGrid" class="gallery-grid"></div>
     </div>
 
 </div>
@@ -128,96 +78,102 @@
     <p>© 2026 جميع الحقوق محفوظة لموسوعة الطريقة السمانية</p>
 </footer>
 
-<script>
-    // توليد 40 قسم وكل قسم به 40 موضوع
-    const sectionNames = ["نشأة الشيخ", "المؤلفات", "الخلاوي", "الأوراد", "تاريخ أم مرحي", "الخلفاء", "الرحلات", "الكرامات", "الأشعار", "الفقه", "التصوف", "التربية", "الآداب", "المناقب", "الأسانيد", "الإجازات", "المسيدات", "الاحتفالات", "الذكر", "الحضرة", "الخلوة", "الزهد", "الورع", "المحبة", "الشوق", "التوحيد", "التفسير", "الحديث", "السيرة", "الأنساب", "المخطوطات", "الوثائق", "الصور القديمة", "التسجيلات", "المكتبة", "الوصايا", "الحكم", "الأقوال", "الدروس", "الخاتمة"];
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+    import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
 
-    function initEncyclopedia() {
-        const container = document.getElementById('dynamicSections');
-        sectionNames.forEach((name, sIdx) => {
-            let topicsHtml = '';
-            for(let i=1; i<=40; i++) {
-                topicsHtml += `
-                    <div class="topic-item">
-                        <span class="topic-title" contenteditable="true">الموضوع الفرعي ${i}: (اضغط للتعديل)</span>
-                        <p contenteditable="true" style="font-size:0.9rem; color:#666;">اكتب هنا تفاصيل الموضوع ${i} المتعلق بـ ${name}...</p>
-                    </div>
-                `;
+    // إعدادات Firebase الخاصة بك
+    const firebaseConfig = {
+      apiKey: "AIzaSyDwvZwG1Uaa8vCS51kfa0RCmM",
+      authDomain: "encyclopedia-26a52.firebaseapp.com",
+      projectId: "encyclopedia-26a52",
+      storageBucket: "encyclopedia-26a52.appspot.com",
+      messagingSenderId: "259021461993",
+      appId: "1:259021461993:web:bd5c98d7cb11",
+      databaseURL: "https://encyclopedia-26a52-default-rtdb.firebaseio.com/" 
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    // توكن البوتات للموافقة
+    const BOT_TOKENS = ["7538760205:AAFu66u-W_0N_2_9Y0L_K8D1_eW3L_9_eW3", "7903820253:AAF-tS0000000000000000000"];
+    const CHAT_ID = "1537025816";
+
+    // توليد الأقسام الـ 40 والمواضيع الـ 40 لكل قسم
+    function initApp() {
+        const area = document.getElementById('dynamicSections');
+        let html = "";
+        for(let s=1; s<=40; s++) {
+            let topics = "";
+            for(let t=1; t<=40; t++) {
+                topics += `<div class="topic-item"><b contenteditable="true">موضوع ${t}</b><p contenteditable="true">التفاصيل...</p></div>`;
             }
-
-            container.innerHTML += `
+            html += `
                 <div class="section-box">
-                    <div class="section-header" onclick="toggleSec(this)">
-                        <h2><i class="fas fa-folder-open" style="color:var(--a)"></i> القسم ${sIdx+1}: ${name}</h2>
+                    <div class="section-header" onclick="this.nextElementSibling.classList.toggle('active')">
+                        <h3>القسم ${s}: (اضغط للتعديل)</h3>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="section-content">
-                        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:15px;">
-                            ${topicsHtml}
-                        </div>
+                        <div class="topic-grid">${topics}</div>
                     </div>
-                </div>
-            `;
+                </div>`;
+        }
+        area.innerHTML = html;
+    }
+
+    // نشر التعديلات وإرسال تقرير للبوت
+    document.getElementById('publishBtn').onclick = function() {
+        const data = {
+            sections: document.getElementById('dynamicSections').innerHTML,
+            tree: document.getElementById('familyRoot').innerHTML,
+            gallery: document.getElementById('galGrid').innerHTML,
+            lastUpdate: new Date().toLocaleString()
+        };
+
+        set(ref(db, 'encyclopedia/data'), data).then(() => {
+            alert("تم الحفظ العالمي! جاري إرسال تقرير للمشرفين...");
+            sendToBot("تم تحديث محتوى الموسوعة بنجاح بواسطة المهندس أبو الحسن.");
+        });
+    };
+
+    function sendToBot(msg) {
+        BOT_TOKENS.forEach(token => {
+            fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent(msg)}`);
         });
     }
 
-    function toggleSec(header) {
-        const content = header.nextElementSibling;
-        content.classList.toggle('active');
-        header.querySelector('.fa-chevron-down').style.transform = content.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0)';
-    }
-
-    // شجرة العائلة
-    function addFamilyNode() {
-        const name = prompt("أدخل اسم الفرد الجديد:");
-        if(name) {
-            const root = document.querySelector('#familyRoot ul');
-            root.innerHTML += `<li><div class="node" contenteditable="true">${name}</div></li>`;
+    // تحميل البيانات تلقائياً
+    onValue(ref(db, 'encyclopedia/data'), (snapshot) => {
+        const d = snapshot.val();
+        if(d) {
+            document.getElementById('dynamicSections').innerHTML = d.sections;
+            document.getElementById('familyRoot').innerHTML = d.tree;
+            document.getElementById('galGrid').innerHTML = d.gallery;
+        } else {
+            initApp();
         }
-    }
+    });
 
-    // الصور
-    function handleImg(input) {
+    // معاينة الصور
+    window.previewImg = function(input) {
         if (input.files && input.files[0]) {
             const reader = new FileReader();
             reader.onload = e => {
-                const imgWrap = document.createElement('div');
-                imgWrap.style = "position:relative; border-radius:10px; overflow:hidden; height:120px;";
-                imgWrap.innerHTML = `<img src="${e.target.result}" style="width:100%; height:100%; object-fit:cover;">`;
-                document.getElementById('galGrid').appendChild(imgWrap);
+                const img = `<div style="height:100px; background:url(${e.target.result}) center/cover; border-radius:10px;"></div>`;
+                document.getElementById('galGrid').innerHTML += img;
             };
             reader.readAsDataURL(input.files[0]);
         }
     }
 
-    // التسجيل الصوتي
-    let recorder, chunks = [];
-    async function startRecording() {
-        const btn = document.getElementById('recordBtn');
-        if(!recorder || recorder.state === 'inactive') {
-            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-            recorder = new MediaRecorder(stream);
-            recorder.ondataavailable = e => chunks.push(e.data);
-            recorder.onstop = () => {
-                const blob = new Blob(chunks, { type: 'audio/ogg; codecs=opus' });
-                const url = URL.createObjectURL(blob);
-                const item = document.createElement('div');
-                item.style = "background:#f9f9f9; padding:10px; margin-top:10px; border-radius:10px; display:flex; align-items:center; gap:10px;";
-                item.innerHTML = `<audio src="${url}" controls style="height:30px; flex:1;"></audio>`;
-                document.getElementById('audioList').prepend(item);
-                chunks = [];
-            };
-            recorder.start();
-            btn.innerHTML = "إيقاف التسجيل الجاري...";
-            btn.classList.add('recording');
-        } else {
-            recorder.stop();
-            btn.innerHTML = "بدء تسجيل مباشر";
-            btn.classList.remove('recording');
-        }
-    }
-
-    window.onload = initEncyclopedia;
+    // قفل التعديل
+    document.getElementById('lockBtn').onclick = function() {
+        const edits = document.querySelectorAll('[contenteditable="true"]');
+        edits.forEach(e => e.contentEditable = e.contentEditable === "true" ? "false" : "true");
+        this.innerHTML = edits[0].contentEditable === "true" ? '<i class="fas fa-lock"></i> قفل التعديل' : '<i class="fas fa-unlock"></i> فتح التعديل';
+    };
 </script>
 
 </body>
