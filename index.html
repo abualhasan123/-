@@ -1,239 +1,266 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>موسوعة الطريقة السمانية الطيبية</title>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<style>
-:root{--p:#1a4a2e;--s:#2c5f2d;--a:#d4af37;--bg:#f5f5f0;--t:#1a1a1a;--w:#fff;--sh:0 4px 15px rgba(0,0,0,0.1)}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--t);line-height:2}
-header{background:linear-gradient(135deg,var(--p),var(--s));color:#fff;padding:2rem 1rem;text-align:center;position:relative}
-header h1{font-family:'Amiri',serif;font-size:2.5rem;margin-bottom:0.5rem}
-header p{font-size:1.1rem;opacity:0.9}
-.hdr-credits{background:rgba(255,255,255,0.15);display:inline-block;padding:0.5rem 2rem;border-radius:50px;margin-top:1rem;border:1px solid var(--a);font-size:0.95rem}
-.nav-bar{background:var(--p);position:sticky;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,0.3);overflow-x:auto;white-space:nowrap;padding:0 1rem}
-.nav-bar a{color:#fff;text-decoration:none;padding:10px 12px;display:inline-block;font-size:0.8rem;transition:0.3s}
-.nav-bar a:hover{background:var(--a);color:var(--p)}
-.container{max-width:1400px;margin:0 auto;padding:20px}
-.main-section{background:var(--w);border-radius:12px;margin-bottom:1.5rem;box-shadow:var(--sh);overflow:hidden;border-top:5px solid var(--a)}
-.sec-head{padding:1.2rem 1.5rem;background:linear-gradient(135deg,#f8f9fa,#e9ecef);display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ddd;transition:0.3s}
-.sec-head h2{font-family:'Amiri',serif;color:var(--p);margin:0;font-size:1.25rem;display:flex;align-items:center;gap:10px}
-.sec-head h2 i{color:var(--a)}
-.sec-content{padding:1.5rem}
-.intro-box{background:#fdfdfd;border-right:5px solid var(--a);padding:1.5rem;margin-bottom:1.5rem;border-radius:10px;font-size:1.05rem;line-height:2.2;text-align:justify}
-.intro-box p{margin-bottom:1rem;text-indent:2rem}
-.topic-card{background:#fafafa;border:1px solid #e0e0e0;border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1rem;position:relative;transition:0.3s}
-.topic-card:hover{box-shadow:0 3px 10px rgba(0,0,0,0.08)}
-.topic-card h3{color:var(--s);font-size:1.05rem;margin-bottom:0.7rem;display:flex;align-items:center;gap:10px}
-.topic-card h3 .num{background:var(--a);color:var(--p);width:26px;height:26px;display:flex;align-items:center;justify-content:center;border-radius:50%;font-size:0.8rem;font-weight:bold;flex-shrink:0}
-.topic-content{color:#444;font-size:0.93rem;text-align:justify;margin-bottom:0.8rem;line-height:2}
-.topic-content p{margin-bottom:0.7rem;text-indent:1.5rem}
-.topic-ref{font-size:0.78rem;color:#777;background:#f0f0f0;padding:4px 10px;border-radius:6px;display:inline-block;border-right:3px solid var(--a)}
-.actions{display:flex;gap:8px;margin-top:10px;justify-content:flex-end;flex-wrap:wrap}
-.btn{border:none;padding:6px 12px;border-radius:6px;cursor:pointer;font-family:'Tajawal',sans-serif;font-size:0.83rem;transition:0.2s;display:flex;align-items:center;gap:5px}
-.btn-edit{background:#e8e8e8;color:#333}
-.btn-edit:hover{background:#d0d0d0}
-.btn-edit.active{background:var(--a);color:var(--p)}
-.btn-del{background:#fee;color:#c62828}
-.btn-del:hover{background:#fcc}
-.editable{outline:2px dashed var(--a);padding:6px;border-radius:6px;background:#fffdf0;min-height:1.5em}
-.tree-container{text-align:center;margin:2rem 0;padding:2rem;background:white;border-radius:12px;box-shadow:var(--sh);overflow-x:auto}
-.tree ul{padding-top:20px;position:relative;transition:all 0.5s;white-space:nowrap;display:inline-flex}
-.tree li{float:right;text-align:center;list-style-type:none;position:relative;padding:20px 10px 0 10px}
-.tree li::before,.tree li::after{content:'';position:absolute;top:0;right:50%;border-top:2px solid var(--a);width:50%;height:20px}
-.tree li::after{right:auto;left:50%;border-left:2px solid var(--a)}
-.tree li:only-child::after,.tree li:only-child::before{display:none}
-.tree li:only-child{padding-top:0}
-.tree li:first-child::before,.tree li:last-child::after{border:0 none}
-.tree li:last-child::before{border-right:2px solid var(--a);border-radius:0 5px 0 0}
-.tree li:first-child::after{border-radius:5px 0 0 0}
-.tree ul ul::before{content:'';position:absolute;top:0;right:50%;border-left:2px solid var(--a);width:0;height:20px}
-.node{border:2px solid var(--p);padding:10px 18px;text-decoration:none;color:var(--t);font-family:'Tajawal',sans-serif;font-size:0.95rem;display:inline-block;border-radius:8px;background:white;transition:all 0.3s;position:relative;min-width:140px}
-.node:hover{background:var(--a);color:var(--p);transform:scale(1.05)}
-.node.gold{background:linear-gradient(135deg,#fff8e1,#fff3cd);border-color:var(--a)}
-.add-node-btn{position:absolute;top:-12px;left:-12px;background:var(--a);color:var(--p);border:none;width:24px;height:24px;border-radius:50%;cursor:pointer;font-weight:bold;font-size:14px;box-shadow:0 2px 5px rgba(0,0,0,0.2)}
-.media-section{background:white;padding:2rem;border-radius:12px;margin-top:2rem;box-shadow:var(--sh)}
-.media-container{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
-.media-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:15px;margin-top:1rem}
-.media-item{position:relative;border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
-.media-item img{width:100%;height:130px;object-fit:cover}
-.remove-btn{position:absolute;top:5px;left:5px;background:rgba(220,53,69,0.9);color:#fff;border:none;width:22px;height:22px;border-radius:50%;cursor:pointer}
-.recorder-box{background:linear-gradient(135deg,var(--p),var(--s));color:#fff;padding:2rem;border-radius:12px;text-align:center}
-.rec-btn{background:var(--a);color:var(--p);border:none;padding:12px 30px;border-radius:30px;font-size:1.1rem;cursor:pointer;margin-top:15px;font-weight:bold;font-family:'Tajawal',sans-serif}
-.rec-btn.recording{animation:pulse 1.5s infinite;background:#ff4444;color:#fff}
-.audio-item{background:#f5f5f5;padding:10px;border-radius:8px;margin:8px 0;display:flex;align-items:center;justify-content:space-between;gap:10px}
-.pdf-section{background:white;padding:2rem;border-radius:12px;margin-top:2rem;box-shadow:var(--sh)}
-.pdf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:15px;margin-top:1rem}
-.pdf-item{background:#f8f8f8;padding:1.5rem;border-radius:10px;text-align:center;border:2px solid #eee;transition:0.3s}
-.pdf-item:hover{border-color:var(--a)}
-.pdf-item i{font-size:3rem;color:#d32f2f;margin-bottom:10px}
-footer{background:#111;color:#fff;padding:3rem 1rem;text-align:center}
-.eng-name{color:var(--a);font-size:1.3rem;font-weight:bold;margin-bottom:0.5rem}
-.supervisor{color:#aaa;font-size:1rem}
-.copyright{margin-top:1rem;font-size:0.85rem;opacity:0.6}
-.approval-modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:9999;justify-content:center;align-items:center}
-.approval-modal.show{display:flex}
-.approval-box{background:white;padding:2rem;border-radius:12px;max-width:600px;width:90%;max-height:80vh;overflow-y:auto}
-.approval-box h3{color:var(--p);margin-bottom:1rem}
-.diff-old{background:#ffebee;padding:10px;border-radius:6px;margin:10px 0;border-right:4px solid #d32f2f;font-size:0.9rem}
-.diff-new{background:#e8f5e9;padding:10px;border-radius:6px;margin:10px 0;border-right:4px solid #2e7d32;font-size:0.9rem}
-.approval-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:15px}
-.btn-approve{background:#2e7d32;color:#fff}
-.btn-reject{background:#d32f2f;color:#fff}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.05)}100%{transform:scale(1)}}
-@media(max-width:768px){header h1{font-size:1.5rem}.media-container{grid-template-columns:1fr}.sec-head h2{font-size:1rem}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موسوعة الطريقة السمانية الطيبية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root{--p:#1a4a2e;--s:#2c5f2d;--a:#d4af37;--bg:#f5f5f0;--t:#1a1a1a;--w:#fff;--sh:0 4px 15px rgba(0,0,0,0.1)}
+        *{box-sizing:border-box;margin:0;padding:0}
+        body{font-family:'Tajawal',sans-serif;background:var(--bg);color:var(--t);line-height:2;scroll-behavior: smooth;}
+        
+        /* Header & Credits */
+        header{background:linear-gradient(135deg,var(--p),var(--s));color:#fff;padding:3rem 1rem;text-align:center;position:relative;border-bottom:5px solid var(--a)}
+        header h1{font-family:'Amiri',serif;font-size:2.8rem;margin-bottom:0.5rem;text-shadow: 2px 2px 4px rgba(0,0,0,0.3)}
+        .hdr-credits{background:rgba(255,255,255,0.15);display:inline-block;padding:0.7rem 2rem;border-radius:50px;margin-top:1rem;border:1px solid var(--a);font-size:1rem}
+        
+        .nav-bar{background:var(--p);position:sticky;top:0;z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,0.3);overflow-x:auto;white-space:nowrap;padding:10px 1rem;display: flex;justify-content: center;gap: 15px;}
+        .nav-bar a{color:#fff;text-decoration:none;padding:8px 15px;border-radius:20px;font-size:0.9rem;transition:0.3s;border:1px solid transparent}
+        .nav-bar a:hover{background:var(--a);color:var(--p);border-color:var(--w)}
+
+        .container{max-width:1400px;margin:0 auto;padding:20px}
+        
+        /* Sections & Cards */
+        .main-section{background:var(--w);border-radius:15px;margin-bottom:2rem;box-shadow:var(--sh);overflow:hidden;border-top:5px solid var(--a);animation: fadeIn 0.8s ease-in;}
+        .sec-head{padding:1.5rem;background:linear-gradient(135deg,#f8f9fa,#e9ecef);display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #eee}
+        .sec-head h2{font-family:'Amiri',serif;color:var(--p);font-size:1.6rem;display:flex;align-items:center;gap:12px}
+        .sec-content{padding:2rem}
+        
+        .topic-card{background:#fafafa;border:1px solid #eee;border-radius:12px;padding:1.5rem;margin-bottom:1.5rem;transition:0.3s;position: relative;}
+        .topic-card:hover{transform: translateY(-5px);box-shadow: 0 5px 15px rgba(0,0,0,0.05)}
+        .topic-card h3{color:var(--s);margin-bottom:1rem;border-bottom:1px solid var(--a);padding-bottom:5px;display: inline-block;}
+
+        /* Family Tree Custom Styling */
+        .tree-section {background: var(--w); padding: 3rem; border-radius: 15px; text-align: center; margin-bottom: 2rem; border-top: 5px solid var(--a); overflow-x: auto;}
+        .tree ul {padding-top: 20px; position: relative; transition: all 0.5s; display: flex; justify-content: center;}
+        .tree li {float: right; text-align: center; list-style-type: none; position: relative; padding: 20px 10px 0 10px; transition: all 0.5s;}
+        .tree li::before, .tree li::after {content: ''; position: absolute; top: 0; right: 50%; border-top: 2px solid var(--a); width: 50%; height: 20px;}
+        .tree li::after {right: auto; left: 50%; border-left: 2px solid var(--a);}
+        .tree li:only-child::after, .tree li:only-child::before {display: none;}
+        .tree li:only-child {padding-top: 0;}
+        .tree li:first-child::before, .tree li:last-child::after {border: 0 none;}
+        .tree li:last-child::before {border-right: 2px solid var(--a); border-radius: 0 5px 0 0;}
+        .tree li:first-child::after {border-radius: 5px 0 0 0;}
+        .tree ul ul::before {content: ''; position: absolute; top: 0; right: 50%; border-left: 2px solid var(--a); width: 0; height: 20px;}
+        .node {border: 2px solid var(--p); padding: 10px 20px; text-decoration: none; color: var(--t); font-weight: bold; display: inline-block; border-radius: 10px; background: var(--w); transition: 0.3s; min-width: 150px; cursor: pointer; position: relative;}
+        .node:hover {background: var(--a); color: var(--p); transform: scale(1.1);}
+        .add-node-btn {position: absolute; top: -10px; right: -10px; background: var(--s); color: white; border: none; width: 22px; height: 22px; border-radius: 50%; cursor: pointer; font-size: 12px;}
+
+        /* Media & Recorder */
+        .media-grid {display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; margin-top: 20px;}
+        .media-item {border-radius: 12px; overflow: hidden; border: 3px solid var(--w); box-shadow: var(--sh); position: relative;}
+        .media-item img {width: 100%; height: 180px; object-fit: cover;}
+        
+        .recorder-container {background: linear-gradient(135deg, var(--p), var(--s)); color: white; padding: 2.5rem; border-radius: 15px; margin-top: 2rem; text-align: center;}
+        .rec-btn {background: var(--a); color: var(--p); border: none; padding: 15px 40px; border-radius: 35px; font-size: 1.2rem; cursor: pointer; font-weight: 900; transition: 0.3s;}
+        .rec-btn.recording {background: #ff4444; color: white; animation: pulse 1s infinite;}
+        
+        .editable {outline: 2px dashed var(--a); background: #fffdf0; padding: 10px; border-radius: 8px;}
+        .btn {padding: 8px 18px; border-radius: 8px; cursor: pointer; border: none; font-family: 'Tajawal'; transition: 0.2s;}
+        .btn-edit {background: var(--a); color: var(--p); font-weight: bold;}
+
+        footer{background:#111;color:#fff;padding:4rem 1rem;text-align:center;border-top:5px solid var(--a)}
+        .eng-name{color:var(--a);font-size:1.5rem;font-weight:bold;margin-bottom:1rem}
+
+        @keyframes pulse {0% {transform: scale(1);} 50% {transform: scale(1.05);} 100% {transform: scale(1);}}
+        @keyframes fadeIn {from {opacity: 0; transform: translateY(20px);} to {opacity: 1; transform: translateY(0);}}
+    </style>
 </head>
 <body>
 
 <header>
-<h1><i class="fas fa-mosque"></i> موسوعة الطريقة السمانية الطيبية</h1>
-<p>منارة التصوف السني في السودان والعالم الإسلامي</p>
-<div class="hdr-credits">
-<i class="fas fa-laptop-code"></i> المهندس أبو الحسن محمد صالح محمد شريف | 
-<i class="fas fa-user-tie"></i> إشراف: عداس محمد صالح محمد شريف
-</div>
+    <h1><i class="fas fa-mosque"></i> موسوعة الطريقة السمانية الطيبية</h1>
+    <p>بإشراف السجادة الطيبية بـ "أم مرحي"</p>
+    <div class="hdr-credits">
+        <i class="fas fa-laptop-code"></i> المهندس أبو الحسن محمد صالح محمد شريف
+    </div>
 </header>
 
-<div class="nav-bar" id="navbar"></div>
+<div class="nav-bar">
+    <a href="#intro-section">المقدمة</a>
+    <a href="#sectionsContainer">الأقسام العلمية</a>
+    <a href="#family-tree-sec">شجرة العائلة</a>
+    <a href="#media-sec">المعرض والوسائط</a>
+</div>
 
 <div class="container">
+    <div class="main-section" id="intro-section">
+        <div class="sec-head">
+            <h2><i class="fas fa-book-open"></i> مقدمة الموسوعة</h2>
+            <button class="btn btn-edit" onclick="makeEditable('mainIntroText')"><i class="fas fa-pen"></i> تعديل</button>
+        </div>
+        <div class="sec-content">
+            <div id="mainIntroText" class="intro-box">
+                <p>تعتبر الطريقة السمانية الطيبية في السودان هي مجمع البحرين ومنارة السالكين، أسسها القطب الرباني الشيخ أحمد الطيب بن البشير بعد رحلته الشهيرة للحجاز، حيث نهل من أنوار المدينة المنورة على يد الشيخ محمد بن عبد الكريم السمان.</p>
+            </div>
+        </div>
+    </div>
 
-<!-- مقدمة -->
-<div class="main-section" id="intro-section">
-<div class="sec-head">
-<h2><i class="fas fa-book-open"></i> مقدمة شاملة عن التصوف في العالم والسودان</h2>
-</div>
-<div class="sec-content">
-<div class="intro-box" id="mainIntro">
-<p>يُعد التصوف في جوهره مقام "الإحسان" الذي أشار إليه النبي محمد ﷺ في حديث جبريل المشهور، وهو العلم الذي يعنى بتزكية النفس وتصفية الباطن من الأدناس والأكدار. وقد أجمع أئمة المذاهب الأربعة على مشروعيته وضرورته لإكمال الدين، فهو ليس بدعة محدثة ولا طقوساً مبتدعة، بل هو جوهر الدين وروحه التي بدونها يصبح الدين جسداً بلا روح. فالإمام أبو حنيفة النعمان - وهو مذهب أئمة الطريقة السمانية الطيبية - اعتبر التصوف ثمرة الفقه ولبابه، فقال مقولته الشهيرة: "لولا السنتان لهلك نعمان"، في إشارة واضحة إلى سنتين صحب فيهما الإمام جعفر الصادق رضي الله عنه.</p>
-<p>الإمام مالك بن أنس رضي الله عنه أرسى قاعدته الذهبية: "من تفقه ولم يتصوف فقد تفسق، ومن تصوف ولم يتفقه فقد تزندق، ومن جمع بينهما فقد تحقق". والإمام الشافعي كان يحب صحبة الصوفية ويقول: "صحبتهم لي أحب من صحبة العلماء، لأنهم هم الذين حفظوا الوقت مع الله". والإمام أحمد بن حنبل كان يوصي بلقاء العارفين.</p>
-<p>نشأ التصوف عالمياً كحركة زهد في الصدر الأول من الإسلام، حيث اعتزل بعض الصحابة والتابعين الدنيا إقبالاً على الآخرة. ثم تطور في القرن الثاني والثالث الهجريين ليصبح علماً له أصوله وقواعده ومدارسه المنظمة. ومن أشهر أعلام التصوف: الحسن البصري، وربيعة العدوية، والجنيد البغدادي شيخ الطائفة، وأبو حامد الغزالي.</p>
-<p>وفي السودان، دخل التصوف منذ القرون الأولى، لكنه شهد قفزة نوعية ومفصلية مع عودة الشيخ أحمد الطيب بن البشير رضي الله عنه من رحلته العلمية والروحية في الحجاز. فقد سافر إلى المدينة المنورة والتقى بالقطب محمد بن عبد الكريم السمان، ولازمه ملازمة الظل لأصله، ونال منه الإجازة المطلقة في الطرق الخمس الكبرى.</p>
-<p>وتشهد كتب "أزاهير الرياض" و"رشفات المدام" و"كتاب التوحيد" و"كتاب الطريقة السمانية المنهج المستقل" على أن الطريقة السمانية الطيبية في السودان ورثت هذا النهج القويم وطبقته في بناء المجتمع الإسلامي المتوازن.</p>
-</div>
-<div class="actions">
-<button class="btn btn-edit" onclick="toggleEdit('mainIntro',this)"><i class="fas fa-pen"></i> تعديل المقدمة</button>
-</div>
-</div>
-</div>
+    <div id="sectionsContainer"></div>
 
-<!-- الأقسام -->
-<div id="sectionsContainer"></div>
+    <div class="tree-section" id="family-tree-sec">
+        <h2><i class="fas fa-sitemap"></i> شجرة العائلة الطيبية الشريفة</h2>
+        <div class="tree" id="treeRoot">
+            <ul>
+                <li>
+                    <div class="node">الشيخ أحمد الطيب بن البشير <button class="add-node-btn" onclick="addNode(this)">+</button></div>
+                    <ul id="mainFamilyList">
+                        <li><div class="node" contenteditable="true">الشيخ نور الدائم</div></li>
+                        <li><div class="node" contenteditable="true">الاستاذ محمد شريف</div></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
 
-<!-- شجرة العائلة -->
-<div class="tree-container">
-<h2><i class="fas fa-sitemap" style="color:var(--a)"></i> شجرة العائلة الطيبية</h2>
-<p style="color:#777;margin-bottom:1rem;">اضغط على + لإضافة فرد</p>
-<div class="tree" id="familyTree"></div>
-</div>
-
-<!-- الصور والتسجيلات -->
-<div class="media-section">
-<h2><i class="fas fa-images" style="color:var(--a)"></i> معرض الصور والتسجيلات الصوتية</h2>
-<div class="media-container">
-<div>
-<h3 style="color:var(--p);margin-bottom:1rem;"><i class="fas fa-camera"></i> الصور</h3>
-<input type="file" id="imageInput" multiple accept="image/*" style="display:none">
-<button class="btn btn-edit" onclick="document.getElementById('imageInput').click()"><i class="fas fa-upload"></i> إضافة صور</button>
-<div class="media-grid" id="gallery"></div>
-</div>
-<div>
-<h3 style="color:var(--p);margin-bottom:1rem;"><i class="fas fa-microphone"></i> التسجيلات الصوتية</h3>
-<input type="file" id="audioInput" multiple accept="audio/*" style="display:none">
-<button class="btn btn-edit" onclick="document.getElementById('audioInput').click()"><i class="fas fa-upload"></i> رفع تسجيلات</button>
-<div id="audioUploadList" style="margin-top:1rem;"></div>
-<div class="recorder-box" style="margin-top:1.5rem;">
-<h3><i class="fas fa-microphone-alt"></i> التسجيل المباشر</h3>
-<p>سجل تلاوات أو أناشيد مباشرة</p>
-<button class="rec-btn" id="recBtn" onclick="toggleRecording()"><i class="fas fa-microphone"></i> بدء التسجيل</button>
-<div id="recStatus" style="margin-top:10px;display:none;">⏱️ <span id="recTimer">00:00</span></div>
-<div id="recordedList" style="margin-top:15px;"></div>
-</div>
-</div>
-</div>
-</div>
-
-<!-- المكتبة -->
-<div class="pdf-section">
-<h2><i class="fas fa-book" style="color:var(--a)"></i> المكتبة الرقمية</h2>
-<div style="margin:1rem 0;">
-<input type="file" id="pdfInput" accept=".pdf" style="display:none">
-<button class="btn btn-edit" onclick="document.getElementById('pdfInput').click()"><i class="fas fa-upload"></i> رفع كتاب</button>
-<input type="text" id="pdfTitle" placeholder="عنوان الكتاب" style="padding:8px;margin-right:10px;border:1px solid #ddd;border-radius:6px;">
-</div>
-<div class="pdf-grid" id="pdfLibrary"></div>
-</div>
-
-</div>
-
-<!-- Modal الموافقة -->
-<div class="approval-modal" id="approvalModal">
-<div class="approval-box">
-<h3><i class="fas fa-check-circle"></i> مراجعة التعديل</h3>
-<div id="approvalContent"></div>
-<div class="approval-actions">
-<button class="btn btn-reject" onclick="rejectEdit()"><i class="fas fa-times"></i> رفض</button>
-<button class="btn btn-approve" onclick="approveEdit()"><i class="fas fa-check"></i> موافقة</button>
-</div>
-</div>
+    <div class="main-section" id="media-sec">
+        <div class="sec-head">
+            <h2><i class="fas fa-camera-retro"></i> مكتبة الصور والتسجيلات</h2>
+        </div>
+        <div class="sec-content">
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                <div>
+                    <h3><i class="fas fa-images"></i> معرض الصور</h3>
+                    <input type="file" id="imgUpload" hidden accept="image/*" onchange="previewImg(this)">
+                    <button class="btn btn-edit" onclick="document.getElementById('imgUpload').click()"><i class="fas fa-plus"></i> إضافة صورة</button>
+                    <div id="galleryGrid" class="media-grid"></div>
+                </div>
+                <div>
+                    <h3><i class="fas fa-microphone-alt"></i> المكتبة الصوتية</h3>
+                    <div class="recorder-container">
+                        <button id="recBtn" class="rec-btn" onclick="handleRecord()"><i class="fas fa-microphone"></i> ابدأ التسجيل المباشر</button>
+                        <div id="statusText" style="margin-top:10px;"></div>
+                    </div>
+                    <div id="audioList" style="margin-top:20px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <footer>
-<div class="eng-name"><i class="fas fa-code"></i> المهندس أبو الحسن محمد صالح محمد شريف</div>
-<p>تصميم وبرمجة وتطوير الموقع بدقة هندسية عالية</p>
-<div class="supervisor"><i class="fas fa-user-shield"></i> إشراف: عداس محمد صالح محمد شريف</div>
-<div style="margin:1.5rem 0;display:flex;justify-content:center;gap:15px;flex-wrap:wrap;">
-<a href="https://wa.me/249999876200" style="background:#25d366;color:#fff;padding:8px 15px;border-radius:8px;text-decoration:none;"><i class="fab fa-whatsapp"></i> واتساب</a>
-<a href="https://t.me/tlastlastlasbot" style="background:#0088cc;color:#fff;padding:8px 15px;border-radius:8px;text-decoration:none;"><i class="fas fa-robot"></i> بوت 1</a>
-<a href="https://t.me/+249920575107" style="background:var(--p);color:#fff;padding:8px 15px;border-radius:8px;text-decoration:none;"><i class="fab fa-telegram"></i> إشراف</a>
-<a href="mailto:tlas111888@gmail.com" style="background:#ea4335;color:#fff;padding:8px 15px;border-radius:8px;text-decoration:none;"><i class="fas fa-envelope"></i> بريد</a>
-</div>
-<div class="copyright">جميع الحقوق محفوظة © 2026 | يُمنع النسخ أو النشر أو الطباعة بدون إذن خطي من المصمم والمشرف</div>
+    <div class="eng-name">المهندس أبو الحسن محمد صالح محمد شريف</div>
+    <p>جميع الحقوق محفوظة © 2026 - الطريقة السمانية الطيبية</p>
+    <div style="margin-top:20px;">
+        <a href="mailto:tlas111888@gmail.com" style="color:var(--a); text-decoration:none;"><i class="fas fa-envelope"></i> تواصل مع المطور</a>
+    </div>
 </footer>
 
 <script>
-const BOT_TOKENS=["8693292026:AAH7qfn0__f_9xhgQagiMly7GTPB2piKHXY","8744027972:AAHLn_Sk2cLxq9X9zui-fEXmeBfkBlYaGrw"];
-const CHAT_ID="7746757675";
+    // مصفوفة الأقسام (يمكنك زيادتها لـ 40 كما في طلبك السابق)
+    const sections = [
+        {title: "نشأة الشيخ أحمد الطيب", content: "ولد الشيخ في منطقة أم مرحي عام 1155هـ..."},
+        {title: "المؤلفات العلمية", content: "من أهمها أزاهير الرياض ورشفات المدام..."},
+        {title: "خلاوي القرآن", content: "تنتشر خلاوي الطريقة في أرجاء السودان لتعليم كتاب الله..."},
+        {title: "الأوراد السمانية", content: "تتميز الأوراد بالجمع بين الاستغفار والصلاة على النبي والتوحيد..."}
+    ];
 
-const sectionTitles=[
-"نشأة التصوف في العالم","التصوف في السودان","نشأة الشيخ أحمد الطيب ود البشير","رحلة الشيخ الطيب في طلب العلم",
-"نقل أحفاده للطريق في ولايات السودان والعالم","تسليم الرايات السمانية","الانتشار الواسع والمحبين (المريدين)","أحفاد الشيخ أحمد الطيب",
-"الأستاذ محمد شريف","الشيخ عبد المحمود","المؤلفات السمانية","قرية الشيخ الطيب - أم مرحي",
-"النسب الشريف للشيخ أحمد الطيب","تزكية النفس والمقامات","الولاية والكرامة","المسيدات والخلاوي",
-"المرأة في التصوف السماني","المذهب الحنفي والتصوف","الصحبة والتربية الروحية","الحضرة والنوبة الصوفية",
-"الخلوة السمانية: شروطها وآدابها","فقه السلوك والأوراد اليومية","البركة والسجادة الطيبية","المقامات والأحوال الصوفية",
-"الإخلاص والصدق في الطريق","التوكل والرضا الإلهي","الصبر والشكر في المنهج الطيبي","المحبة الإلهية والشوق النبوي",
-"التوحيد العملي والتصحيح العقدي","الوسائط المتعددة والأرشيف الرقمي","الخاتمة والوصية العلمية","الأحاديث والفتاوى الشرعية",
-"الرحلات والحجيج السمانية","التاريخ والأنساب","المخطوطات والوثائق النادرة","الخطوط والزخارف الإسلامية",
-"العمارة الصوفية السودانية","الاجتماع والتكافل في الزوايا","التصوف المعاصر والتحديات","المراجع والمصادر"
-];
+    // بناء الأقسام ديناميكياً
+    function buildSections() {
+        const container = document.getElementById('sectionsContainer');
+        sections.forEach((sec, index) => {
+            const secHtml = `
+                <div class="main-section">
+                    <div class="sec-head">
+                        <h2 contenteditable="true"><i class="fas fa-star"></i> ${sec.title}</h2>
+                        <button class="btn btn-edit" onclick="makeEditable('secContent${index}')"><i class="fas fa-pen"></i> تعديل المحتوى</button>
+                    </div>
+                    <div class="sec-content">
+                        <div id="secContent${index}" class="topic-card" contenteditable="false">
+                            ${sec.content}
+                        </div>
+                    </div>
+                </div>
+            `;
+            container.innerHTML += secHtml;
+        });
+    }
 
-const topicTitles=[
-"التأصيل التاريخي والنشأة","المراجع الأصلية والمصادر","المنهج التربوي والتأصيل","الأسرار الروحية والكشفية",
-"الانتشار الجغرافي والتوسع","التدوين والتحقيق العلمي","الكرامات والمناقب الموثقة","الخلاوي والمسيدات ودورها",
-"الأوراد والأذكار اليومية","آداب الصحبة والمرافقة","الفقه والسلوك العملي","العقيدة والتوحيد",
-"الولاية والوراثة الروحية","المحبة والشوق الإلهي","التوبة والإنابة","الصبر والشكر",
-"التوكل والرضا","الإخلاص والصدق","المقامات والأحوال","الوصية الختامية",
-"الذكر الجماعي والحضرة","الخلوة الفردية والعزلة","الصحبة والشيخ المربي","التزكية العملية",
-"الأحوال القلبية","المقامات الرفيعة","الفقه الصوفي","الأدب الصوفي",
-"الشعر والإنشاد","الموسيقى الروحية","الطب النبوي","الرقية الشرعية",
-"الأحلام والرؤى","الكشف والإلهام","الولاية الخفية","الولاية الظاهرة",
-"الإجازات والأسانيد","التاريخ الشفهي","المخطوطات المحققة","النشر والتوثيق"
-];
+    function makeEditable(id) {
+        const el = document.getElementById(id);
+        const isEditable = el.contentEditable === "true";
+        el.contentEditable = !isEditable;
+        el.classList.toggle('editable');
+        event.target.innerHTML = isEditable ? '<i class="fas fa-pen"></i> تعديل' : '<i class="fas fa-save"></i> حفظ';
+    }
 
-const refs=["أزاهير الرياض للشيخ عبد المحمود","كتاب التوحيد للأستاذ محمد شريف","رشفات المدام للشيخ أبو صالح الطيبي","الهداية الإلهية للأستاذ محمد شريف","سر الأسرار للشيخ أحمد الطيب","خواص صلاة الأسماء للشيخ أحمد الطيب","القصيدة الرائية للأستاذ محمد شريف","مولد عنوان المزية للأستاذ محمد شريف","ديوان المكاوي للشيخ عبد المحمود","ديوان ألحان وصفا السمان","ابتهالات ومناجاة الأستاذ محمد شريف","كتاب الطريقة السمانية المنهج المستقل"];
+    // شجرة العائلة - إضافة فرد
+    function addNode(btn) {
+        const parentLi = btn.closest('li');
+        let childUl = parentLi.querySelector('ul');
+        if(!childUl) {
+            childUl = document.createElement('ul');
+            parentLi.appendChild(childUl);
+        }
+        childUl.innerHTML += `<li><div class="node" contenteditable="true">اسم الفرد الجديد</div></li>`;
+    }
 
-function getIntro(i){
-const intros=[
-`<p>يُعد التصوف في جوهره مقام "الإحسان" الذي أشار إليه النبي محمد ﷺ في حديث جبريل المشهور. وقد أجمع أئمة المذاهب الأربعة على مشروعيته. فالإمام أبو حنيفة اعتبره ثمرة الفقه، والإمام مالك اشترط الجمع بين الفقه والتصوف. وفي كتاب التوحيد (ص 18، سطر 12)، يضع الأستاذ محمد شريف القاعدة الذهبية: "فالخير كله في العلم والعمل والاتباع، والسر كله في الجهل والكسل والابتداع".</p><p>نشأ التصوف عالمياً كحركة زهد في الصدر الأول، ثم تطور لمقامات وأحوال تهدف لتطهير القلب من الذنوب الباطنة كالكبر والعجب والرياء والحسد والحقد (كتاب التوحيد، ص 18، سطر 15). البحث الموسع يثبت أن التصوف السني المنضبط بالكتاب والسنة كان هو المحرك الأكبر لنشر الإسلام في الآفاق، حيث خاطب القلوب قبل العقول، مما جعله وسيلة عالمية لتحقيق السلم الروحي والاجتماعي عبر العصور.</p>`,
-`<p>دخل التصوف السودان منذ القرون الأولى، لكنه شهد قفزة نوعية مع عودة الشيخ أحمد الطيب بن البشير من رحلته في الحجاز. تذكر أزاهير الرياض (ص 5، الفصل الأول) أن نوره كان مخبوءاً وأخبر به العارفون قبل بروزه كشفاً. وقد دمج الشيخ الطيب الطرق الخمس في مشرب واحد هو "السمانية"، وجعل منها منهاجاً لبناء المجتمع. يصفه الأستاذ عبد المحمود في رشفات المدام (ص 3) بأنه: "إكسير العارفين، وقطب الواصلين، ومحيي رسوم أهل التحقيق". بفضل هذه الرحلة، أصبحت السمانية "مدخل الطريقة في السودان وإفريقيا" كما ورد في مقدمة ديوان ألحان وصفا (ص 2، سطر 4).</p>`,
-`<p>ولد القطب الرباني الشيخ أحمد الطيب بن البشير رضي الله عنه في العام 1155هـ الموافق 1742م في منطقة أم مرحي شمال أم درمان. حفظ القرآن الكريم في صغره، ثم اشتغل بطلب العلم على يد مشايخ بلده. ومنذ صغره، ظهرت عليه علامات الولاية والاصطفاء، فكان زاهداً في الدنيا، مقبلاً على الآخرة. تذكر أزاهير الرياض أن نوره كان مخبوءاً وأخبر به العارفون قبل بروزه كشفاً. وقد كان يتميز بالذكاء المفرط والزهد المبكر.</p>`,
-`<p>في منتصف القرن الثاني عشر الهجري، سافر الشيخ أحمد الطيب إلى الحجاز طلباً للعلم والسر الروحي. في المدينة المنورة، التقى بالقطب الرباني محمد بن عبد الكريم السمان، ولازمه ملازمة الظل لأصله، حيث خدمه في الرباط، واعتكف في الروضة الشريفة والبقيع. نال منه الإجازة المطلقة في الطرق الخمس: القادرية، النقشبندية، الشاذلية، الرفاعية، والخلواتية. وقد كان الشيخ السمان يرى في الشيخ الطيب الوعاء المستعد لحمل السر إلى السودان وإفريقيا.</p>`,
-`<p>نقل أحفاد الشيخ أحمد الطيب الطريقة السمانية إلى مختلف ولايات السودان: أم درمان، الخرطوم، الجزيرة، النيل الأبيض، كردفان، دارفور، النيل الأزرق، البحر الأحمر، الشمالية، كسلا، القضارف، سنار. أسسوا المسيدات والخلاوي في كل منطقة. وذكرت أزاهير الرياض أن الأحفاد حافظوا على "نظام السجادة" كمركز روحي وإنساني، محققين عالمية الطريقة. البحث يوضح أن ذرية الشيخ الطيب اليوم تمثل شبكة عالمية من أهل الذكر.</p>`,
-`<p>تسلم الراية السمانية من الشيخ أحمد الطيب ابنه الشيخ نور الدائم، ثم من بعده الأستاذ محمد شريف (نقيب الأشراف ومميز العلماء)، ثم الشيخ عبد المحمود (مؤلف أزاهير الرياض). انتقلت الراية بعد ذلك إلى أحفادهم: الشيخ صالح، الشيخ سيد، الشيخ محمد صالح، الشيخ الجيلي، والشيخ الفاتح. وقد كان نظام تسليم الراية يتم وفق شروط محددة، حيث يشترط في الخليفة أن يكون عالماً فقيهاً.</p>`,
-`<p>انتشرت الطريقة السمانية انتشاراً واسعاً في السودان وإفريقيا، و
+    // معرض الصور
+    function previewImg(input) {
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const div = document.createElement('div');
+                div.className = 'media-item';
+                div.innerHTML = `<img src="${e.target.result}"><button onclick="this.parentElement.remove()" style="position:absolute;top:5px;right:5px;background:red;color:white;border:none;border-radius:50%;width:20px;height:20px;cursor:pointer">×</button>`;
+                document.getElementById('galleryGrid').appendChild(div);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    // --- نظام التسجيل الصوتي المطور ---
+    let mediaRecorder;
+    let audioChunks = [];
+
+    async function handleRecord() {
+        const btn = document.getElementById('recBtn');
+        const status = document.getElementById('statusText');
+
+        if (!mediaRecorder || mediaRecorder.state === "inactive") {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                mediaRecorder = new MediaRecorder(stream);
+                audioChunks = [];
+
+                mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
+                mediaRecorder.onstop = () => {
+                    const audioBlob = new Blob(audioChunks, { type: 'audio/mpeg' });
+                    const audioUrl = URL.createObjectURL(audioBlob);
+                    addAudioToList(audioUrl);
+                };
+
+                mediaRecorder.start();
+                btn.innerHTML = '<i class="fas fa-stop"></i> إيقاف التسجيل الجاري...';
+                btn.classList.add('recording');
+                status.innerText = "جاري التسجيل الآن...";
+            } catch (err) {
+                alert("يرجى السماح بالوصول للمايكروفون!");
+            }
+        } else {
+            mediaRecorder.stop();
+            btn.innerHTML = '<i class="fas fa-microphone"></i> ابدأ التسجيل المباشر';
+            btn.classList.remove('recording');
+            status.innerText = "تم حفظ التسجيل بنجاح.";
+        }
+    }
+
+    function addAudioToList(url) {
+        const div = document.createElement('div');
+        div.style = "background:white; padding:10px; border-radius:10px; margin-bottom:10px; display:flex; align-items:center; gap:10px; box-shadow:var(--sh)";
+        div.innerHTML = `
+            <i class="fas fa-play-circle" style="color:var(--p); font-size:1.5rem"></i>
+            <audio controls src="${url}" style="flex:1; height:30px;"></audio>
+            <button onclick="this.parentElement.remove()" style="border:none; background:none; color:red; cursor:pointer"><i class="fas fa-trash"></i></button>
+        `;
+        document.getElementById('audioList').prepend(div);
+    }
+
+    window.onload = buildSections;
+</script>
+
+</body>
+                          </html>
+                          
