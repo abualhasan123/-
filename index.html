@@ -3,162 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موسوعة الطريقة السمانية الطيبية</title>
+    <title>موسوعة الطريقة السمانية</title>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;500;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        :root { --gold: #d4af37; --dark-green: #0a3d1e; --light-bg: #fdfdfd; --glass: rgba(255, 255, 255, 0.9); }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Tajawal', sans-serif; background: #ececec; color: #333; overflow-x: hidden; }
-
-        /* هيدر احترافي */
-        header { 
-            background: linear-gradient(rgba(10, 61, 30, 0.9), rgba(10, 61, 30, 0.9)), url('https://www.transparenttextures.com/patterns/islamic-art.png');
-            color: white; padding: 100px 20px; text-align: center; border-bottom: 5px solid var(--gold);
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
-        }
-        header h1 { font-family: 'Amiri', serif; font-size: 3.5rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        :root { --p: #1a4a2e; --s: #2c5f2d; --a: #d4af37; --bg: #fdfdfd; }
+        body { font-family: 'Tajawal', sans-serif; background: var(--bg); color: #333; margin: 0; padding-bottom: 90px; }
         
-        /* أزرار التحكم العائمة */
-        .admin-controls { position: fixed; bottom: 30px; left: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 1000; }
-        .fab { width: 60px; height: 60px; border-radius: 50%; border: none; background: var(--gold); color: var(--dark-green); font-size: 1.5rem; cursor: pointer; shadow: 0 10px 20px rgba(0,0,0,0.2); transition: 0.3s; }
-        .fab:hover { transform: scale(1.1) rotate(15deg); }
+        /* الهوية */
+        header { background: linear-gradient(135deg, var(--p), var(--s)); color: white; padding: 60px 20px; text-align: center; border-bottom: 5px solid var(--a); }
+        .eng-tag { border: 2px solid var(--a); padding: 8px 25px; border-radius: 50px; display: inline-block; font-weight: bold; margin-bottom: 15px; background: rgba(0,0,0,0.2); }
 
-        .container { max-width: 1200px; margin: -50px auto 50px; padding: 0 20px; }
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 15px; }
 
-        /* بطاقات الأقسام */
-        .section-card { 
-            background: var(--glass); backdrop-filter: blur(10px); border-radius: 20px; 
-            margin-bottom: 30px; border: 1px solid rgba(212,175,55,0.3); overflow: hidden;
-            transition: 0.4s; box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-        }
-        .section-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .card-header { padding: 25px; background: var(--dark-green); color: white; display: flex; justify-content: space-between; cursor: pointer; }
-        .card-content { display: none; padding: 30px; background: white; }
-        .card-content.show { display: block; animation: fadeIn 0.5s; }
+        /* الأقسام */
+        .sec-card { background: white; border-radius: 15px; margin-bottom: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border-right: 10px solid var(--a); overflow: hidden; }
+        .sec-header { padding: 20px; background: #f9f9f9; cursor: pointer; display: flex; justify-content: space-between; font-weight: 800; color: var(--p); font-size: 1.2rem; }
+        .sec-body { display: none; padding: 25px; border-top: 1px solid #eee; }
+        .sec-body.active { display: block; }
+        
+        .topic-item { background: #fcfcfc; border: 1px solid #eee; padding: 15px; border-radius: 10px; margin-bottom: 15px; position: relative; }
+        .btn-del { position: absolute; left: 10px; top: 10px; color: #ff4d4f; cursor: pointer; font-size: 1.2rem; }
 
-        /* المواضيع */
-        .topic-item { 
-            background: #fcfaf0; padding: 20px; border-radius: 15px; margin-bottom: 20px; 
-            border-right: 5px solid var(--gold); position: relative;
-        }
-        .delete-topic { position: absolute; top: 10px; left: 10px; color: #ff4d4d; cursor: pointer; opacity: 0.3; transition: 0.3s; }
-        .delete-topic:hover { opacity: 1; }
+        /* الوسائط */
+        .media-container { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
+        .media-box { background: white; padding: 20px; border-radius: 15px; border-top: 5px solid var(--p); height: 500px; overflow-y: auto; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
 
         /* شجرة العائلة */
-        .tree-wrapper { background: white; padding: 50px; border-radius: 30px; text-align: center; border: 3px double var(--gold); }
-        
-        footer { background: var(--dark-green); color: white; padding: 60px 20px; text-align: center; }
-        .signature { font-family: 'Amiri'; color: var(--gold); font-size: 1.5rem; margin-top: 10px; }
+        .tree-box { background: white; padding: 40px; border-radius: 20px; border: 3px double var(--a); text-align: center; margin-top: 40px; }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        /* شريط الإشعار الصوتي */
+        .audio-bar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--p); color: white; padding: 15px; display: flex; justify-content: center; align-items: center; gap: 20px; z-index: 2000; border-top: 3px solid var(--a); }
+
+        footer { background: #111; color: white; padding: 60px 20px; text-align: center; }
+        .signature { font-family: 'Amiri'; color: var(--a); font-size: 1.5rem; margin-top: 10px; }
     </style>
 </head>
 <body>
 
-<div class="admin-controls">
-    <button class="fab" id="saveAll" title="حفظ ونشر التعديلات"><i class="fas fa-cloud-upload-alt"></i></button>
-    <button class="fab" style="background:#fff" onclick="window.location.reload()" title="تحديث الصفحة"><i class="fas fa-sync-alt"></i></button>
-</div>
-
 <header>
-    <h1>موسوعة الطريقة السمانية الطيبية</h1>
-    <p style="letter-spacing: 2px; margin-top: 10px;">تحت إشراف السجادة الطيبية بـ "أم مرحي"</p>
-    <div class="signature">بواسطة المهندس أبو الحسن محمد صالح محمد شريف</div>
+    <div class="eng-tag">المهندس أبو الحسن محمد صالح محمد شريف</div>
+    <h1 style="font-family:'Amiri', serif; font-size: 3rem;">موسوعة الطريقة السمانية</h1>
+    <p>إشراف السجادة الطيبية بـ "أم مرحي"</p>
 </header>
 
 <div class="container">
-    <div id="mainContent"></div>
-
-    <div class="tree-wrapper" style="margin-top: 50px;">
-        <h2 style="color: var(--dark-green); margin-bottom: 30px;"><i class="fas fa-sitemap"></i> شجرة العائلة الشريفة</h2>
-        <div id="familyTree" contenteditable="true" style="font-size: 1.2rem; line-height: 2;">
-            (اضغط هنا لرسم الشجرة، يمكنك استخدام الخطوط والأسهم)
+    
+    <div class="sec-card">
+        <div class="sec-header" onclick="toggleSec(this)"><span><i class="fas fa-book"></i> مقدمة عن التصوف والمنهج</span> <i class="fas fa-chevron-down"></i></div>
+        <div class="sec-body active" contenteditable="true" id="introContent">
+            التصوف هو علم يُعرف به كيفية السلوك إلى حضرة ملك الملوك، وتصفية البواطن من الرذائل وتحليتها بأنواع الفضائل، كما ورد في "أزاهير الرياض"...
         </div>
     </div>
+
+    <div id="encyclopediaArea"></div>
+
+    <div class="tree-box" id="treeSection">
+        <h2 style="color:var(--p); margin-bottom:20px;">شجرة العائلة الشريفة (حديثة ومنظمة)</h2>
+        <div id="familyTree" contenteditable="true" style="padding:20px; border:1px dashed var(--a); min-height:200px;">
+            (اضغط هنا لإدراج تفاصيل النسب وشجرة العائلة...)
+        </div>
+    </div>
+
+    <div class="media-container">
+        <div class="media-box">
+            <h3><i class="fas fa-images"></i> جانب الصور</h3>
+            <div id="gallery" style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:15px;"></div>
+        </div>
+        <div class="media-box">
+            <h3><i class="fas fa-music"></i> جانب التسجيلات</h3>
+            <div id="audioList" style="margin-top:15px;"></div>
+        </div>
+    </div>
+
+</div>
+
+<div class="audio-bar">
+    <i class="fas fa-play-circle fa-2x"></i>
+    <span>قيد التشغيل: قصائد ومؤلفات الطريقة السمانية</span>
+    <i class="fas fa-volume-up"></i>
 </div>
 
 <footer>
-    <h3><i class="fas fa-feather-alt"></i> شكر وتقدير</h3>
-    <p style="max-width: 600px; margin: 15px auto;">نتقدم بخالص الشكر للفريق العمل والمراجعين الذين سهروا على تدقيق المادة العلمية من أمهات الكتب.</p>
     <div class="signature">المهندس أبو الحسن محمد صالح</div>
-    <p style="margin-top: 20px; opacity: 0.6;">© 2026 جميع الحقوق محفوظة</p>
+    <div style="color:var(--a); margin:15px 0; font-weight:bold;">إشراف: عداس محمد صالح محمد شريف</div>
+    <p>جميع حقوق النشر والطباعة محفوظة لموسوعة الطريقة السمانية © 2026</p>
+    <div style="margin-top:20px; font-size:1.5rem;">
+        <i class="fab fa-whatsapp"></i> &nbsp; <i class="fas fa-envelope"></i>
+    </div>
 </footer>
 
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
-    import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
+    import { getDatabase, ref, set, onValue, push } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyDwvZwG1Uaa8vCS51kfa0RCmM",
       authDomain: "encyclopedia-26a52.firebaseapp.com",
       projectId: "encyclopedia-26a52",
-      storageBucket: "encyclopedia-26a52.appspot.com",
-      messagingSenderId: "259021461993",
-      appId: "1:259021461993:web:bd5c98d7cb11",
       databaseURL: "https://encyclopedia-26a52-default-rtdb.firebaseio.com/" 
     };
 
     const app = initializeApp(firebaseConfig);
     const db = getDatabase(app);
 
-    const initialContent = [
-        { title: "نشأة الشيخ أحمد الطيب", text: "ولد الشيخ في منطقة أم مرحي عام 1155هـ، وتربى في حضن والده محمد بن بشير..." },
-        { title: "مؤلفاته: أزاهير الرياض", text: "يعتبر كتاب أزاهير الرياض من أمهات كتب الطريقة، حيث جمع فيه الشيخ عبد المحمود أسرار الطريق..." },
-        { title: "أوراد الطريقة السمانية", text: "تتميز الطريقة بأورادها القوية المستمدة من الكتاب والسنة، ومن أهمها الورد العام والأساس..." }
+    // الأقسام المطلوبة
+    const categories = [
+        "نشأة التصوف في العالم", "التصوف في السودان", "نشأة الشيخ أحمد الطيب ود البشير",
+        "رحلته في طلب العلم", "نقل أحفاده للطريق عالمياً", "تسليم الرايات السمانية",
+        "الانتشار الواسع والمحبين", "أحفاد الشيخ أحمد الطيب", "الأستاذ محمد شريف",
+        "الشيخ عبد المحمود", "المؤلفات (أزاهير الرياض - رشفات المدام)", "قرية الشيخ الطيب (أم مرحي)",
+        "النسب للشيخ أحمد الطيب وأحفاده", "ديوان المكاوي", "كتاب المنهج المستقل"
     ];
+    for(let i=categories.length+1; i<=40; i++) categories.push("قسم توثيقي إضافي " + i);
 
-    function renderDefault() {
+    // تاريخ بدء المشروع (لتحقيق شرط الـ 30 يوماً)
+    const startDate = new Date("2026-04-13"); 
+
+    function buildSite() {
+        const area = document.getElementById('encyclopediaArea');
         let html = "";
-        for(let i=1; i<=40; i++) {
-            let info = initialContent[i-1] || { title: `القسم العلمي ${i}`, text: "اضغط هنا لإضافة المادة العلمية المنسوخة..." };
+        categories.forEach((cat, idx) => {
+            let topics = "";
+            for(let t=1; t<=40; t++) {
+                topics += `
+                <div class="topic-item" id="t_${idx}_${t}">
+                    <i class="fas fa-trash btn-del" onclick="deleteMe('t_${idx}_${t}')"></i>
+                    <h4 contenteditable="true">موضوع ${t}</h4>
+                    <p contenteditable="true" onblur="handleSave('${idx}_${t}', this.innerText)">محتوى منسوخ من المراجع العلمية...</p>
+                </div>`;
+            }
             html += `
-            <div class="section-card" id="sec_${i}">
-                <div class="card-header" onclick="this.nextElementSibling.classList.toggle('show')">
-                    <h3 contenteditable="true">${info.title}</h3>
-                    <i class="fas fa-plus"></i>
-                </div>
-                <div class="card-content">
-                    <div class="topic-item">
-                        <i class="fas fa-trash delete-topic" onclick="this.parentElement.remove()"></i>
-                        <div contenteditable="true">${info.text}</div>
-                    </div>
-                    <button onclick="addTopic(this)" style="background:none; border:1px dashed #ccc; padding:10px; width:100%; cursor:pointer;">+ إضافة فقرة جديدة</button>
-                    <button onclick="deleteSection('sec_${i}')" style="color:red; margin-top:10px; background:none; border:none; cursor:pointer;">حذف القسم بالكامل</button>
+            <div class="sec-card" id="s_${idx}">
+                <div class="sec-header" onclick="toggleSec(this)"><span>${cat}</span> <i class="fas fa-chevron-down"></i></div>
+                <div class="sec-body">
+                    <button onclick="deleteMe('s_${idx}')" style="color:red; background:none; border:none; cursor:pointer; margin-bottom:10px;">حذف القسم بالكامل</button>
+                    ${topics}
                 </div>
             </div>`;
-        }
-        document.getElementById('mainContent').innerHTML = html;
+        });
+        area.innerHTML = html;
     }
 
-    window.addTopic = (btn) => {
-        const div = document.createElement('div');
-        div.className = 'topic-item';
-        div.innerHTML = `<i class="fas fa-trash delete-topic" onclick="this.parentElement.remove()"></i><div contenteditable="true">موضوع جديد...</div>`;
-        btn.before(div);
-    };
+    window.toggleSec = (el) => el.nextElementSibling.classList.toggle('active');
+    window.deleteMe = (id) => { if(confirm("حذف هذا العنصر؟")) document.getElementById(id).remove(); };
 
-    window.deleteSection = (id) => { if(confirm("حذف القسم؟")) document.getElementById(id).remove(); };
+    // نظام الحفظ الذكي (مباشر أول 30 يوماً، ثم موافقة)
+    window.handleSave = (id, text) => {
+        const today = new Date();
+        const diffDays = Math.ceil((today - startDate) / (1000 * 60 * 60 * 24));
 
-    // الحفظ للسحابة
-    document.getElementById('saveAll').onclick = () => {
-        const data = {
-            html: document.getElementById('mainContent').innerHTML,
-            tree: document.getElementById('familyTree').innerHTML
-        };
-        set(ref(db, 'encyclopedia/pro_version'), data).then(() => alert("تم الحفظ بنجاح! سيظهر المحتوى الآن للجميع."));
-    };
-
-    // جلب البيانات
-    onValue(ref(db, 'encyclopedia/pro_version'), (snapshot) => {
-        const d = snapshot.val();
-        if(d) {
-            document.getElementById('mainContent').innerHTML = d.html;
-            document.getElementById('familyTree').innerHTML = d.tree;
+        if (diffDays <= 30) {
+            // حفظ مباشر وتلقائي
+            set(ref(db, 'encyclopedia/content/' + id), { text: text, status: 'approved' });
+            console.log("حفظ مباشر (فترة السماح)");
         } else {
-            renderDefault();
+            // نظام طلب الموافقة
+            push(ref(db, 'encyclopedia/requests'), { targetId: id, newContent: text, time: today.toLocaleString() });
+            alert("انتهت فترة الحفظ المباشر. تم إرسال طلبك للمراجعة والموافقة.");
         }
-    });
+    };
+
+    buildSite();
 </script>
 </body>
 </html>
