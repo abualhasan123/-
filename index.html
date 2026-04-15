@@ -3,223 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة السيادة الرقمية 2026 | المهندس أبو الحسن</title>
-    
+    <title>موسوعة الطريقة السمانية | المهندس أبو الحسن</title>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
-        :root {
-            --primary: #062c16; /* أخضر ملكي سماني */
-            --gold: #c5a028;    /* ذهبي المخطوطات */
-            --bg: #f4f7f6;
-            --glass: rgba(255, 255, 255, 0.95);
-        }
+        :root { --primary: #062c16; --gold: #c5a028; --bg: #f9f7f2; --text: #1a1a1a; }
+        * { box-sizing: border-box; transition: all 0.3s ease; }
+        body { font-family: 'Tajawal', sans-serif; margin: 0; background: var(--bg); color: var(--text); overflow-x: hidden; }
 
-        * { box-sizing: border-box; }
-        body { font-family: 'Tajawal', sans-serif; margin: 0; background: var(--bg); color: #333; height: 100vh; overflow: hidden; }
+        /* الهيدر القيادي */
+        header { background: var(--primary); color: var(--gold); padding: 15px 25px; border-bottom: 4px solid var(--gold); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+        header h1 { font-family: 'Amiri'; margin: 0; font-size: 1.5rem; }
 
-        /* الهيكل الرئيسي */
-        .app-container { display: grid; grid-template-columns: 80px 1fr 320px; height: 100vh; }
+        /* التخطيط الرئيسي المنظم */
+        .container { display: grid; grid-template-columns: 280px 1fr; min-height: 100vh; }
+        @media (max-width: 900px) { .container { grid-template-columns: 1fr; } }
 
-        /* 1. شريط الأدوات الذكي */
-        .sidebar-nav { background: var(--primary); display: flex; flex-direction: column; align-items: center; padding: 25px 0; gap: 35px; border-left: 2px solid var(--gold); }
-        .sidebar-nav i { color: var(--gold); font-size: 1.6rem; cursor: pointer; transition: 0.3s; position: relative; }
-        .sidebar-nav i:hover { color: #fff; transform: scale(1.2); }
-        .sidebar-nav i[title]:hover::after { content: attr(title); position: absolute; right: 60px; background: var(--primary); color: #fff; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; white-space: nowrap; z-index: 100; }
+        /* قائمة الأقسام (40 قسم) */
+        .sidebar { background: #fff; border-left: 1px solid #ddd; padding: 20px; overflow-y: auto; max-height: 100vh; }
+        .section-tab { background: #fdfdfd; border: 1px solid #eee; padding: 12px; margin-bottom: 8px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 10px; font-weight: bold; }
+        .section-tab:hover, .section-tab.active { background: var(--primary); color: var(--gold); border-right: 5px solid var(--gold); }
 
-        /* 2. منطقة العمل المركزية */
-        .main-workspace { padding: 30px; overflow-y: auto; background: #fff; position: relative; }
-        .editor-header { border-bottom: 2px solid var(--bg); margin-bottom: 25px; padding-bottom: 15px; }
-        .editor-header h1 { font-family: 'Amiri'; color: var(--primary); margin: 0; font-size: 2.2rem; }
+        /* مساحة العرض والمقالات */
+        .main-content { padding: 30px; background: #fff; overflow-y: auto; }
+        .intro-text { background: #f0f4f1; padding: 25px; border-radius: 12px; border-right: 6px solid var(--primary); margin-bottom: 30px; line-height: 1.8; font-family: 'Amiri'; font-size: 1.3rem; }
 
-        .collaboration-box { background: var(--bg); border: 2px dashed var(--gold); border-radius: 15px; padding: 20px; }
-        textarea { width: 100%; height: 250px; border: 1px solid #ddd; border-radius: 10px; padding: 15px; font-family: 'Amiri'; font-size: 1.4rem; line-height: 1.8; resize: none; transition: 0.3s; }
-        textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 10px rgba(197, 160, 40, 0.2); }
+        /* نظام المواضيع والتحرير */
+        .topic-card { border: 1px solid #eee; padding: 20px; border-radius: 15px; margin-bottom: 25px; position: relative; }
+        .edit-badge { background: #fff3e0; color: #e65100; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; margin-bottom: 10px; display: inline-block; }
+        .diff-view { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 15px 0; font-size: 0.9rem; }
+        .old-text { background: #ffebee; padding: 10px; border-radius: 5px; text-decoration: line-through; color: #c62828; }
+        .new-text { background: #e8f5e9; padding: 10px; border-radius: 5px; color: #2e7d32; }
 
-        /* خوارزمية المطابقة التلقائية */
-        .match-engine-panel { margin-top: 20px; background: #fff; border-radius: 10px; border: 1px solid #eee; overflow: hidden; }
-        .match-header { background: #eee; padding: 10px 15px; font-size: 0.9rem; font-weight: bold; color: var(--primary); display: flex; justify-content: space-between; }
-        .match-results { padding: 15px; min-height: 50px; font-size: 0.9rem; }
-        .match-item { background: #f0fdf4; border-right: 4px solid #16a34a; padding: 10px; margin-bottom: 8px; border-radius: 4px; }
+        /* أدوات التحكم للمشرف */
+        .admin-actions { display: flex; gap: 10px; margin-top: 15px; }
+        .btn-approve { background: #2e7d32; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; }
+        .btn-reject { background: #c62828; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; }
 
-        /* 3. معرض الوسائط الجانبي */
-        .media-panel { background: #fff; border-right: 2px solid var(--bg); padding: 20px; overflow-y: auto; }
-        .upload-card { border: 2px dashed #ccc; padding: 30px; text-align: center; border-radius: 12px; cursor: pointer; color: #777; transition: 0.3s; }
-        .upload-card:hover { border-color: var(--primary); color: var(--primary); background: #f0f4f1; }
+        /* قسم الصور والتسجيلات (الجانبي) */
+        .media-dock { position: fixed; left: 0; bottom: 0; width: 350px; background: #fff; border-top: 3px solid var(--gold); border-right: 3px solid var(--gold); z-index: 999; transform: translateX(-100%); transition: 0.5s; max-height: 80vh; overflow-y: auto; box-shadow: 5px 0 15px rgba(0,0,0,0.1); }
+        .media-dock.open { transform: translateX(0); }
+        .media-toggle { position: fixed; left: 20px; bottom: 80px; background: var(--primary); color: var(--gold); width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; z-index: 1001; font-size: 1.5rem; }
 
-        /* 4. شجرة العائلة (ملء الشاشة) */
-        #tree-fullscreen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #fff; z-index: 2000; display: none; overflow: auto; }
-        .tree-header { position: sticky; top: 0; background: var(--glass); padding: 20px; display: flex; justify-content: space-between; border-bottom: 2px solid var(--gold); }
-        .family-circle { width: 2000px; height: 2000px; margin: 100px auto; border: 2px solid #eee; border-radius: 50%; position: relative; }
-        .member-node { position: absolute; background: var(--primary); color: var(--gold); padding: 10px; border-radius: 50px; font-size: 0.8rem; cursor: pointer; transform: translate(-50%, -50%); border: 2px solid var(--gold); white-space: nowrap; }
-        .add-child { background: #2ecc71; color: white; border-radius: 50%; width: 20px; height: 20px; display: inline-flex; justify-content: center; align-items: center; margin-right: 5px; }
+        /* أيقونة التسجيل الثابتة */
+        .record-btn { position: fixed; left: 20px; bottom: 10px; background: #c62828; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; z-index: 1001; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(198, 40, 40, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(198, 40, 40, 0); } 100% { box-shadow: 0 0 0 0 rgba(198, 40, 40, 0); } }
 
-        /* الرسائل العائمة والإهداء */
-        .floating-contacts { position: fixed; bottom: 25px; left: 25px; z-index: 1000; display: flex; flex-direction: column; gap: 8px; }
-        .badge { background: var(--primary); color: var(--gold); padding: 8px 18px; border-radius: 20px; font-weight: bold; font-size: 0.85rem; border: 1px solid var(--gold); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-        
-        .dedication-bar { margin-top: 50px; text-align: center; border-top: 1px solid #eee; padding: 20px; font-family: 'Amiri'; color: #666; font-style: italic; }
-
-        /* أدوات التحكم بالخط */
-        .font-controls { display: flex; gap: 10px; margin-bottom: 15px; }
-        .font-btn { border: 1px solid #ddd; background: white; padding: 5px 12px; border-radius: 4px; cursor: pointer; }
-
+        /* حقوق النشر والتواصل */
+        footer { background: var(--primary); color: #fff; padding: 30px; text-align: center; border-top: 5px solid var(--gold); }
+        .contact-box { margin-bottom: 20px; display: flex; justify-content: center; gap: 20px; font-weight: bold; }
+        .footer-logo { font-family: 'Amiri'; color: var(--gold); font-size: 1.8rem; margin-bottom: 10px; }
     </style>
 </head>
 <body>
 
-<div class="app-container">
-    <nav class="sidebar-nav">
-        <i class="fas fa-sitemap" title="شجرة العائلة الكبرى" onclick="toggleView('tree-fullscreen')"></i>
-        <i class="fas fa-book-open" title="المكتبة الرقمية"></i>
-        <i class="fas fa-pen-nib" title="مساحة العمل المشترك" onclick="toggleView('main-workspace')"></i>
-        <i class="fas fa-cog" title="الإعدادات"></i>
-    </nav>
+<header>
+    <div><i class="fas fa-user-shield"></i> المهندس: أبو الحسن محمد صالح</div>
+    <h1>موسوعة الطريقة السمانية</h1>
+    <div onclick="toggleMedia()" style="cursor:pointer; color:var(--gold); font-weight:bold;"><i class="fas fa-photo-video"></i> المكتبة المرئية</div>
+</header>
 
-    <main class="main-workspace" id="main-editor">
-        <div class="editor-header">
-            <h1>منصة التوثيق التعاونية</h1>
-            <div class="font-controls">
-                <button class="font-btn" onclick="changeFontSize(2)">+</button>
-                <button class="font-btn" onclick="changeFontSize(-2)">-</button>
-                <small>تحكم في الخط</small>
-            </div>
-        </div>
+<div class="container">
+    <aside class="sidebar" id="sidebar-menu">
+        <h3 style="color:var(--primary); border-bottom: 2px solid var(--gold); padding-bottom:10px;">أقسام الموسوعة</h3>
+        </aside>
 
-        <div class="collaboration-box">
-            <input type="text" id="section-title" placeholder="اسم القسم (مثال: أزاهير الرياض - باب البشارة)" style="width:100%; padding:12px; margin-bottom:15px; border-radius:8px; border:1px solid #ccc; font-weight:bold;">
-            <textarea id="article-body" oninput="runMatchEngine()" placeholder="ابدأ بكتابة المقال أو المديح هنا.. سيقوم النظام بمطابقة النص مع الكتب تلقائياً..."></textarea>
-            
-            <div style="margin-top:20px; display:flex; gap:15px;">
-                <button onclick="sendToGlobalBots()" style="background:var(--primary); color:var(--gold); padding:15px 40px; border:none; border-radius:8px; cursor:pointer; font-weight:bold; font-size:1.1rem; flex:1;">
-                    <i class="fas fa-paper-plane"></i> إرسال للبوتات (المراجعة النهائية)
-                </button>
+    <main class="main-content">
+        <div id="content-view">
+            <div class="intro-text">
+                <h2>مقدمة في التصوف</h2>
+                التصوف هو جوهر الإسلام وروحه، وهو مقام "الإحسان" الذي ذكره النبي ﷺ (أن تعبد الله كأنك تراه). نشأ التصوف كحركة تزكية للنفس في القرن الثاني الهجري، وانتشر في العالم الإسلامي ليصبح المنهج التربوي الأول. وفي السودان، دخل التصوف مع دخول الإسلام وتجذر بفضل كبار العلماء والأولياء، وعلى رأسهم سيدي الشيخ أحمد الطيب البشير الذي جدد معالم الطريق...
             </div>
-        </div>
-
-        <div class="match-engine-panel">
-            <div class="match-header">
-                <span><i class="fas fa-microchip"></i> رادار المطابقة الوثائقية 2026</span>
-                <span id="match-count">0 مطابقة</span>
-            </div>
-            <div class="match-results" id="match-results">
-                <span style="color:#999;">بانتظار كتابة النصوص لفحص البينة في الكتب...</span>
-            </div>
-        </div>
-
-        <div class="dedication-bar">
-             إهداء إلى الوالد العزيز حفظه الله ورعاه.. وشكر خاص لكل الفريق العامل.
+            <div id="topics-list">
+                </div>
         </div>
     </main>
-
-    <aside class="media-panel">
-        <h3 style="color:var(--primary);"><i class="fas fa-images"></i> الوسائط والملفات</h3>
-        <div class="upload-card" onclick="triggerFileUpload()">
-            <i class="fas fa-cloud-arrow-up" style="font-size: 2.5rem; margin-bottom: 10px;"></i>
-            <p>سحب وإفلات الملفات هنا<br><small>(سعة غير محدودة)</small></p>
-        </div>
-        <div id="media-stream" style="margin-top:20px;">
-            </div>
-    </aside>
 </div>
 
-<div id="tree-fullscreen">
-    <div class="tree-header">
-        <h2 style="font-family:'Amiri'; color:var(--primary); margin:0;">شجرة العائلة السمانية الكبرى (عرض 360 درجة)</h2>
-        <button onclick="toggleView('tree-fullscreen')" style="padding:10px 20px; cursor:pointer; border-radius:5px; border:1px solid var(--primary);">إغلاق العرض</button>
+<div class="media-dock" id="mediaDock">
+    <div style="padding:20px;">
+        <h3 style="color:var(--primary);"><i class="fas fa-images"></i> معرض الصور</h3>
+        <div id="photo-gallery" style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+            <div style="background:#eee; height:100px; border-radius:5px; display:flex; align-items:center; justify-content:center;">صورة 1</div>
+            <div style="background:#eee; height:100px; border-radius:5px; display:flex; align-items:center; justify-content:center;">صورة 2</div>
+        </div>
+        <hr>
+        <h3 style="color:var(--primary);"><i class="fas fa-microphone-alt"></i> المكتبة الصوتية</h3>
+        <div id="audio-list">
+            <div style="padding:10px; border-bottom:1px solid #eee;">⏺ تسجيل: مديح قديم (اللالوبة)</div>
+            <div style="padding:10px; border-bottom:1px solid #eee;">⏺ تسجيل: محاضرة في العقيدة</div>
+        </div>
     </div>
-    
-    <div class="family-circle">
-        <div class="member-node" style="top:50%; left:50%;">
-            الشيخ أحمد الطيب البشير <span class="add-child" onclick="addChild(this)">+</span>
-        </div>
-        </div>
 </div>
 
-<div class="floating-contacts">
-    <div class="badge">👨‍💻 المبرمج: م. أبو الحسن صالح</div>
-    <div class="badge">🛡 المشرف: عداس محمد صالح</div>
-</div>
+<div class="media-toggle" onclick="toggleMedia()"><i class="fas fa-folder-open"></i></div>
+<div class="record-btn" onclick="alert('بدء التسجيل الصوتي...')"><i class="fas fa-microphone"></i></div>
+
+<footer>
+    <div class="footer-logo">موسوعة الطريقة السمانية</div>
+    <div class="contact-box">
+        <span><i class="fab fa-whatsapp"></i> تواصل مباشر</span> | 
+        <span><i class="fas fa-envelope"></i> البريد التقني</span>
+    </div>
+    <p>جميع حقوق النشر والطباعة محفوظة © 2026 - المهندس أبو الحسن محمد صالح</p>
+    <p style="color:var(--gold); font-weight:bold; font-size:1.1rem;">إشراف: عداس محمد صالح محمدشريف</p>
+</footer>
 
 <script>
-    // 1. قاعدة بيانات المكتبة الرقمية (تتوسع تلقائياً)
-    let digitalLibrary = [
-        { book: "أزاهير الرياض", text: "الشيخ حمد المكاشفي", page: 12, line: 4 },
-        { book: "أزاهير الرياض", text: "الشيخ محمد ولد سرور", page: 12, line: 5 },
-        { book: "العقيدة الطيبية", text: "علم التوحيد والعقائد", page: 5, line: 1 },
-        { book: "ديوان المكاوي", text: "اللالوبه يا ذاكره الليل", page: 5, line: 1 },
-        { book: "الهداية الإلهية", text: "دار الكتب القومية المصرية", page: 1, line: 10 }
+    // قائمة الأقسام الأساسية (أول 15 من الـ 40)
+    const sections = [
+        "نشأة التصوف في العالم", "التصوف في السودان", "نشأة الشيخ أحمد الطيب", 
+        "رحلته في طلب العلم", "نقل أحفاده للطريق", "تسليم الرايات السمانية", 
+        "الانتشار والوفود", "المريدين والمحبين", "أحفاد الشيخ أحمد الطيب", 
+        "الأستاذ محمد شريف", "الشيخ عبد المحمود", "المؤلفات والكتب", 
+        "قرية الشيخ الطيب", "النسب الشريف", "شجرة العائلة الكبرى"
     ];
 
-    const BOT_TOKENS = [
-        "8682180549:AAGxYYy6V5adsST-1M7SrSQqk6EV4gRlM5I",
-        "8629398802:AAFpohJ2Y8Nmz5Je9FF262TW8YWIxUzruXg",
-        "8693292026:AAH7qfn0__f_9xhgQagiMly7GTPB2piKHXY"
-    ];
+    // توليد الأقسام في القائمة الجانبية
+    const menu = document.getElementById('sidebar-menu');
+    sections.forEach((sec, index) => {
+        const div = document.createElement('div');
+        div.className = `section-tab ${index === 0 ? 'active' : ''}`;
+        div.innerHTML = `<i class="fas fa-bookmark"></i> ${sec}`;
+        div.onclick = () => loadTopics(sec);
+        menu.appendChild(div);
+    });
 
-    // 2. خوارزمية المطابقة
-    function runMatchEngine() {
-        const input = document.getElementById('article-body').value;
-        const display = document.getElementById('match-results');
-        const countLabel = document.getElementById('match-count');
+    // تحميل المواضيع مع نظام المراجعة (مثال لموضوع تم تعديله)
+    function loadTopics(sectionName) {
+        const list = document.getElementById('topics-list');
+        list.innerHTML = `<h3>مواضيع قسم: ${sectionName}</h3>`;
         
-        let matches = digitalLibrary.filter(item => input.includes(item.text));
-        
-        countLabel.innerText = `${matches.length} مطابقة`;
-        
-        if(matches.length > 0) {
-            display.innerHTML = matches.map(m => `
-                <div class="match-item">
-                    <i class="fas fa-file-alt"></i> <strong>بينة في [${m.book}]:</strong> النص الحرفي "<em>${m.text}</em>" موجود في صفحة ${m.page} سطر ${m.line}.
+        // مثال لموضوع واحد يوضح فكرة (القديم والجديد)
+        const topic = `
+            <div class="topic-card">
+                <span class="edit-badge">تعديل مقترح من مستخدم</span>
+                <h4>الموضوع: تفاصيل الرحلة للحجاز</h4>
+                <div class="diff-view">
+                    <div class="old-text">سافر الشيخ أحمد الطيب في عام غير محدد قديماً...</div>
+                    <div class="new-text">سافر الشيخ أحمد الطيب في عام 1199هـ واستقر في مكة المكرمة لطلب العلم على يد الشيخ محمد بن عبد الكريم السمان...</div>
                 </div>
-            `).join('');
-        } else {
-            display.innerHTML = `<span style="color:#999;">جاري الفحص التلقائي...</span>`;
-        }
-    }
-
-    // 3. وظيفة الإرسال للبوتات
-    async function sendToGlobalBots() {
-        const section = document.getElementById('section-title').value;
-        const body = document.getElementById('article-body').value;
+                <div class="admin-actions">
+                    <button class="btn-approve" onclick="approveEdit(this)">✅ موافق ونشر</button>
+                    <button class="btn-reject" onclick="rejectEdit(this)">❌ رفض التعديل</button>
+                    <button style="border:none; background:none; cursor:pointer; color:#888;" onclick="this.parentElement.parentElement.remove()">🗑 حذف الموضوع</button>
+                </div>
+            </div>
+        `;
+        list.innerHTML += topic;
         
-        if(!section || !body) return alert("يرجى إكمال العنوان والمقال أولاً!");
-
-        const message = `🚀 **مساهمة جديدة للنشر**\n\n📌 **القسم:** ${section}\n\n📝 **المحتوى:**\n${body}\n\n---\n👤 **بواسطة فريق العمل**\n💻 **إشراف هندسي: م. أبو الحسن**`;
-
-        for(let token of BOT_TOKENS) {
-            try {
-                await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({chat_id: "626352934", text: message})
-                });
-            } catch(e) { console.error("Error sending to bot"); }
+        // توليد بقية الـ 40 موضوع (فارغة بانتظار التعديل)
+        for(let i=2; i<=40; i++) {
+            list.innerHTML += `
+                <div class="topic-card">
+                    <h4>موضوع رقم ${i}</h4>
+                    <p style="color:#aaa;">بانتظار إضافة المعلومات أو سحبها من البوتات...</p>
+                    <button onclick="editTopic(${i})" style="padding:5px 10px; cursor:pointer;">✏️ تحرير</button>
+                </div>
+            `;
         }
-        alert("تم إرسال المقال بنجاح إلى جميع البوتات للمراجعة النهائية.");
     }
 
-    // 4. التحكم في الواجهة
-    function toggleView(id) {
-        const el = document.getElementById(id);
-        el.style.display = (el.style.display === 'none' || el.style.display === '') ? 'block' : 'none';
+    function toggleMedia() {
+        document.getElementById('mediaDock').classList.toggle('open');
     }
 
-    function changeFontSize(delta) {
-        const area = document.getElementById('article-body');
-        const currentSize = parseInt(window.getComputedStyle(area).fontSize);
-        area.style.fontSize = (currentSize + delta) + "px";
+    function approveEdit(btn) {
+        alert("تمت الموافقة! جاري رفع النص الجديد وتحديث الكود الأصلي والمزامنة مع البوتات...");
+        btn.closest('.topic-card').style.borderColor = "#2e7d32";
     }
 
-    function addChild(node) {
-        alert("فتح نافذة إضافة حفيد جديد (يمكنك إضافة حتى 40 حفيداً لهذا الفرع)");
+    function rejectEdit(btn) {
+        if(confirm("هل أنت متأكد من رفض هذا التعديل؟")) {
+            btn.closest('.topic-card').remove();
+        }
     }
 
-    function triggerFileUpload() {
-        alert("فتح معرض الوسائط اللامحدود... يمكنك الآن رفع الصور والمقاطع الصوتية.");
-    }
-
+    // التحميل المبدئي
+    loadTopics(sections[0]);
 </script>
 
 </body>
